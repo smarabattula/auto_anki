@@ -19,5 +19,5 @@ def get_people_also_ask_links(search_term: str) -> list:
             question = re.search(r"[^?]*", rel_qn).group(0) + "?"
             answer = people_also_ask.get_answer(question)
             if answer["has_answer"]:
-                result.append({"Question": answer["question"], "Answer": answer["link"]})
+                result.append({"Question": answer["question"], "Answer": answer["response"], "Related Link": answer["link"]})
     return result

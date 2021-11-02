@@ -29,7 +29,7 @@ def content_formatter(lines):
     content = ""
     for line in lines:
         parts = line.split(':', 1)  # Breaks the answer into diff parts for hyperlink
-        if parts[0] == 'Answer Link':
+        if parts[0] == 'Related Link':
             content += parts[0] + ": <a href=" + parts[1] + ">"+parts[1]+"</a><br><hr>"
         else:
             content += line + "<br>"

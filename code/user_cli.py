@@ -106,7 +106,9 @@ if __name__ == "__main__":
                 question = qa["Question"] + "\n"
                 f.write(f"Question: {question}")
                 answer = qa["Answer"] + "\n"
-                f.write(f"Answer Link: {answer}")
+                f.write(f"Answer: {answer}")
+                link = qa["Related Link"] +"\n"
+                f.write(f"Related Link: {link}")
             f.write("\n\n")
 
     content = output_formatter()
