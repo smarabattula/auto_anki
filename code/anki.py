@@ -2,6 +2,15 @@ import genanki
 
 
 def get_model():
+    """
+    Define model that describes the template
+    for anki deck.
+
+    Returns
+    ------
+    anki model
+    """
+
     my_model = genanki.Model(
       1607392319,
       'Anki Model',
@@ -21,14 +30,29 @@ def get_model():
 
 
 def get_deck(deck_name):
+    """
+    Define and initialize an anki deck, where we can add cards.
+
+    Returns
+    ------
+    anki deck 
+    """
+
     my_deck = genanki.Deck(
       2059400110,
       deck_name)
     return my_deck
 
 
-
 def add_question(question, answer, model):
+    """
+    Create a card for a question, answer pair.
+
+    Returns
+    ------
+    anki card 
+    """
+
     my_note = genanki.Note(
       model=model,
       fields=[question, answer])
