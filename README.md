@@ -49,6 +49,10 @@ https://pypi.org/project/people-also-ask/
   - this installs all of the required python libraries
 - run `pip install .`
   - this installs the project as a python package
+- run `git clone https://github.com/kerrickstaley/genanki; cd genanki`
+  - this clones the anki integration library
+- run `python setup.py install`
+  - this installs the anki integration library
 
 # How to run
 
