@@ -8,7 +8,7 @@
 
 [![GitHub license](https://img.shields.io/github/license/usmanwardag/auto_anki)](https://github.com/auto_anki/research_buddy/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/usmanwardag/auto_anki)](https://github.com/auto_anki/research_buddy/issues)
-[![GitHub issues-closed](https://img.shields.io/github/issues-closed/auto_anki/research_buddy)](https://github.com/usmanwardag/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
+[![GitHub issues-closed](https://img.shields.io/github/issues-closed/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
 [![GitHub stars](https://img.shields.io/github/stars/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/stargazers)
 
 
