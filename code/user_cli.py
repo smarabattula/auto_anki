@@ -8,6 +8,7 @@ from extract_sizes import extract_words, text_to_groupings
 import wordprocessing as wp
 from google_search import get_people_also_ask_links
 from browser_output import output_formatter, result_display
+import genanki
 
 
 def user_menu():
@@ -37,7 +38,8 @@ def user_menu():
 
     if choice == valid_choices[0]:
         file_path = input("Please enter the path to the file: ")
-        return file_path
+        deck_name = input("Please enter the name of the lecture: ")
+        return file_path, deck_name
 
     if choice == valid_choices[1]:
         input("")
@@ -47,7 +49,7 @@ def user_menu():
         sys.exit(0)
 
 if __name__ == "__main__":
-    file = user_menu()
+    file = user_menu()[0]
     raw_data = extract_words(file)
     raw_data = text_to_groupings(raw_data)
     keyword_data = wp.extract_noun_chunks(raw_data)
@@ -60,15 +62,6 @@ if __name__ == "__main__":
         # when testing use searchquery[:10 or less].
         # Still working on better threading to get faster results
         results = executor.map(get_people_also_ask_links, search_query[:3])
-    auto_anki_model = get_model()
-    # take input from user : name of lecture
-    deck = get_deck(deck_name='take input from user : name of lecture')
-    for result in results:
-        for qapair in result:
-            question = qapair["Question"] 
-            answer = qapair["Answer"]
-            qa = add_question(question=f'{question}', answer=f'{answer}', model=auto_anki_model)
-            deck.add_note(qa)
 
     with open("results.txt", mode="w", encoding="utf-8") as f:
         for result in results:
@@ -84,3 +77,16 @@ if __name__ == "__main__":
     content = output_formatter()
     name = file.split("/")[-1].replace(".pdf", "")
     result_display(content)
+
+    auto_anki_model = get_model()
+    deck_name = user_menu()[0]
+    deck = get_deck(deck_name=deck_name)
+    for result in results:
+        for qapair in result:
+            question = qapair["Question"] 
+            answer = qapair["Answer"]
+            qa = add_question(question=f'{question}', answer=f'{answer}', model=auto_anki_model)
+            deck.add_note(qa)
+
+    output_fname = deck_name
+    genanki.Package(deck).write_to_file(f'anki_decks/{output_fname}.apkg')
