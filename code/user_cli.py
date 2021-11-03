@@ -9,8 +9,6 @@ from extract_sizes import extract_words, text_to_groupings
 import wordprocessing as wp
 from google_search import get_people_also_ask_links
 from browser_output import output_formatter, result_display
-import genanki
-
 
 def user_menu():
     """
