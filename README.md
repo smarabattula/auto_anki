@@ -12,8 +12,17 @@
 [![GitHub stars](https://img.shields.io/github/stars/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/stargazers)
 
 
+Have you had difficulties memorizing important concepts taught in class? Have you ever found it difficult to highlight and understand the type of questions that can be asked from the topics discussed during the lectures? Then Auto Anki can help you with this as it:
+- Extracts questions from the pdf.
+- Searches the web for answers.
+- Creates flashcards for easy memorisation.
+
 ## Why should you use Auto Anki?
-Auto Anki is a dec making tool.
+
+- It saves time.
+- It converts information into questions.
+- It is easy to use.
+- It is useful memorisation tool.
 
 ## Check out the video!
 TODO: add video here.
@@ -35,6 +44,14 @@ TODO: add video here.
 ## Code Documentation
 
 We generated the documentation of our code using TODO. You can find our code documentaion for each method implemented here (TODO).
+
+## Functionalities Added
+- Instead of extracting links, we have extracted answers from the web for questions.
+- Integrated Anki, which is a deck making tool, with our code.
+- Added logic for creating Anki decks using questions and answeres extracted.
+- Modified the input that has to be taken from the user. 
+- Improved code coverage.
+
 
 ## How to Contribute
   
