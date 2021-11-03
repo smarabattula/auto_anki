@@ -4,6 +4,7 @@ import sys
 import concurrent.futures
 import pyfiglet
 from anki import add_question, get_deck, get_model
+from anki import add_package
 from extract_sizes import extract_words, text_to_groupings
 import wordprocessing as wp
 from google_search import get_people_also_ask_links
@@ -49,7 +50,7 @@ def user_menu():
         sys.exit(0)
 
 if __name__ == "__main__":
-    file = user_menu()[0]
+    file, lect_name = user_menu()
     raw_data = extract_words(file)
     raw_data = text_to_groupings(raw_data)
     keyword_data = wp.extract_noun_chunks(raw_data)
@@ -63,7 +64,7 @@ if __name__ == "__main__":
         # Still working on better threading to get faster results
         results = executor.map(get_people_also_ask_links, search_query[:3])
 
-    with open("results.txt", mode="w", encoding="utf-8") as f:
+    """with open("results.txt", mode="w", encoding="utf-8") as f:
         for result in results:
             for qa in result:
                 question = qa["Question"] + "\n"
@@ -76,17 +77,17 @@ if __name__ == "__main__":
 
     content = output_formatter()
     name = file.split("/")[-1].replace(".pdf", "")
-    result_display(content)
+    result_display(content)"""
 
+    
     auto_anki_model = get_model()
-    deck_name = user_menu()[0]
-    deck = get_deck(deck_name=deck_name)
+    deck = get_deck(deck_name=lect_name)
     for result in results:
         for qapair in result:
             question = qapair["Question"] 
             answer = qapair["Answer"]
-            qa = add_question(question=f'{question}', answer=f'{answer}', model=auto_anki_model)
+            qa = add_question(question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
             deck.add_note(qa)
 
-    output_fname = deck_name
-    genanki.Package(deck).write_to_file(f'anki_decks/{output_fname}.apkg')
+    add_package(deck,lect_name)
+    

@@ -59,6 +59,9 @@ def add_question(question, answer, curr_model):
       fields=[question, answer])
     return my_note
 
+def add_package(deck,output_fname):
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    genanki.Package(deck).write_to_file(f'{dir_path}/{output_fname}.apkg')
 
 if __name__ == '__main__':
     model = get_model()
