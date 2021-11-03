@@ -75,5 +75,4 @@ if __name__ == "__main__":
 
     content = output_formatter()
     name = file.split("/")[-1].replace(".pdf", "")
-    wordcloud_filename = name + ".png"
-    result_display(content, wordcloud_filename)
+    result_display(content)
