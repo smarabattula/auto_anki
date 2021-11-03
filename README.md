@@ -18,6 +18,12 @@ Have you had difficulties memorizing important concepts taught in class or found
 - Searches the web for answers.
 - Creates flashcards for easy memorisation.
 
+Reasons to use Auto Anki:
+- Saves time.
+- Converts information into questions.
+- Easy to use.
+- Useful memorisation tool.
+
 ## Check out the video!
 TODO: add video here.
 
