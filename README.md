@@ -7,11 +7,10 @@
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/mtkumar123/CSC510_Project_LectureAid)
 <!-- ![GitHub forks](https://img.shields.io/github/forks/mtkumar123/CSC510_Project_LectureAid?style=social)
  -->
-# Project Auto Anki
+# Auto Anki
+Create anki cards for all your lectures!
 
-This repo contains the code for LectureAid [v1.0.0](https://github.com/mtkumar123/CSC510_Project_LectureAid/releases/tag/v1.0.0), a project for CSC510 Fall 21. 
-
-# What is Project LectureAid?
+# What is Auto Anki?
 
 After a long class, ever had to come back home and google everything you supposedly learnt from the lecture handout for that day's class? Ever spend ~30 - 45 minutes just to search through google and compile a list of websites that explain what you need? And then a month later when midterms are around a corner, ever spend that same 30-45 minutes trying to find those websites again cause you forgot to bookmark them? 
 
