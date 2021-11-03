@@ -3,6 +3,7 @@ import shutil
 import sys
 import concurrent.futures
 import pyfiglet
+from anki import add_question, get_deck, get_model
 from extract_sizes import extract_words, text_to_groupings
 import wordprocessing as wp
 from google_search import get_people_also_ask_links
@@ -61,6 +62,15 @@ if __name__ == "__main__":
         # when testing use searchquery[:10 or less].
         # Still working on better threading to get faster results
         results = executor.map(get_people_also_ask_links, search_query[:3])
+    auto_anki_model = get_model()
+    # take input from user : name of lecture
+    deck = get_deck(deck_name='take input from user : name of lecture')
+    for result in results:
+        for qapair in result:
+            question = qapair["Question"] 
+            answer = qapair["Answer"]
+            qa = add_question(question=f'{question}', answer=f'{answer}', model=auto_anki_model)
+            deck.add_note(qa)
 
     with open("results.txt", mode="w", encoding="utf-8") as f:
         for result in results:
