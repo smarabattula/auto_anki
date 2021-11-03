@@ -1,4 +1,5 @@
 import genanki
+import os
 
 
 def get_model():
@@ -68,6 +69,7 @@ if __name__ == '__main__':
     deck.add_note(qa)
 
     output_fname = 'capitals'
-    genanki.Package(deck).write_to_file(f'anki_decks/{output_fname}.apkg')
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    genanki.Package(deck).write_to_file(f'{dir_path}/{output_fname}.apkg')
 
 
