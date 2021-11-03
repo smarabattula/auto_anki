@@ -12,17 +12,17 @@
 [![GitHub stars](https://img.shields.io/github/stars/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/stargazers)
 
 
-## Why should you use Auto Anki?
-Have you had difficulties memorizing important concepts taught in class? Have you ever found it difficult to highlight and understand the type of questions that can be asked from the topics discussed during the lectures? Then Auto anki can help you with this as it:
+Have you had difficulties memorizing important concepts taught in class? Have you ever found it difficult to highlight and understand the type of questions that can be asked from the topics discussed during the lectures? Then Auto Anki can help you with this as it:
 - Extracts questions from the pdf.
 - Searches the web for answers.
 - Creates flashcards for easy memorisation.
 
-Reasons to use Auto Anki:
-- Saves time.
-- Converts information into questions.
-- Easy to use.
-- Useful memorisation tool.
+## Why should you use Auto Anki?
+
+- It saves time.
+- It converts information into questions.
+- It is easy to use.
+- It is useful memorisation tool.
 
 ## Check out the video!
 TODO: add video here.
