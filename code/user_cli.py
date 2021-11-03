@@ -47,50 +47,12 @@ def user_menu():
         print("Thank you for using Lecture Aid. Closing Program now.")
         sys.exit(0)
 
-
-def generate_wordcloud(data: list, file_name: str) -> None:
-    """
-    Given keywords of a document, display a wordcloud.
-
-    :param data: List of cleaned keywords in a document
-    :type: list
-    :param file_name: The name of the lecture document
-    :type: str
-    :rtype: None
-    :return: None
-    """
-    wordcloud_string = ''
-    for slide in data:
-        # get the header keywords
-        curr_slide_keywords = ' '.join(slide['Header_keywords']) + ' '
-        # if the words showed up multiple times, duplicate it
-        curr_slide_keywords *= len(slide['slides'])
-        # get the paragraph keywords
-        curr_slide_keywords += ' '.join(slide['Paragraph_keywords']) + ' '
-        wordcloud_string += curr_slide_keywords
-
-    wordcloud = WordCloud().generate(wordcloud_string)
-    # gets the filename by choosing the last word split by /
-    # then selects everything but .pdf
-    formatted_name = file_name.split("/")[-1].replace(".pdf", "")
-
-    plt.figure(figsize=(8, 8), facecolor=None)
-    plt.imshow(wordcloud)
-    plt.axis("off")
-    plt.title(f'Wordcloud for {formatted_name}')
-    plt.tight_layout(pad=0)
-    plt.savefig(f'{formatted_name}.png')
-
-
 if __name__ == "__main__":
     file = user_menu()
     raw_data = extract_words(file)
     raw_data = text_to_groupings(raw_data)
     keyword_data = wp.extract_noun_chunks(raw_data)
     keyword_data = wp.merge_slide_with_same_headers(keyword_data)
-
-    # generate a wordcloud
-    generate_wordcloud(keyword_data, file)
 
     keyword_data = wp.duplicate_word_removal(keyword_data)
     search_query = wp.construct_search_query(
