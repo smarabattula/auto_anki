@@ -13,7 +13,10 @@
 
 
 ## Why should you use Auto Anki?
-Auto Anki is a dec making tool.
+Have you had difficulties memorizing important concepts taught in class or found it difficult to highlight questions that can be asked from the lecture? This is where Auto Anki comes in use.
+- It extracts questions from the pdf.
+- Searches the web for answers.
+- Creates flashcards for easy memorisation.
 
 ## Check out the video!
 TODO: add video here.
