@@ -50,6 +50,8 @@ We generated the documentation of our code using TODO. You can find our code doc
 - Integrated Anki, which is a deck making tool, with our code.
 - Added logic for creating Anki decks using questions and answeres extracted.
 - Modified the input that has to be taken from the user. 
+- Improved code coverage.
+
 
 ## How to Contribute
   
