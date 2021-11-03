@@ -4,6 +4,7 @@
 
 [![Build Status](https://app.travis-ci.com/usmanwardag/auto_anki.svg?branch=main)](https://app.travis-ci.com/usmanwardag/auto_anki)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5542634.svg)](https://doi.org/10.5281/zenodo.5542634)
+[![codecov](https://codecov.io/gh/usmanwardag/auto_anki/branch/main/graph/badge.svg?token=EEGIC8T7QM)](https://codecov.io/gh/usmanwardag/auto_anki)
 
 [![GitHub license](https://img.shields.io/github/license/usmanwardag/auto_anki)](https://github.com/auto_anki/research_buddy/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/usmanwardag/auto_anki)](https://github.com/auto_anki/research_buddy/issues)
