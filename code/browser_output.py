@@ -36,7 +36,7 @@ def content_formatter(lines):
     return content
 
 
-def result_display(content, wordcloud_image_name):
+def result_display(content):
     """
     Returns the browser output and opens in the default browser of the system
 
@@ -45,10 +45,6 @@ def result_display(content, wordcloud_image_name):
     :return: The browser output in HTML form
 
     """
-
-    # Word Cloud image
-    src = wordcloud_image_name
-
     # Default HTML file for rendering
     file = open('result.html', 'w', encoding="utf-8")
 
@@ -58,12 +54,9 @@ def result_display(content, wordcloud_image_name):
        <body style="background-color:#000000">
        <h1 style="color:#87D7FA;margin-left:6%;margin-top:4%">LectureAid</h1>
        <div style="text-align: center">
-       <div style="background-color:#FFFFFF;width:40%;overflow-wrap: break-word;margin:2%;padding:4%;display: inline-block;
+       <div style="background-color:#FFFFFF;overflow-wrap: break-word;margin:2%;padding:4%;display: inline-block;
          vertical-align: middle;text-align:left;border-radius:50px">
        <p>{content}</p>
-       </div>
-       <div style=" display: inline-block;vertical-align: top;margin:2%">
-       <img style="border-radius:50px" src="{src}" alt="Girl in a jacket" width="500" height="600">
        </div>
        </div>
        </body>
