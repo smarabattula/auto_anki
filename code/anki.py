@@ -44,7 +44,7 @@ def get_deck(deck_name):
     return my_deck
 
 
-def add_question(question, answer, model):
+def add_question(question, answer, curr_model):
     """
     Create a card for a question, answer pair.
 
@@ -54,7 +54,7 @@ def add_question(question, answer, model):
     """
 
     my_note = genanki.Note(
-      model=model,
+      model=curr_model,
       fields=[question, answer])
     return my_note
 
@@ -62,9 +62,9 @@ def add_question(question, answer, model):
 if __name__ == '__main__':
     model = get_model()
     deck = get_deck(deck_name='Capitals of the world')
-    qa = add_question(question='Capital of Argentina', answer='Buenos Aires', model=model)
+    qa = add_question(question='Capital of Argentina', answer='Buenos Aires', curr_model=model)
     deck.add_note(qa)
-    qa = add_question(question='USA', answer='DC', model=model)
+    qa = add_question(question='USA', answer='DC', curr_model=model)
     deck.add_note(qa)
 
     output_fname = 'capitals'
