@@ -13,7 +13,7 @@
 
 
 ## Why should you use Auto Anki?
-TODO: provide a list here
+Auto Anki is a dec making tool.
 
 ## Check out the video!
 TODO: add video here.
