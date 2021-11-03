@@ -13,8 +13,8 @@
 
 
 ## Why should you use Auto Anki?
-Have you had difficulties memorizing important concepts taught in class or found it difficult to highlight questions that can be asked from the lecture? This is where Auto Anki comes in use.
-- It extracts questions from the pdf.
+Have you had difficulties memorizing important concepts taught in class? Have you ever found it difficult to highlight and understand the type of questions that can be asked from the topics discussed during the lectures? Then Auto anki can help you with this as it:
+- Extracts questions from the pdf.
 - Searches the web for answers.
 - Creates flashcards for easy memorisation.
 
