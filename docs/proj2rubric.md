@@ -6,7 +6,7 @@
 |.5|the files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up  |Guidelines in [CONTRIBUTING.md](https://github.com/usmanwardag/auto_anki/blob/main/CONTRIBUTING.md)|
 |.5|Docs: doco generated , format not ugly  | in GH<todo>|
 |.5|evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people) | Everyone is using the same tools like Visual Studio Code for editing code files, github and git command line|
-|.5|evidence that the members of the team are working across multiple places in the code base |<add link to contributors>|
+|.5|evidence that the members of the team are working across multiple places in the code base |[Contributors](https://github.com/usmanwardag/auto_anki/graphs/contributors)|
 |1|Docs: what: point descriptions of each class/function (in isolation)  |<todo><html functions> |
 |.5|Number of commits: by different people  |<link to contributors,commits>|
 |1|issues are being closed |<link to closed issues>|
