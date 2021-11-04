@@ -23,7 +23,7 @@ Auto Anki, is a tool which extracts important concepts from lectures and frames 
 ## Why should you use Auto Anki?
 
 - Personalised Revision Buddy “Auto Anki”.
-- It breaks down the leecture pdf into questions and answers.
+- It breaks down the lecture pdf into questions and answers.
 - Creates Flashcards for easy memorisation.
 - It will save time which eventually will provide you with extra time to revise.
 
