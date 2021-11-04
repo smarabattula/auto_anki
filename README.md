@@ -50,15 +50,6 @@ TODO: add video here.
 
 We generated the documentation of our code using TODO. You can find our code documentaion for each method implemented here (TODO).
 
-## Functionalities Added
-- Instead of extracting links, we have extracted answers from the web for questions.
-- Integrated Anki, which is a deck making tool, with our code.
-- Added logic for creating Anki decks using questions and answeres extracted.
-- Modified the input that has to be taken from the user. 
-- Improved code coverage.
-- Added more test cases.
-- Updated the documentation for new features.
-
 
 ## How to Contribute
   
