@@ -1,3 +1,6 @@
+# Copyright 2021 auto_anki
+# MIT License
+
 import unittest
 import json
 from code.wordprocessing import keyword_extractor, duplicate_word_removal, merge_slide_with_same_headers, \

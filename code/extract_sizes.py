@@ -1,3 +1,6 @@
+# Copyright 2021 auto_anki
+# MIT License
+
 """
 
 File completing step 2: given a pdf document, return a dictionary

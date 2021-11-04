@@ -1,4 +1,5 @@
-# Copyright 2021 sunehabose
+# Copyright 2021 auto_anki
+# MIT License
 
 from os import name
 import genanki 

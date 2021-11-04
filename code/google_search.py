@@ -1,3 +1,6 @@
+# Copyright 2021 auto_anki
+# MIT License
+
 """ google_search.py """
 import re
 import people_also_ask

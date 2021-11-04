@@ -1,3 +1,6 @@
+# Copyright 2021 auto_anki
+# MIT License
+
 """ browser_output.py """
 import webbrowser
 import os

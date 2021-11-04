@@ -1,3 +1,6 @@
+# Copyright 2021 auto_anki
+# MIT License
+
 import genanki
 import os
 

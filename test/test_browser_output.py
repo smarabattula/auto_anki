@@ -1,3 +1,6 @@
+# Copyright 2021 auto_anki
+# MIT License
+
 import unittest
 from code.browser_output import content_formatter
 

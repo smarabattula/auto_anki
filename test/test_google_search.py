@@ -1,3 +1,6 @@
+# Copyright 2021 auto_anki
+# MIT License
+
 import unittest
 from code.google_search import get_people_also_ask_links
 

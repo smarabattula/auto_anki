@@ -1,3 +1,6 @@
+# Copyright 2021 auto_anki
+# MIT License
+
 """ user_cli.py """
 import shutil
 import sys

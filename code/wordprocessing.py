@@ -1,3 +1,6 @@
+# Copyright 2021 auto_anki
+# MIT License
+
 """ wordprocessing.py """
 import string
 from collections import OrderedDict, Counter
