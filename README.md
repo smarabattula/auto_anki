@@ -11,11 +11,14 @@
 [![GitHub issues-closed](https://img.shields.io/github/issues-closed/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
 [![GitHub stars](https://img.shields.io/github/stars/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/stargazers)
 
-
-Have you had difficulties memorizing important concepts taught in class? Have you ever found it difficult to highlight and understand the type of questions that can be asked from the topics discussed during the lectures? Then Auto Anki can help you with this as it:
+If you are someone who struggles to memorise concepts taught in class, or someone who is always in a dilemma about the topics that can be asked during exams? 
+Or someone who faces extreme difficulty during revision? Then let us introduce you to revision buddy-"Auto Anki" It can help you with this as it:
 - Extracts questions from the pdf.
 - Searches the web for answers.
 - Creates flashcards for easy memorisation.
+
+![Alt Text](https://media.giphy.com/media/nMjVMvWm2JIT8Rd1Gt/giphy.gif)
+
 
 ## Why should you use Auto Anki?
 
