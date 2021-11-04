@@ -51,6 +51,8 @@ We generated the documentation of our code using TODO. You can find our code doc
 - Added logic for creating Anki decks using questions and answeres extracted.
 - Modified the input that has to be taken from the user. 
 - Improved code coverage.
+- Added more test cases.
+- Updated the documentation for new features.
 
 
 ## How to Contribute
