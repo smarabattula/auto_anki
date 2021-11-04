@@ -12,13 +12,13 @@
 |1|issues are being closed |[Closed issues](https://github.com/usmanwardag/auto_anki/issues?q=is%3Aissue+is%3Aclosed)|
 |.5|issues are discussed before they are closed | Extensive discussion in github issues + Our Issues were also discussed in person or on Whatsapp chats |
 |.5|Use of syntax checkers. | Used Pylint, and ran Pylint Warning and Error checks as part of Travis CI|
-|1|Issues reports: there are many  |<link to issues in repo>|
+|1|Issues reports: there are many  |[Auto Anki issues](https://github.com/usmanwardag/auto_anki/issues)|
 |.5|Use of code formatters. | Used Pylint, and ran Pylint Warning and Error checks as part of Travis CI|
 |.5|Use of style checkers | Used Pylint, and ran Pylint Warning and Error checks as part of Travis CI|
 |.5|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code. |<todo in readme> |
 |.5|test cases exist  | dozens of tests and those test cases are more than 30% of the code base|
 |.5|Use of code coverage  | Coverage badge using Codecov: <update link later>|
-|.5|other automated analysis tools  | Pylint, CodeCoverage, Travis. Can check the status for the same through badges on homepage of repo<add link>|
+|.5|other automated analysis tools  | Pylint, CodeCoverage, Travis. Can check the status for the same through badges on homepage of repo [Here](https://github.com/usmanwardag/auto_anki/blob/main/README.md)|
 |.5|test cases:.a large proportion of the issues related to handling failing cases. | <todo>|
 |.5|test cases are routinely executed | travis-com.com|
 |1|Documentation describing how this version improves on the older version| <add file> and then <addlink>
