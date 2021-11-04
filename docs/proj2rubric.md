@@ -8,7 +8,7 @@
 |.5|evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people) | Everyone is using the same tools like Visual Studio Code for editing code files, github and git command line|
 |.5|evidence that the members of the team are working across multiple places in the code base |[Contributors](https://github.com/usmanwardag/auto_anki/graphs/contributors)|
 |1|Docs: what: point descriptions of each class/function (in isolation)  |<todo><html functions> |
-|.5|Number of commits: by different people  |<link to contributors,commits>|
+|.5|Number of commits: by different people  |[Commits per person](https://github.com/usmanwardag/auto_anki/pulse)>|
 |1|issues are being closed |<link to closed issues>|
 |.5|issues are discussed before they are closed | <closed issues comments>|
 |.5|Use of syntax checkers. | Used Pylint, and ran Pylint Warning and Error checks as part of Travis CI|
