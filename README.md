@@ -11,21 +11,23 @@
 [![GitHub issues-closed](https://img.shields.io/github/issues-closed/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
 [![GitHub stars](https://img.shields.io/github/stars/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/stargazers)
 
-If you are someone who struggles to memorise concepts taught in class, or someone who is always in a dilemma about the topics that can be asked during exams? 
-Or someone who faces extreme difficulty during revision? Then let us introduce you to revision buddy-"Auto Anki" It can help you with this as it:
-- Extracts questions from the pdf.
-- Searches the web for answers.
-- Creates flashcards for easy memorisation.
+If you are someone who struggles to memorise concepts taught in class, who is always in a dilemma about the topics that can be asked during exams? 
+Or someone who faces extreme difficulty during revision? Then let us introduce you to revision buddy-"Auto Anki".
 
-![Alt Text](https://media.giphy.com/media/nMjVMvWm2JIT8Rd1Gt/giphy.gif)
+<img src="https://media.giphy.com/media/nMjVMvWm2JIT8Rd1Gt/giphy.gif" width="300" height="300">
 
+Yes, you read that right. 
+
+Auto Anki, is a tool which extracts important concepts from lectures and frames questions based on it. It searches for the answer on the web and provides the right answer to the respective questions. And not only this, you can also rate the difficulty level by the end of every question thereby making it very easy for you to memorise the tougher questions. 
 
 ## Why should you use Auto Anki?
 
-- It saves time.
-- It converts information into questions.
-- It is easy to use.
-- It is useful memorisation tool.
+- Personalised Revision Buddy “Auto Anki”.
+- It breaks down the leecture pdf into questions and answers.
+- Creates Flashcards for easy memorisation.
+- It will save time which eventually will provide you with extra time to revise.
+
+<img src="https://media.giphy.com/media/7TMZ8O1bbf1UAnS4Ve/giphy.gif" width="400" height="300">
 
 ## Check out the video!
 TODO: add video here.
