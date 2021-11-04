@@ -62,7 +62,11 @@ We would be happy to receive contributions! If you'd like to, please go through 
 For any feedback, issues, or bug reports, please create an issue [here](https://github.com/usmanwardag/auto_anki/issues/new).
 
 ## Future RoadMap
-TODO
+- Build a GUI interface for the user
+- Support for additional file types other than .pdf
+- Build a browser extension with the current functionality
+- Improve word extraction logic
+
 
 
 ## Contributors
