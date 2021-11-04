@@ -9,8 +9,8 @@
 |.5|evidence that the members of the team are working across multiple places in the code base |[Contributors](https://github.com/usmanwardag/auto_anki/graphs/contributors)|
 |1|Docs: what: point descriptions of each class/function (in isolation)  |<todo><html functions> |
 |.5|Number of commits: by different people  |[Commits per person](https://github.com/usmanwardag/auto_anki/pulse)|
-|1|issues are being closed |<link to closed issues>|
-|.5|issues are discussed before they are closed | <closed issues comments>|
+|1|issues are being closed |[Closed issues](https://github.com/usmanwardag/auto_anki/issues?q=is%3Aissue+is%3Aclosed)|
+|.5|issues are discussed before they are closed | Extensive discussion in github issues + Our Issues were also discussed in person or on Whatsapp chats |
 |.5|Use of syntax checkers. | Used Pylint, and ran Pylint Warning and Error checks as part of Travis CI|
 |1|Issues reports: there are many  |<link to issues in repo>|
 |.5|Use of code formatters. | Used Pylint, and ran Pylint Warning and Error checks as part of Travis CI|
