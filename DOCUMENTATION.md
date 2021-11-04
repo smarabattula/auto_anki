@@ -10,3 +10,6 @@
 
  - In the previous version, user input was the lecture pdf but now the user has to enter the deck name.
 
+ - We improved the code coverage from the previous version.
+
+ 
