@@ -1,7 +1,7 @@
 # **Contributing to Auto Anki** 👍 :partying_face:
 We would like to thank you for showing interest in Auto Anki. You are most welcome to suggest improvements and contribute to the project. We are delighted when people want to contribute to Auto Anki!
 
-## **How Can I Contribute?** 🤔 :
+## **How Can I Contribute?**:
 
 Each contribution counts for our project. So, make sure to classify which is yours.
 
@@ -27,7 +27,7 @@ Explain the problem and include additional details to help a developer reproduce
 
 This section guides you through submitting an enhancement suggestion for this project:
 
-#### **How Do I Submit A (Good) Enhancement Suggestion?**
+#### **How Do I Submit A (Good) Enhancement Suggestion?**🤔
 
 Enhancement suggestions are tracked as GitHub issues. Create an issue on that repository with an enhancement or feature tag and provide the following information:
 *	Use a clear and descriptive title for the issue to identify the suggestion.
