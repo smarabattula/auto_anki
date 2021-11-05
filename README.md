@@ -46,11 +46,6 @@ TODO: add video here.
 - Install Anki library
  ` python setup.py install`
 
-## Code Documentation
-
-We generated the documentation of our code using TODO. You can find our code documentaion for each method implemented here (TODO).
-
-
 ## How to Contribute
   
 We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/usmanwardag/auto_anki/blob/main/CONTRIBUTING.md). 
