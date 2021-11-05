@@ -11,15 +11,16 @@ from code.anki import add_package, add_question, get_deck, get_model
 
 
 class TestAnki(unittest.TestCase):
-    """
-    Define model that describes the template
-    for anki deck.
-
-    Returns
-    ------
-    anki model
-    """
+    
     def test_get_model(self) -> None:
+        """
+        Define model that describes the template
+        for anki deck.
+
+        Returns
+        ------
+        anki model
+        """
         get_model()
 
     def test_get_deck(self):
