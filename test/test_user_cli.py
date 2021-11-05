@@ -10,7 +10,14 @@ import code.user_cli
 class TestUserCLI(unittest.TestCase):
 
     @patch('builtins.input', return_value='1')
-    def test_user_menu(self, mock_input) -> None:
+    def test_user_menu_1(self, mock_input) -> None:
         code.user_cli.user_menu()
+
+    @patch('builtins.input', return_value='2')
+    def test_user_menu_2(self, mock_input) -> None:
+        code.user_cli.user_menu()
+
+   
+    
 
 
