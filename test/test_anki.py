@@ -23,6 +23,13 @@ class TestAnki(unittest.TestCase):
         get_model()
 
     def test_get_deck(self):
+        """
+        Define and initialize an anki deck, where we can add cards.
+
+        Returns
+        ------
+        anki deck 
+        """
         my_deck = get_deck(deck_name='Test Deck Name')
         self.assertEqual(genanki.deck.Deck , type(my_deck))
 
