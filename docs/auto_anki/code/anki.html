@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>anki.py</title>
+  <link rel="stylesheet" href="../../pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>anki.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Copyright 2021 auto_anki
+MIT License</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">genanki</span>
+<span class="kn">import</span> <span class="nn">os</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Define model that describes the template
+for anki deck.</p>
+<h2>Returns</h2>
+<p>anki model</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">get_model</span><span class="p">():</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">my_model</span> <span class="o">=</span> <span class="n">genanki</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span>
+      <span class="mi">1607392319</span><span class="p">,</span>
+      <span class="s1">&#39;Anki Model&#39;</span><span class="p">,</span>
+      <span class="n">fields</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Question&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Answer&#39;</span><span class="p">},</span>
+      <span class="p">],</span>
+      <span class="n">templates</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Card&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;qfmt&#39;</span><span class="p">:</span> <span class="s1">&#39;{{Question}}&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;afmt&#39;</span><span class="p">:</span> <span class="s1">&#39;{{FrontSide}}&lt;hr id=&quot;answer&quot;&gt;{{Answer}}&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+      <span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">my_model</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>Define and initialize an anki deck, where we can add cards.</p>
+<h2>Returns</h2>
+<p>anki deck </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">get_deck</span><span class="p">(</span><span class="n">deck_name</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">my_deck</span> <span class="o">=</span> <span class="n">genanki</span><span class="o">.</span><span class="n">Deck</span><span class="p">(</span>
+      <span class="mi">2059400110</span><span class="p">,</span>
+      <span class="n">deck_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">my_deck</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>Create a card for a question, answer pair.</p>
+<h2>Returns</h2>
+<p>anki card </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">add_question</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">answer</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">my_note</span> <span class="o">=</span> <span class="n">genanki</span><span class="o">.</span><span class="n">Note</span><span class="p">(</span>
+      <span class="n">model</span><span class="o">=</span><span class="n">curr_model</span><span class="p">,</span>
+      <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="n">question</span><span class="p">,</span> <span class="n">answer</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">my_note</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>Create a package for a deck</p>
+<h2>Returns</h2>
+<p>None</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">add_package</span><span class="p">(</span><span class="n">deck</span><span class="p">,</span> <span class="n">output_fname</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">dir_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+    <span class="n">genanki</span><span class="o">.</span><span class="n">Package</span><span class="p">(</span><span class="n">deck</span><span class="p">)</span><span class="o">.</span><span class="n">write_to_file</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{dir_path}/{output_fname}.apkg&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">get_model</span><span class="p">()</span>
+    <span class="n">deck</span> <span class="o">=</span> <span class="n">get_deck</span><span class="p">(</span><span class="n">deck_name</span><span class="o">=</span><span class="s1">&#39;Capitals of the world&#39;</span><span class="p">)</span>
+    <span class="n">qa</span> <span class="o">=</span> <span class="n">add_question</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s1">&#39;Capital of Argentina&#39;</span><span class="p">,</span> <span class="n">answer</span><span class="o">=</span><span class="s1">&#39;Buenos Aires&#39;</span><span class="p">,</span> <span class="n">curr_model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+    <span class="n">deck</span><span class="o">.</span><span class="n">add_note</span><span class="p">(</span><span class="n">qa</span><span class="p">)</span>
+    <span class="n">qa</span> <span class="o">=</span> <span class="n">add_question</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="n">answer</span><span class="o">=</span><span class="s1">&#39;DC&#39;</span><span class="p">,</span> <span class="n">curr_model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+    <span class="n">deck</span><span class="o">.</span><span class="n">add_note</span><span class="p">(</span><span class="n">qa</span><span class="p">)</span>
+
+    <span class="n">output_fname</span> <span class="o">=</span> <span class="s1">&#39;capitals&#39;</span>
+    <span class="n">dir_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+    <span class="n">genanki</span><span class="o">.</span><span class="n">Package</span><span class="p">(</span><span class="n">deck</span><span class="p">)</span><span class="o">.</span><span class="n">write_to_file</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{dir_path}/{output_fname}.apkg&#39;</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
