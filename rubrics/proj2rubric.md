@@ -1,7 +1,7 @@
 |Score|Notes| Evidence|
 |-|-----|---------|
 |.5| short release cycles|We had multiple releases, as well tested different components iteratively|
-|.5| workload is spread over the whole team (so one team member is often Xtimes more productive than the others...|minimum of x commits by each member|
+|.5| workload is spread over the whole team (so one team member is often Xtimes more productive than the others...|Minimum of 23 commits by each member. Furthermore, we split different tasks among different members, and assigned issues at the beginning.|
 |.5|Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing |Yes, animations, videos, motivation etc. Refer [README.md](https://github.com/usmanwardag/auto_anki#readme)|
 |.5|the files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up  |Guidelines in [CONTRIBUTING.md](https://github.com/usmanwardag/auto_anki/blob/main/CONTRIBUTING.md)|
 |.5|Docs: doco generated , format not ugly  | in GH<todo>|
