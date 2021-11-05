@@ -11,7 +11,7 @@ from anki import add_package
 from extract_sizes import extract_words, text_to_groupings
 import wordprocessing as wp
 from google_search import get_people_also_ask_links
-from browser_output import output_formatter, result_display
+
 
 def user_menu():
     """
@@ -65,22 +65,6 @@ if __name__ == "__main__":
         # Still working on better threading to get faster results
         results = executor.map(get_people_also_ask_links, search_query[:3])
 
-    """with open("results.txt", mode="w", encoding="utf-8") as f:
-        for result in results:
-            for qa in result:
-                question = qa["Question"] + "\n"
-                f.write(f"Question: {question}")
-                answer = qa["Answer"] + "\n"
-                f.write(f"Answer: {answer}")
-                link = qa["Related Link"] +"\n"
-                f.write(f"Related Link: {link}")
-            f.write("\n\n")
-
-    content = output_formatter()
-    name = file.split("/")[-1].replace(".pdf", "")
-    result_display(content)"""
-
-    
     auto_anki_model = get_model()
     deck = get_deck(deck_name=lect_name)
     for result in results:
