@@ -115,9 +115,3 @@ def text_to_groupings(doc: dict) -> list:
     font_count = get_sizes(doc)
     lst_fonts = tag_text(font_count, doc)
     return lst_fonts
-
-
-if __name__ == "__main__":
-    pdf_doc = extract_words("../data/lecture4.pdf")
-    my_dict = text_to_groupings(pdf_doc)
-    print(my_dict)

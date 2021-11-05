@@ -26,8 +26,6 @@ def keyword_extractor(data: list) -> list:
     try:
         nlp = spacy.load("en_core_web_lg")
     except OSError as error:
-        print("Please make sure you have Spacy Word Model en_core_web_lg downloaded.")
-        print(error)
         sys.exit()
     pos_tag = ["NOUN"]
     dep_tag = ["nsubj"]
@@ -175,8 +173,6 @@ def extract_noun_chunks(data: list) -> list:
     try:
         nlp = spacy.load("en_core_web_lg")
     except OSError as error:
-        print("Please make sure you have Spacy Word Model en_core_web_lg downloaded.")
-        print(error)
         sys.exit()
     for slide in data:
         doc_header_noun_chunks = nlp(slide["Header"].lower()).noun_chunks
@@ -209,34 +205,3 @@ def extract_noun_chunks(data: list) -> list:
         slide["Paragraph_keywords"] = paragraph_keywords
     return data
 
-
-if __name__ == "__main__":
-    main_data = [{"Header": "Dimensionality Reduction PCA",
-                  "Paragraph": "Dimensionality Reduction Purposes: – Avoid curse of dimensionality \
-                  – Reduce amount of time and memory required by data mining algorithms Allow data to be more easily \
-            visualized May help to eliminate irrelevant features or reduce noise Techniques Principal Component Analysis \
-            Singular Value Decomposition supervised and non-linear techniques",
-                  "slide": 8},
-                 {"Header": "Gratuitous ARP",
-                  "Paragraph": "Every machine broadcasts its mapping when it boots to"
-                               " update ARP caches in other "
-                               "machines \n "
-                               "Example: A sends an ARP Request with its own IP"
-                               " address as the target IP address \n "
-                               "Sender MAC=MACA, Sender IP=IPA n Target MAC=??, Target IP=IPA \n "
-                               "What if a reply is received?",
-                  "slide": 9},
-                 {"Header": "Dimensionality Reduction PCA",
-                  "Paragraph": "Goal is to find a projection that captures"
-                  "the largest amount of variation in data \
-             Find the eigenvectors of the covariance matrix The eigenvectors define the new space",
-                  "slide": 9}]
-
-    keyword_data = keyword_extractor(main_data)
-    print(keyword_data)
-    keyword_data = merge_slide_with_same_slide_number(keyword_data)
-    print(keyword_data)
-    keyword_data = merge_slide_with_same_headers(keyword_data)
-    print(keyword_data)
-    keyword_data = duplicate_word_removal(keyword_data)
-    print(keyword_data)

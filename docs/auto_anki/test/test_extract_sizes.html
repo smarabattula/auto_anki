@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>test_extract_sizes.py</title>
+  <link rel="stylesheet" href="../../pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>test_extract_sizes.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Copyright 2021 auto_anki
+MIT License</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Unit tests for extract sizes</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">from</span> <span class="nn">code.extract_sizes</span> <span class="kn">import</span> <span class="p">(</span><span class="n">get_sizes</span><span class="p">,</span> <span class="n">tag_text</span><span class="p">,</span> <span class="n">text_to_groupings</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>Test cases for the extract sizes
+Includes testing None cases and valid PDFs</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">TestExtractSizes</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>Asserts that when None is passed into get_sizes,
+no error happens and None is returned</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_font_doc_none</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>assert when no document is passed, it returns an empty lst</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">unique_fonts</span> <span class="o">=</span> <span class="n">get_sizes</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">unique_fonts</span><span class="p">,</span> <span class="p">[])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>Asserts that when None is passed into tag_text,
+no error happens and None is returned</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_dict_fonts_none</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>assert when no document is passed, it returns an empty dict</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">dict_none</span> <span class="o">=</span> <span class="n">tag_text</span><span class="p">([],</span> <span class="p">[])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">dict_none</span><span class="p">,</span> <span class="p">[])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>Tests the unique font size is as expected for Test1</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_font_size_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;./test/data/Test_1.json&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_pointer</span><span class="p">:</span>
+            <span class="n">doc</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_pointer</span><span class="p">)</span>
+            <span class="n">actual_fonts</span> <span class="o">=</span> <span class="n">get_sizes</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+
+            <span class="n">expected_fonts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">expected_fonts</span><span class="p">,</span> <span class="n">actual_fonts</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>Tests the groupings given a file</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_text_to_groupings_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;./test/data/Test_1.json&quot;</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_pointer</span><span class="p">:</span>
+            <span class="n">doc</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_pointer</span><span class="p">)</span>
+            <span class="n">actual_dict</span> <span class="o">=</span> <span class="n">text_to_groupings</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <p>check the text</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>            <span class="n">page0</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Header&#39;</span><span class="p">:</span> <span class="s1">&#39;Possible title&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;Paragraph&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;slide&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+            <span class="n">page1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Header&#39;</span><span class="p">:</span> <span class="s1">&#39;Possible heading&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;Paragraph&#39;</span><span class="p">:</span> <span class="s1">&#39;Possible subheading Possible paragraph&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;slide&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+            <span class="n">page2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Header&#39;</span><span class="p">:</span> <span class="s1">&#39;Heading Another Heading&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;Paragraph&#39;</span><span class="p">:</span> <span class="s1">&#39;Paragraph&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;slide&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">page0</span><span class="p">,</span> <span class="n">actual_dict</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">f</span><span class="s1">&#39;Expected Page 0 to be {page0}&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">page1</span><span class="p">,</span> <span class="n">actual_dict</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">f</span><span class="s1">&#39;Expected Page 1 to be {page1}&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">page2</span><span class="p">,</span> <span class="n">actual_dict</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">f</span><span class="s1">&#39;Expected Page 2 to be {page2}&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">([</span><span class="n">page0</span><span class="p">,</span> <span class="n">page1</span><span class="p">,</span> <span class="n">page2</span><span class="p">],</span> <span class="n">actual_dict</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <p>Tests the unique font size is as expected for Test2</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_font_size_2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;./test/data/Test_2.json&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_pointer</span><span class="p">:</span>
+            <span class="n">doc</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_pointer</span><span class="p">)</span>
+            <span class="n">actual_fonts</span> <span class="o">=</span> <span class="n">get_sizes</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+
+            <span class="n">expected_fonts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">expected_fonts</span><span class="p">,</span> <span class="n">actual_fonts</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <p>Tests the groupings given a file</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_text_to_groupings_2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-16'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-16'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;./test/data/Test_2.json&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_pointer</span><span class="p">:</span>
+            <span class="n">doc</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_pointer</span><span class="p">)</span>
+
+            <span class="n">actual_dict</span> <span class="o">=</span> <span class="n">text_to_groupings</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-17'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-17'>#</a>
+      </div>
+      <p>check the text</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>            <span class="n">page0</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Header&#39;</span><span class="p">:</span> <span class="s1">&#39;Test 1 : Computer Science&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;Paragraph&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;slide&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+            <span class="n">page1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Header&#39;</span><span class="p">:</span> <span class="s1">&#39;Large Heading&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;Paragraph&#39;</span><span class="p">:</span> <span class="s1">&#39;Medium text Small text&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;slide&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+            <span class="n">page2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Header&#39;</span><span class="p">:</span> <span class="s1">&#39;Large Heading 2&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;Paragraph&#39;</span><span class="p">:</span> <span class="s1">&#39;Medium text 2 Small text 2&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;slide&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">page0</span><span class="p">,</span> <span class="n">actual_dict</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">f</span><span class="s1">&#39;Expected Page 0 to be {page0}&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">page1</span><span class="p">,</span> <span class="n">actual_dict</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">f</span><span class="s1">&#39;Expected Page 1 to be {page1}&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">page2</span><span class="p">,</span> <span class="n">actual_dict</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">f</span><span class="s1">&#39;Expected Page 2 to be {page2}&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">([</span><span class="n">page0</span><span class="p">,</span> <span class="n">page1</span><span class="p">,</span> <span class="n">page2</span><span class="p">],</span> <span class="n">actual_dict</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
