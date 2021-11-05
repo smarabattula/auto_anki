@@ -31,6 +31,7 @@ Auto Anki, is a tool which extracts important concepts from lectures and frames 
 
 ## Check out the video!
 
+https://user-images.githubusercontent.com/89510237/140457745-198c016b-645a-47b5-9c0d-90df793fb122.mp4
 
 # Installation
 
