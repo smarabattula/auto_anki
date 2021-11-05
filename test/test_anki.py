@@ -5,8 +5,6 @@ from os import name
 import genanki 
 import unittest
 
-from genanki.note import Note
-
 from code.anki import add_package, add_question, get_deck, get_model
 
 
