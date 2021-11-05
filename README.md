@@ -72,3 +72,13 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 * [Suneha Bose](https://github.com/sbosenc)
 * [Usman Mahmood Khan](https://github.com/usmanwardag)
 
+## Code Documentation
+
+`Using Pycco for python code documentation:`
+
+  Run the following commands on thhe terminal:
+- pip install pycco
+- pycco auto_anki/**/*.py -p
+ 
+
+
