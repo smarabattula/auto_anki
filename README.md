@@ -62,6 +62,7 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 
 ## Future RoadMap
 - Build a GUI interface for the user
+ -  Currently, we are using command line interface to get the user input such as the path of the file to be uploaded or the name of the Anki deck. This is can be improved by building a GUI for the user input.
 - Support for additional file types other than .pdf
 - Build a browser extension with the current functionality
 - Improve word extraction logic
