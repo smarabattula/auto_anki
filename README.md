@@ -52,11 +52,14 @@ https://user-images.githubusercontent.com/89510237/140457745-198c016b-645a-47b5-
 
 ## Code Documentation
 
-`Using Pycco for python code documentation:`
+We have generated documentation of the entire codebase using [Pycco](https://github.com/pycco-docs/pycco). You can find the documentation [here](https://github.com/usmanwardag/auto_anki/tree/main/docs).
 
-   Run the following commands on the terminal:
-- pip install pycco
-- pycco auto_anki/**/*.py -p
+If you are a developer, and want to update documentation:
+
+- Install Pycco
+  `pip install pycco`
+- Use Pycco to generate docs.
+  `pycco auto_anki/**/*.py -p`
 
 ## How to Contribute
   
