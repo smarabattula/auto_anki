@@ -76,7 +76,7 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 
 `Using Pycco for python code documentation:`
 
-  Run the following commands on thhe terminal:
+   Run the following commands on the terminal:
 - pip install pycco
 - pycco auto_anki/**/*.py -p
  
