@@ -53,7 +53,7 @@ TODO: add video here.
    Run the following commands on the terminal:
 - pip install pycco
 - pycco auto_anki/**/*.py -p
-- 
+
 ## How to Contribute
   
 We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/usmanwardag/auto_anki/blob/main/CONTRIBUTING.md). 
