@@ -3,7 +3,7 @@
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/usmanwardag/auto_anki)
 
 [![Build Status](https://app.travis-ci.com/usmanwardag/auto_anki.svg?branch=main)](https://app.travis-ci.com/usmanwardag/auto_anki)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5542634.svg)](https://doi.org/10.5281/zenodo.5542634)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5646662.svg)](https://doi.org/10.5281/zenodo.5646662)
 [![codecov](https://codecov.io/gh/usmanwardag/auto_anki/branch/main/graph/badge.svg?token=EEGIC8T7QM)](https://codecov.io/gh/usmanwardag/auto_anki)
 
 [![GitHub license](https://img.shields.io/github/license/usmanwardag/auto_anki)](https://github.com/auto_anki/research_buddy/blob/main/LICENSE)
@@ -76,7 +76,7 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 
 `Using Pycco for python code documentation:`
 
-  Run the following commands on thhe terminal:
+   Run the following commands on the terminal:
 - pip install pycco
 - pycco auto_anki/**/*.py -p
  
