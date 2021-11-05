@@ -12,6 +12,21 @@
 [![GitHub stars](https://img.shields.io/github/stars/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/stargazers)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/usmanwardag/auto_anki/pulls)
 
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#why-should-you-use-auto-anki">Why should you use Auto Anki?</a></li>
+    <li><a href="#check-out-the-video">Check out the video!</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#code-documentation">Code Documentation</a></li>
+    <li><a href="#how-to-contribute">How to Contribute</a></li>
+    <li><a href="#future-roadmap">Future RoadMap</a></li>
+   <li><a href="#contributors">Contributors</a></li>
+   <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
+
 Auto Anki generates flash-cards from your lectures, which you can study with ease! Auto Anki builds on [Anki](https://apps.ankiweb.net/), an intelligent flash-card tools for remembering things.
 
 Example QA from lecture            |  Example QA from lecture
