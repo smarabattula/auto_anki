@@ -10,7 +10,7 @@
 
  - In the previous version, user input was the lecture pdf but now the user has to enter the deck name.
 
- - Improved the code coverage from the previous version.
+ - Improved the code coverage from the previous version from 64% to 76%.
 
  - Updated the documentation and README files.
 
