@@ -35,6 +35,13 @@ class TestAnki(unittest.TestCase):
         self.assertEqual(genanki.deck.Deck , type(my_deck))
 
     def test_add_question(self):
+        """
+        Create a card for a question, answer pair.
+
+        Returns
+        ------
+        anki card 
+        """
         model = get_model()
         note = add_question(question='Test Ques', answer='Ans', curr_model=model)
         self.assertEqual(genanki.Note, type(note))
