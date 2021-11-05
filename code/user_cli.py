@@ -6,8 +6,7 @@ import shutil
 import sys
 import concurrent.futures
 import pyfiglet
-from anki import add_question, get_deck, get_model
-from anki import add_package
+from anki import add_question, get_deck, get_model, add_package
 from extract_sizes import extract_words, text_to_groupings
 import wordprocessing as wp
 from google_search import get_people_also_ask_links
