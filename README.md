@@ -87,6 +87,7 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 * [Usman Mahmood Khan](https://github.com/usmanwardag)
 
 
- 
+## Acknowledgements
+We have built this code on top of the stack from the project [here](https://github.com/mtkumar123/CSC510_Project_LectureAid).
 
 
