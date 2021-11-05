@@ -1,14 +1,14 @@
 # Copyright 2021 sunehabose
 # MIT License
 
+import sys
 import unittest
-
-from code.user_cli import user_menu
+sys.path.insert(0, 'code')
+import code.user_cli 
 
 class TestUserCLI(unittest.TestCase):
     
     def test_user_menu(self) -> None:
-          user_menu()
-
+        code.user_cli.user_menu()
 
 
