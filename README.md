@@ -10,6 +10,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/usmanwardag/auto_anki)](https://github.com/auto_anki/research_buddy/issues)
 [![GitHub issues-closed](https://img.shields.io/github/issues-closed/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
 [![GitHub stars](https://img.shields.io/github/stars/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/stargazers)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/usmanwardag/auto_anki/pulls)
 
 Auto Anki generates flash-cards from your lectures, which you can study with ease! Auto Anki builds on [Anki](https://apps.ankiweb.net/), an intelligent flash-card tools for remembering things.
 
