@@ -11,14 +11,17 @@
 [![GitHub issues-closed](https://img.shields.io/github/issues-closed/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
 [![GitHub stars](https://img.shields.io/github/stars/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/stargazers)
 
-If you are someone who struggles to memorise concepts taught in class, who is always in a dilemma about the topics that can be asked during exams? 
-Or someone who faces extreme difficulty during revision? Then let us introduce you to revision buddy-"Auto Anki".
+Auto Anki generates flash-cards from your lectures, which you can study with ease! Auto Anki builds on [Anki](https://apps.ankiweb.net/), an intelligent flash-card tools for remembering things.
+
+Example QA from lecture            |  Example QA from lecture
+:-------------------------:|:-------------------------:
+![](https://github.com/usmanwardag/auto_anki/blob/main/figs/anki_1.png)  |  ![](https://github.com/usmanwardag/auto_anki/blob/main/figs/anki_2.png)
+
+If you are someone who struggles to memorise concepts taught in class, or faces difficulty during revision, or if you are just too lethargic to take notes, then Auto-Anki is for you!
 
 <img src="https://media.giphy.com/media/nMjVMvWm2JIT8Rd1Gt/giphy.gif" width="300" height="300">
 
-Yes, you read that right. 
-
-Auto Anki, is a tool which extracts important concepts from lectures and frames questions based on it. It searches for the answer on the web and provides the right answer to the respective questions. And not only this, you can also rate the difficulty level by the end of every question thereby making it very easy for you to memorise the tougher questions. 
+Auto Anki extracts important concepts from lectures, and frames questions based on it. It searches for the answers on the web and extracts the most relevant answers. Auto Anki combines with the powerful features of Anki that let you rate the difficulty level of every question to make it easy for you to memorize tough questions.
 
 ## Why should you use Auto Anki?
 
