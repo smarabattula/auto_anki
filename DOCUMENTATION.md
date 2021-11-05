@@ -1,17 +1,21 @@
 # Functionalities added to the older version:
-- In the previous version, links were being extracted for the questions selected from the pdf, whereas we have added a feature where instead of links, we will be extracting answers to those questions. This will help the user get a compiled list of questions and answers.
 
-- We integrated ANKI with the older version. 
-  > ANKI: It is a program that creates flashcards which makes it easier to remember things.
+### Answer search
+In the previous version, only a relevant web link for a question was being extracted. In this version, we search the web for the relevant answers as well, and then find the best answer. Therefore, we do only show the user different questions but provide an end-to-end solution with both questions and answers.
 
-  With the help of this, flashcards can be created for questions and answers.
-  
- - Added logic for creating decks of the questions and answers collected.
+### Anki Integration
+We integrated a software tool called Anki with the current code, so that the question and answers can be stored as flashcards on Anki.
 
- - In the previous version, user input was the lecture pdf but now the user has to enter the deck name.
+### Anki Decks
+For each lecture, we create a deck, and then create multiple cards in the deck. Each card in the denotes a single question answer pair. We also developed logic to correctly store the cards, for Anki to use later.
 
- - Improved the code coverage from the previous version from 64% to 76%.
+### Improved UI
+We made several improvements to the UI. For example, user can provide custom deck names, and specify where to store decks. We also made the onboarding easier to make the process of generating decks easier.
 
- - Updated the documentation and README files.
+### Improved Test coverage (64% -> 96%)
+We significantly improved the test coverage from 64% to 96%. To improve the coverage, we did not only write several additional tests, but also removed any redundant code that was not being used. 
+
+### Improved Documentation
+We generated the code documentation using a new format called Pycco. We also revamped the readme and other docs for better readability and user experience.
 
  
