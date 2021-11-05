@@ -17,6 +17,13 @@ class TestUserCLI(unittest.TestCase):
     def test_user_menu_2(self, mock_input) -> None:
         code.user_cli.user_menu()
 
+    @patch('builtins.input', return_value='q')
+    def test_user_menu_q(self, mock_input) -> None:
+        with self.assertRaises(SystemExit) as cm:
+            code.user_cli.user_menu()
+        the_exception = cm.exception
+        self.assertEqual(the_exception.code, 0)
+
    
     
 
