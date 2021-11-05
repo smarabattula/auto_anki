@@ -47,6 +47,13 @@ class TestAnki(unittest.TestCase):
         self.assertEqual(genanki.Note, type(note))
 
     def test_add_package(self)-> None:
+        """
+        Create a package for a deck
+
+        Returns
+        ------
+        None
+        """
         my_deck = get_deck(deck_name='Test Deck Name')
         add_package(my_deck, 'output_name')
         pass
