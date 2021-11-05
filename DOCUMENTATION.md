@@ -12,6 +12,6 @@
 
  - Improved the code coverage from the previous version.
 
- - Updated the documentaion and README files.
+ - Updated the documentation and README files.
 
  
