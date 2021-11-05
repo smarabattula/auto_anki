@@ -21,6 +21,6 @@
 |.5|other automated analysis tools  | Pylint, CodeCoverage, Travis. Can check the status for the same through badges on homepage of repo [Here](https://github.com/usmanwardag/auto_anki/blob/main/README.md)|
 |.5|test cases:.a large proportion of the issues related to handling failing cases. | <todo>|
 |.5|test cases are routinely executed | travis-com.com|
-|1|Documentation describing how this version improves on the older version| <add file><addlink>
+|1|Documentation describing how this version improves on the older version|[Docs](https://github.com/usmanwardag/auto_anki/blob/main/DOCUMENTATION.md)
 |3|This version is a little(1), some(2), much(3) improved on the last version.|Tutor's assessment.| 
 |16| Total|

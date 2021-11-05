@@ -48,8 +48,11 @@ TODO: add video here.
 
 ## Code Documentation
 
-We generated the documentation of our code using TODO. You can find our code documentaion for each method implemented here (TODO).
+`Using Pycco for python code documentation:`
 
+   Run the following commands on the terminal:
+- pip install pycco
+- pycco auto_anki/**/*.py -p
 
 ## How to Contribute
   
@@ -72,13 +75,7 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 * [Suneha Bose](https://github.com/sbosenc)
 * [Usman Mahmood Khan](https://github.com/usmanwardag)
 
-## Code Documentation
 
-`Using Pycco for python code documentation:`
-
-   Run the following commands on the terminal:
-- pip install pycco
-- pycco auto_anki/**/*.py -p
  
 
 
