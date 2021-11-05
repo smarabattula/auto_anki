@@ -19,8 +19,8 @@
 |.5|test cases exist  | dozens of tests, and 96% coverage|
 |.5|Use of code coverage  | [Coverage badge using Codecov](https://app.codecov.io/gh/usmanwardag/auto_anki)|
 |.5|other automated analysis tools  | Pylint, CodeCoverage, Travis. Can check the status for the same through badges on homepage of repo [Here](https://github.com/usmanwardag/auto_anki/blob/main/README.md)|
-|.5|test cases:.a large proportion of the issues related to handling failing cases. | <todo>|
-|.5|test cases are routinely executed | travis-com.com|
+|.5|test cases:.a large proportion of the issues related to handling failing cases. | Examples of issues addressing failing test cases or bugs: #13, #14, #15, #17, #18, #19|
+|.5|test cases are routinely executed | Passing build via travis-com.com, executed on each commit|
 |1|Documentation describing how this version improves on the older version|[Docs](https://github.com/usmanwardag/auto_anki/blob/main/DOCUMENTATION.md)
 |3|This version is a little(1), some(2), much(3) improved on the last version.|Tutor's assessment.| 
 |16| Total|
