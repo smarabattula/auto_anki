@@ -25,12 +25,13 @@ Auto Anki extracts important concepts from lectures, and frames questions based 
 
 ## Why should you use Auto Anki?
 
-- Personalised Revision Buddy “Auto Anki”.
-- It breaks down the lecture pdf into questions and answers.
-- Creates Flashcards for easy memorisation.
-- It will save time which eventually will provide you with extra time to revise.
+- You want to summarize everything in a lecture to flash cards, which you can then memorize.
+- You already use Anki, but have to create the flash cards for lectures manually.
+- You want to break down the lecture pdf into questions and answers.
+- You want to create simple flashcards for easy memorisation and revision.
 
 <img src="https://media.giphy.com/media/7TMZ8O1bbf1UAnS4Ve/giphy.gif" width="400" height="300">
+We know :)
 
 ## Check out the video!
 
