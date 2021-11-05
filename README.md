@@ -11,18 +11,23 @@
 [![GitHub issues-closed](https://img.shields.io/github/issues-closed/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
 [![GitHub stars](https://img.shields.io/github/stars/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/stargazers)
 
+If you are someone who struggles to memorise concepts taught in class, who is always in a dilemma about the topics that can be asked during exams? 
+Or someone who faces extreme difficulty during revision? Then let us introduce you to revision buddy-"Auto Anki".
 
-Have you had difficulties memorizing important concepts taught in class? Have you ever found it difficult to highlight and understand the type of questions that can be asked from the topics discussed during the lectures? Then Auto Anki can help you with this as it:
-- Extracts questions from the pdf.
-- Searches the web for answers.
-- Creates flashcards for easy memorisation.
+<img src="https://media.giphy.com/media/nMjVMvWm2JIT8Rd1Gt/giphy.gif" width="300" height="300">
+
+Yes, you read that right. 
+
+Auto Anki, is a tool which extracts important concepts from lectures and frames questions based on it. It searches for the answer on the web and provides the right answer to the respective questions. And not only this, you can also rate the difficulty level by the end of every question thereby making it very easy for you to memorise the tougher questions. 
 
 ## Why should you use Auto Anki?
 
-- It saves time.
-- It converts information into questions.
-- It is easy to use.
-- It is useful memorisation tool.
+- Personalised Revision Buddy “Auto Anki”.
+- It breaks down the lecture pdf into questions and answers.
+- Creates Flashcards for easy memorisation.
+- It will save time which eventually will provide you with extra time to revise.
+
+<img src="https://media.giphy.com/media/7TMZ8O1bbf1UAnS4Ve/giphy.gif" width="400" height="300">
 
 ## Check out the video!
 TODO: add video here.
@@ -45,15 +50,6 @@ TODO: add video here.
 
 We generated the documentation of our code using TODO. You can find our code documentaion for each method implemented here (TODO).
 
-## Functionalities Added
-- Instead of extracting links, we have extracted answers from the web for questions.
-- Integrated Anki, which is a deck making tool, with our code.
-- Added logic for creating Anki decks using questions and answeres extracted.
-- Modified the input that has to be taken from the user. 
-- Improved code coverage.
-- Added more test cases.
-- Updated the documentation for new features.
-
 
 ## How to Contribute
   
@@ -62,7 +58,11 @@ We would be happy to receive contributions! If you'd like to, please go through 
 For any feedback, issues, or bug reports, please create an issue [here](https://github.com/usmanwardag/auto_anki/issues/new).
 
 ## Future RoadMap
-TODO
+- Build a GUI interface for the user
+- Support for additional file types other than .pdf
+- Build a browser extension with the current functionality
+- Improve word extraction logic
+
 
 
 ## Contributors
