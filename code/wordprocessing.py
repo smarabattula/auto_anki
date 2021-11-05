@@ -25,7 +25,7 @@ def keyword_extractor(data: list) -> list:
     """
     try:
         nlp = spacy.load("en_core_web_lg")
-    except OSError as error:
+    except OSError:
         sys.exit()
     pos_tag = ["NOUN"]
     dep_tag = ["nsubj"]
@@ -172,7 +172,7 @@ def extract_noun_chunks(data: list) -> list:
     """
     try:
         nlp = spacy.load("en_core_web_lg")
-    except OSError as error:
+    except OSError:
         sys.exit()
     for slide in data:
         doc_header_noun_chunks = nlp(slide["Header"].lower()).noun_chunks
