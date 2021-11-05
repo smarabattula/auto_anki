@@ -30,7 +30,6 @@ Auto Anki, is a tool which extracts important concepts from lectures and frames 
 <img src="https://media.giphy.com/media/7TMZ8O1bbf1UAnS4Ve/giphy.gif" width="400" height="300">
 
 ## Check out the video!
-TODO: add video here.
 
 
 # Installation
@@ -61,12 +60,14 @@ We would be happy to receive contributions! If you'd like to, please go through 
 For any feedback, issues, or bug reports, please create an issue [here](https://github.com/usmanwardag/auto_anki/issues/new).
 
 ## Future RoadMap
-- Build a GUI interface for the user
- -  Currently, we are using command line interface to get the user input such as the path of the file to be uploaded or the name of the Anki deck. This is can be improved by building a GUI for the user input.
-- Support for additional file types other than .pdf
-- Build a browser extension with the current functionality
-- Improve word extraction logic
-
+#### Build a GUI interface for the user
+  -  Currently, we are using command line interface to get the user input such as the path of the file to be uploaded or the name of the Anki deck. This is can be improved by building a GUI for the user input.
+#### Support for additional file types other than .pdf
+  - As of now, our appliation is capable of processing only .pdf files. Other file types such as .ppt, .doc can be added in scope.
+#### Build a browser extension with the current functionality
+  - A browser extension which will extract contents of the current webpage which the user is on and produce a new deck of anki cards based on the material.
+#### Improve word extraction logic
+  - Currently Spacy is being used to extract noun phrases from each slide/page of the document. Then the high frequency noun phrases are calculated and used in the final search query. However this causes an issue when every slide has the document’s author name and email address listed. The author name is considered as a noun phrase, and since it appears on every slide has a high frequency, and thus appears on the final search query.
 
 
 ## Contributors
