@@ -46,6 +46,14 @@ TODO: add video here.
 - Install Anki library
  ` python setup.py install`
 
+## Code Documentation
+
+`Using Pycco for python code documentation:`
+
+   Run the following commands on the terminal:
+- pip install pycco
+- pycco auto_anki/**/*.py -p
+- 
 ## How to Contribute
   
 We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/usmanwardag/auto_anki/blob/main/CONTRIBUTING.md). 
@@ -67,13 +75,7 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 * [Suneha Bose](https://github.com/sbosenc)
 * [Usman Mahmood Khan](https://github.com/usmanwardag)
 
-## Code Documentation
 
-`Using Pycco for python code documentation:`
-
-   Run the following commands on the terminal:
-- pip install pycco
-- pycco auto_anki/**/*.py -p
  
 
 
