@@ -6,10 +6,10 @@ import shutil
 import sys
 import concurrent.futures
 import pyfiglet
-from anki import add_question, get_deck, get_model, add_package
 from extract_sizes import extract_words, text_to_groupings
 import wordprocessing as wp
 from google_search import get_people_also_ask_links
+from anki import add_question, get_deck, get_model, add_package
 
 
 def user_menu():
@@ -46,7 +46,7 @@ def user_menu():
         input("")
 
     elif choice in [valid_choices[-1], valid_choices[-2]]:
-        print("Thank you for using Lecture Aid. Closing Program now.")
+        print("Thank you for using Auto Anki. Closing Program now.")
         sys.exit(0)
 
 if __name__ == "__main__":
