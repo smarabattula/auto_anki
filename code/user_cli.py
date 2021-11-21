@@ -51,7 +51,11 @@ def user_menu():
 
 if __name__ == "__main__":
     file, lect_name = user_menu()
-    raw_data = extract_words(file)
+    if file.endswith(".pdf"):
+        raw_data = extract_words(file)
+    if file.endswith(".docx"):
+        raw_data = extract_words_word(file)
+
     raw_data = text_to_groupings(raw_data)
     keyword_data = wp.extract_noun_chunks(raw_data)
     keyword_data = wp.merge_slide_with_same_headers(keyword_data)
