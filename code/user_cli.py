@@ -6,7 +6,7 @@ import shutil
 import sys
 import concurrent.futures
 import pyfiglet
-from extract_sizes import extract_words, text_to_groupings
+from extract_sizes import extract_words, text_to_groupings, extract_words_word
 import wordprocessing as wp
 from google_search import get_people_also_ask_links
 from anki import add_question, get_deck, get_model, add_package
