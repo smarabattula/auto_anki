@@ -10,11 +10,13 @@ of headers and paragraphs
 
 import re
 import fitz
+from docx2pdf import convert 
+
 
 
 def extract_words(file: str) -> dict:
     """
-    Given a filename, opens the PDF and extracts words and metadata from each slide.
+    Given a filename, opens the PDF and extracts words and metadata from each slide
 
     :param file: String representing file path
     :type: string
@@ -39,7 +41,45 @@ def extract_words(file: str) -> dict:
                             "size": span["size"]
                         })
         doc_data["data"].append(page_data)
+        
     return doc_data
+
+
+
+def extract_words_word(file: str) -> list:
+    """
+    Given a filename, opens the PDF and extracts words and metadata from each slide
+
+    :param file: String representing file path
+    :type: string
+    :rtype: dict
+    :return: dictionary representing document metadata and words extracted from each slide
+    """
+
+
+
+
+
+ 
+# Load word document
+    #doc = aw.Document(file)
+    inputfile=file
+    outputfile= file[:-5]+".pdf"
+    # Save as PDF
+   # doc.save(outputfile)
+    
+  
+    
+    #print(outputfile)
+    convert(inputfile,outputfile)
+    return extract_words(outputfile)
+
+    
+
+
+
+    
+    
 
 
 def get_sizes(doc: dict) -> list:
