@@ -3,6 +3,7 @@ from tkinter import *
 # import filedialog module
 from tkinter import filedialog
 from user_cli import *
+from PIL import Image, ImageTk
 
 def process_(file):
 
@@ -43,7 +44,7 @@ def browseFiles():
     text_box.insert(1.0, file.name)
     text_box.tag_configure("center", justify="center")
     text_box.tag_add("center", 1.0, "end")
-    text_box.grid(column=0, row=4)  
+    text_box.grid(column=0, row=3)  
 
     process_(file)
 
@@ -51,7 +52,7 @@ def browseFiles():
 window = Tk()
 
 canvas = Canvas(window, width=600, height=300)
-canvas.grid(columnspan=3, rowspan=3)
+canvas.grid(columnspan=2, rowspan=4)
 # Set window title
 window.title('Auto-Anki')
 
@@ -61,8 +62,14 @@ window.geometry("500x500")
 # Set window background color
 window.config(background="white")
 
+#set logo
+logo = ImageTk.PhotoImage(file='code/Auto_Anki_Logo.jpg')
+logo_label = Label(image=logo)
+logo_label.image = logo
+logo_label.grid(column=0, row=0)
+
 instructions = Label(window, text="Select a PDF file on your computer", font="Raleway")
-instructions.grid(column=0, row=0)
+instructions.grid(column=0, row=1)
 
 button_explore = Button(window,
                         text="Browse Files",
