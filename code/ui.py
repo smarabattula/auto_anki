@@ -43,7 +43,7 @@ def browseFiles():
     text_box.insert(1.0, file.name)
     text_box.tag_configure("center", justify="center")
     text_box.tag_add("center", 1.0, "end")
-    text_box.grid(column=1, row=4)  
+    text_box.grid(column=0, row=4)  
 
     process_(file)
 
@@ -62,7 +62,7 @@ window.geometry("500x500")
 window.config(background="white")
 
 instructions = Label(window, text="Select a PDF file on your computer", font="Raleway")
-instructions.grid(columnspan=3, column=0, row=1)
+instructions.grid(column=0, row=0)
 
 button_explore = Button(window,
                         text="Browse Files",
@@ -73,8 +73,8 @@ button_exit = Button(window,
                      command=exit)
 
 
-button_explore.grid(column=1, row=2)
-button_exit.grid(column=1, row=3)
+button_explore.grid(column=0, row=2)
+button_exit.grid(column=1, row=2)
 
 # Let the window wait for any events
 window.mainloop()
