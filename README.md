@@ -56,7 +56,7 @@ https://user-images.githubusercontent.com/89510237/140457745-198c016b-645a-47b5-
 # Installation
 
 - Clone the repository 
- ` git clone https://github.com/usmanwardag/auto_anki`
+ ` git clone https://github.com/SmayanaReddy/auto_anki
 - Install all requirements
  ` pip install -r requirements.txt`
 - Install project as Python package
