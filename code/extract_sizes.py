@@ -64,7 +64,7 @@ def extract_words_word(file: str) -> list:
     
   
     
-    #print(outputfile)
+
     convert(inputfile,outputfile)
     return extract_words(outputfile)
 
