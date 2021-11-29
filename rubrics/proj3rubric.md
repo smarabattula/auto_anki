@@ -10,11 +10,11 @@
 |1|Docs: what: point descriptions of each class/function (in isolation)  | |
 |.5|Number of commits: by different people  |https://github.com/SmayanaReddy/auto_anki/pulse|
 |1|issues are being closed |https://github.com/SmayanaReddy/auto_anki/issues?q=is%3Aissue+is%3Aclosed|
-|.5|issues are discussed before they are closed |  |
-|.5|Use of syntax checkers. ||
-|1|Issues reports: there are many  ||
-|.5|Use of code formatters. ||
-|.5|Use of style checkers ||
+|.5|issues are discussed before they are closed | All the issues were discussed in our whatsapp group before they were closed. All the team members validated the changes before the closing was approved. https://github.com/SmayanaReddy/auto_anki/issues |
+|.5|Use of syntax checkers. |Used Pylint, and ran Pylint Warning and Error checks as part of Travis CI|
+|1|Issues reports: there are many  |https://github.com/SmayanaReddy/auto_anki/issues|
+|.5|Use of code formatters. |Used Pylint, and ran Pylint Warning and Error checks as part of Travis CI|
+|.5|Use of style checkers |Used Pylint, and ran Pylint Warning and Error checks as part of Travis CI|
 |.5|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code. | |
 |.5|test cases exist  ||
 |.5|Use of code coverage  | |
