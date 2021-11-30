@@ -6,7 +6,10 @@
   <li> Additionally, designed and added a logo to the interface.</li>
 </ul>
   <b> User Interface:</b>
-  <img src =  width="600"  /><br/>
+
+
+  <img src = https://user-images.githubusercontent.com/32881355/143981396-52a87d22-d376-4462-84f2-58cd409d4d9c.jpeg  width="600"  /><br/>
+  <img src = https://user-images.githubusercontent.com/32881355/143981397-34c6519b-8681-478a-bd68-ea19480df05d.jpeg width="600"  /><br/>
 
 <h3> Increased the file types supported for the application</h3>
 <ul>
