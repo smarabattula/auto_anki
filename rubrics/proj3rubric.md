@@ -7,7 +7,7 @@
 |.5|Docs: doco generated , format not ugly  |https://github.com/usmanwardag/auto_anki/tree/main/docs|
 |.5|evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people) |https://github.com/SmayanaReddy/auto_anki/blob/main/requirements.txt|
 |.5|evidence that the members of the team are working across multiple places in the code base |https://github.com/SmayanaReddy/auto_anki/graphs/contributors|
-|1|Docs: what: point descriptions of each class/function (in isolation)  | |
+|1|Docs: what: point descriptions of each class/function (in isolation)  |For each method, there is a description of the method. There are then descriptions of parameters, types, and return types. https://github.com/usmanwardag/auto_anki/tree/main/docs https://mtkumar123.github.io/CSC510_Project_LectureAid/code.html#module-code.extract_sizes |
 |.5|Number of commits: by different people  |https://github.com/SmayanaReddy/auto_anki/pulse|
 |1|issues are being closed |https://github.com/SmayanaReddy/auto_anki/issues?q=is%3Aissue+is%3Aclosed|
 |.5|issues are discussed before they are closed | All the issues were discussed in our whatsapp group before they were closed. All the team members validated the changes before the closing was approved. https://github.com/SmayanaReddy/auto_anki/issues |
