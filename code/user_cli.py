@@ -51,7 +51,8 @@ def user_menu():
 
 if __name__ == "__main__":
     file, lect_name = user_menu()
-   
+    if file.endswith(".pdf"):
+        raw_data = extract_words(file)
     if file.endswith(".docx"):
         raw_data = extract_words_word(file)
 
