@@ -49,7 +49,7 @@ def extract_words(file: str) -> dict:
 def extract_words_word(file: str) -> list:
     """
     Given a filename, opens the Word and extracts words and metadata from each slide
-
+    """
 
 
 
