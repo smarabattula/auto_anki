@@ -75,10 +75,6 @@ button_explore = Button(window,
                         text="Browse Files",
                         command=browseFiles)
 
-button_exit = Button(window,
-                     text="Exit",
-                     command=exit)
-
 
 button_explore.grid(column=0, row=2)
 button_exit.grid(column=1, row=2)
