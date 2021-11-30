@@ -12,5 +12,8 @@
 <ul>
   <li> In the older version, user was constrained to upload only pdf type files.</li>
   <li> With the new changes, now user can also upload doc files. </li>
-  <li> </li>
+  <li> To implement this we have converted doc file to pdf file and passing it to the original function. </li>
+  <b> Relavent Code Changes:</b>
 </ul>
+![WhatsApp Image 2021-11-29 at 5 31 31 PM](https://user-images.githubusercontent.com/32881355/143978202-bee15690-b429-445b-967b-c957673e63dc.jpeg)
+![WhatsApp Image 2021-11-29 at 5 31 31 PM](https://user-images.githubusercontent.com/32881355/143978217-fe012650-8b02-493e-a9c0-b53d09b2a7ab.jpeg)
