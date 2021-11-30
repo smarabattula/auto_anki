@@ -20,7 +20,7 @@
 |.5|Use of code coverage  | |
 |.5|other automated analysis tools  |Pylint, CodeCoverage, Travis. Can check the status for the same through badges on homepage of repo. https://github.com/SmayanaReddy/auto_anki/blob/main/README.md|
 |.5|test cases:.a large proportion of the issues related to handling failing cases. |https://github.com/SmayanaReddy/auto_anki/issues|
-|.5|test cases are routinely executed | |
+|.5|test cases are routinely executed |Passing build via travis-com.com, executed on each commit |
 |1|Documentation describing how this version improves on the older version|https://github.com/SmayanaReddy/auto_anki/blob/main/versionImprovement.md|
 |3|This version is a little(1), some(2), much(3) improved on the last version.|Tutor's assessment.| 
 |16| Total|
