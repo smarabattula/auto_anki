@@ -7,4 +7,5 @@ pyfiglet==0.8.post1
 PyMuPDF==1.18.19
 wordcloud==1.8.1
 matplotlib==3.4.3
+docx2pdf
 
