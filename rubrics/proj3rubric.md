@@ -21,6 +21,6 @@
 |.5|other automated analysis tools  ||
 |.5|test cases:.a large proportion of the issues related to handling failing cases. ||
 |.5|test cases are routinely executed | |
-|1|Documentation describing how this version improves on the older version||
+|1|Documentation describing how this version improves on the older version|https://github.com/SmayanaReddy/auto_anki/blob/main/versionImprovement.md|
 |3|This version is a little(1), some(2), much(3) improved on the last version.|Tutor's assessment.| 
 |16| Total|
