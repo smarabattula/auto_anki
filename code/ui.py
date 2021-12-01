@@ -32,7 +32,6 @@ def process_(file):
 
     add_package(deck, lect_name)
 
-
 # Function for opening the
 # file explorer window
 def browseFiles():
