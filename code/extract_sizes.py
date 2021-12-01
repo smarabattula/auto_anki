@@ -50,19 +50,26 @@ def extract_words_word(file: str) -> list:
     """
     Given a filename, opens the Word and extracts words and metadata from each slide
     """
+    
 
-
+    template=f"soffice --headless --convert-to pdf {file}"
+    os.system(template)
+ 
+# Load word document
+    #doc = aw.Document(file)
+    #inputfile=file
+    outputfile= file[:-5]+".pdf"
 
    # Save as PDF
    # doc.save(outputfile)
    #print(outputfile)
    # Load word document
    #doc = aw.Document(file)
-    inputfile=file
-    outputfile= file[:-5]+".pdf"
+    #inputfile=file
+    #outputfile= file[:-5]+".pdf"
    
 
-    convert(inputfile,outputfile)
+    #convert(inputfile,outputfile)
     return extract_words(outputfile)
 
     
