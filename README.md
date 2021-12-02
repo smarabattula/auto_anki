@@ -104,6 +104,6 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 
 
 ## Acknowledgements
-We have built this code on top of the stack from the project [here] (https://github.com/usmanwardag/auto_anki)
+We have built this code on top of the stack from the project https://github.com/usmanwardag/auto_anki
 
 
