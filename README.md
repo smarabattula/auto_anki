@@ -96,13 +96,14 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 
 ## Contributors
 
-* [Kriti Khullar](https://github.com/kriti0207)
-* [Muskan Gupta](https://github.com/muskan7828)
-* [Suneha Bose](https://github.com/sbosenc)
-* [Usman Mahmood Khan](https://github.com/usmanwardag)
+* Smayana Pidugu (spidugu@ncsu.edu)
+* Gokul Krishna Koganti (gkogant@ncsu.edu)
+* Rachana Kondabala (rkondab@ncsu.edu)
+* Harikrishna Selvaraj (hselvar2@ncsu.edu)
+* Kiran Bharadwaj Ganesh (kganesh4@ncsu.edu)
 
 
 ## Acknowledgements
-We have built this code on top of the stack from the project [here](https://github.com/mtkumar123/CSC510_Project_LectureAid).
+We have built this code on top of the stack from the project [here] (https://github.com/usmanwardag/auto_anki)
 
 
