@@ -1,3 +1,7 @@
+
+
+https://user-images.githubusercontent.com/32881355/144337381-2c38d27d-9118-497e-a664-5d0433fedca7.mp4
+
  # Auto Anki
 
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/usmanwardag/auto_anki)
