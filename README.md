@@ -55,7 +55,7 @@ We know :)
 
 ## Check out the video!
 https://user-images.githubusercontent.com/32881355/144337381-2c38d27d-9118-497e-a664-5d0433fedca7.mp4
-https://user-images.githubusercontent.com/89510237/140457745-198c016b-645a-47b5-9c0d-90df793fb122.mp4
+
 
 # Installation
 
