@@ -65,13 +65,7 @@ def extract_words_word(file: str) -> list:
     #inputfile=file
     outputfile= basename[:-5]+".pdf"
 
-   # Save as PDF
-   # doc.save(outputfile)
-   #print(outputfile)
-   # Load word document
-   #doc = aw.Document(file)
-    #inputfile=file
-    #outputfile= file[:-5]+".pdf"
+ 
    
 
     #convert(inputfile,outputfile)
