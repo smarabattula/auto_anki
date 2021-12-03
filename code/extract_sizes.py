@@ -71,6 +71,9 @@ def extract_words_word(file: str) -> list:
     
 
 
+# Load word document
+    #doc = aw.Document(file)
+    #inputfile=file
 
     
     
