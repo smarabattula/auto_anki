@@ -59,10 +59,7 @@ def extract_words_word(file: str) -> list:
 
     template=f"soffice --headless --convert-to pdf {basename}"
     os.system(template)
- 
-# Load word document
-    #doc = aw.Document(file)
-    #inputfile=file
+
     outputfile= basename[:-5]+".pdf"
 
  
