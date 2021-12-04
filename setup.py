@@ -8,7 +8,7 @@ setup(
     tests_require=['pytest'],
     author='CSC510 - Group 21',
     author_email='lectureaidnscu@gmail.com',
-    url='https://github.com/mtkumar123/CSC510_Project_LectureAid',
+    url='https://github.com/SmayanaReddy/auto_anki/',
     python_requires='>=3.7',
     classifiers=[
         "License :: OSI Approved :: MIT License",
