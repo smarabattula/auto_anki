@@ -8,7 +8,7 @@ Unit tests for extract sizes
 """
 import json
 import unittest
-from code.extract_sizes import (get_sizes, tag_text, text_to_groupings)
+from code.extract_sizes import (get_sizes, tag_text, text_to_groupings,extract_words_word)
 
 
 
@@ -19,6 +19,10 @@ class TestExtractSizes(unittest.TestCase):
     Includes testing None cases and valid PDFs
 
     """
+    def test_extract_words_word(self):
+        document_name= extract_words_word(testsample.docx)
+        final_document="testsample.pdf"
+        self.assertEqual(document_name,final_document)
 
     def test_font_doc_none(self):
         """
