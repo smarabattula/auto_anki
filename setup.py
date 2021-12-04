@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     description='Upload lecture PDFs and get relevant URLs to helpful websites',
     tests_require=['pytest'],
-    author='CSC510 - Group 21',
+    author='CSC510 - Group 39',
     author_email='lectureaidnscu@gmail.com',
     url='https://github.com/SmayanaReddy/auto_anki/',
     python_requires='>=3.7',
@@ -14,7 +14,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Intended Audience :: Developers",
-        "Topic :: LectureAid",
+        "Topic :: auto_anki",
     ],
     license='MIT',
     install_requires=[
