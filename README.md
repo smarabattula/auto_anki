@@ -4,15 +4,15 @@
 
  # Auto Anki
 
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/usmanwardag/auto_anki)
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/SmayanaReddy/auto_anki)
 
 [![Build Status](https://app.travis-ci.com/usmanwardag/auto_anki.svg?branch=main)](https://app.travis-ci.com/usmanwardag/auto_anki)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5745931.svg)](https://doi.org/10.5281/zenodo.5745931)
 [![codecov](https://codecov.io/gh/usmanwardag/auto_anki/branch/main/graph/badge.svg?token=EEGIC8T7QM)](https://codecov.io/gh/usmanwardag/auto_anki)
 
 [![GitHub license](https://img.shields.io/github/license/usmanwardag/auto_anki)](https://github.com/auto_anki/research_buddy/blob/main/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/usmanwardag/auto_anki)](https://github.com/auto_anki/research_buddy/issues)
-[![GitHub issues-closed](https://img.shields.io/github/issues-closed/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
+[![GitHub issues](https://img.shields.io/github/issues/SmayanaReddy/auto_anki)](https://github.com/auto_anki/research_buddy/issues)
+[![GitHub issues-closed](https://img.shields.io/github/issues-closed/SmayanaReddy/auto_anki)](https://github.com/SmayanaReddy/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
 [![GitHub stars](https://img.shields.io/github/stars/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/stargazers)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/usmanwardag/auto_anki/pulls)
 
@@ -72,7 +72,8 @@ https://user-images.githubusercontent.com/32881355/144337381-2c38d27d-9118-497e-
 
 ## Code Documentation
 
-We have generated documentation of the entire codebase using [Pycco](https://github.com/pycco-docs/pycco). You can find the documentation [here](https://github.com/usmanwardag/auto_anki/tree/main/docs).
+Documentation of the entire codebase is generated using [Pycco](https://github.com/pycco-docs/pycco). 
+You can find the documentation [here](https://github.com/SmayanaReddy/auto_anki/tree/main/docs).
 
 If you are a developer, and want to update documentation:
 
@@ -83,15 +84,11 @@ If you are a developer, and want to update documentation:
 
 ## How to Contribute
   
-We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/usmanwardag/auto_anki/blob/main/CONTRIBUTING.md). 
+We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/SmayanaReddy/auto_anki/blob/main/CONTRIBUTING.md). 
 
-For any feedback, issues, or bug reports, please create an issue [here](https://github.com/usmanwardag/auto_anki/issues/new).
+For any feedback, issues, or bug reports, please create an issue [here](https://github.com/SmayanaReddy/auto_anki/issues/new).
 
 ## Future RoadMap
-#### Build a GUI interface for the user
-  -  Currently, we are using command line interface to get the user input such as the path of the file to be uploaded or the name of the Anki deck. This is can be improved by building a GUI for the user input.
-#### Support for additional file types other than .pdf
-  - As of now, our appliation is capable of processing only .pdf files. Other file types such as .ppt, .doc can be added in scope.
 #### Build a browser extension with the current functionality
   - A browser extension which will extract contents of the current webpage which the user is on and produce a new deck of anki cards based on the material.
 #### Improve word extraction logic
