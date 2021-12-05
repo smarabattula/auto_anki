@@ -23,7 +23,9 @@ def extract_words(file: str) -> dict:
     :rtype: dict
     :return: dictionary representing document metadata and words extracted from each slide
     """
-    document = fitz.open(file)
+    # document = stream=mem_area,
+    print(file)
+    document = fitz.open(file, filetype="pdf")
     doc_data = {}
     doc_data["meta_data"] = document.metadata
     doc_data["data"] = []
@@ -52,17 +54,21 @@ def extract_words_word(file: str) -> list:
     """
     
 
- 
-
-    basename = os.path.basename(file)
-
-
-    template=f"soffice --headless --convert-to pdf {basename}"
+    template=f"soffice --headless --convert-to pdf {file}"
     os.system(template)
-
-    outputfile= basename[:-5]+".pdf"
-
  
+# Load word document
+    #doc = aw.Document(file)
+    #inputfile=file
+    outputfile= file[:-5]+".pdf"
+
+   # Save as PDF
+   # doc.save(outputfile)
+   #print(outputfile)
+   # Load word document
+   #doc = aw.Document(file)
+    #inputfile=file
+    #outputfile= file[:-5]+".pdf"
    
 
     #convert(inputfile,outputfile)
