@@ -8,7 +8,7 @@
 
 ![Build Status](https://img.shields.io/badge/build-passing-green)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5745931.svg)](https://doi.org/10.5281/zenodo.5745931)
-[![codecov](https://codecov.io/gh/usmanwardag/auto_anki/branch/main/graph/badge.svg?token=EEGIC8T7QM)](https://codecov.io/gh/usmanwardag/auto_anki)
+[![codecov](https://img.shields.io/badge/codecov-85%25-green)
 
 [![GitHub license](https://img.shields.io/github/license/SmayanaReddy/auto_anki)](https://github.com/SmayanaReddy/auto_anki/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/SmayanaReddy/auto_anki)](https://github.com/SmayanaReddy/auto_anki/issues)
