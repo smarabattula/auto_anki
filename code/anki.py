@@ -6,16 +6,7 @@ import os
 
 
 def get_model():
-    """
-    Define model that describes the template
-    for anki deck.
-
-    Returns
-    ------
-    anki model
-    """
-
-    my_model = genanki.Model(
+  my_model = genanki.Model(
       1607392319,
       'Anki Model',
       fields=[
