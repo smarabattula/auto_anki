@@ -17,7 +17,7 @@
 |.5|Use of style checkers |Used Pylint, and ran Pylint Warning and Error checks as part of Travis CI|
 |.5|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code. | https://github.com/SmayanaReddy/auto_anki/blob/main/README.md|
 |.5|test cases exist  |https://github.com/SmayanaReddy/auto_anki/tree/main/test|
-|.5|Use of code coverage  | |
+|.5|Use of code coverage  | [Coverage badge using Codecov](https://app.codecov.io/gh/usmanwardag/auto_anki)|
 |.5|other automated analysis tools  |Pylint, CodeCoverage, Travis. Can check the status for the same through badges on homepage of repo. https://github.com/SmayanaReddy/auto_anki/blob/main/README.md|
 |.5|test cases:.a large proportion of the issues related to handling failing cases. |https://github.com/SmayanaReddy/auto_anki/issues|
 |.5|test cases are routinely executed |Passing build via travis-com.com, executed on each commit |
