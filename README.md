@@ -97,6 +97,15 @@ For checking code coverage,
   `coverage run user_cli.py`
 - For viewing the report run
   `coverage report`
+
+| Name              | Stmts | Miss | Cover |
+|-------------------|-------|------|-------|
+| anki.py           | 14    | 0    | 100%  |
+| extract_sizes.py  | 55    | 6    | 89%   |
+| google_search.py  | 13    | 0    | 100%  |
+| user_cli.py       | 53    | 7    | 87%   |
+| wordprocessing.py | 125   | 44   | 65%   |
+| TOTAL             | 260   | 57   | 78%   |
  
 
 ## How to Contribute
