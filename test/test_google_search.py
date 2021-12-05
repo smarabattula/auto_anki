@@ -7,7 +7,6 @@ from code.google_search import get_people_also_ask_links
 class TestGoogleSearch(unittest.TestCase):
     def setUp(self) -> None:
         pass
-
     def test_get_people_also_ask_links(self):
         """Test the get_people_also_ask_links method"""
         test = "principal components"
