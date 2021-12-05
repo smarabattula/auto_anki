@@ -18,7 +18,6 @@
 ![github workflow](https://github.com/SmayanaReddy/SRIJAS/actions/workflows/unit_test.yml/badge.svg)
 ![github workflow](https://github.com/SmayanaReddy/SRIJAS/actions/workflows/style_checker.yml/badge.svg)
 ![github workflow](https://github.com/SmayanaReddy/SRIJAS/actions/workflows/main.yml/badge.svg)
-![github workflow](https://github.com/SmayanaReddy/SRIJAS/actions/workflows/code_formatter.yml/badge.svg)
 ![github workflow](https://github.com/SmayanaReddy/SRIJAS/actions/workflows/code_cov.yml/badge.svg)
 
 <!-- TABLE OF CONTENTS -->
