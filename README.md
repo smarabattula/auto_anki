@@ -6,7 +6,7 @@
 
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/SmayanaReddy/auto_anki)
 
-https://camo.githubusercontent.com/a3c11e90b199e4d91b21617cbf3fb1c877929af12c5c8af200c2cda007a141b8/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6275696c642d70617373696e672d677265656e
+![Build Status](https://img.shields.io/badge/build-passing-green)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5745931.svg)](https://doi.org/10.5281/zenodo.5745931)
 [![codecov](https://codecov.io/gh/usmanwardag/auto_anki/branch/main/graph/badge.svg?token=EEGIC8T7QM)](https://codecov.io/gh/usmanwardag/auto_anki)
 
