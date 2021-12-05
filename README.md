@@ -20,6 +20,8 @@
 ![github workflow](https://github.com/SmayanaReddy/SRIJAS/actions/workflows/main.yml/badge.svg)
 ![github workflow](https://github.com/SmayanaReddy/SRIJAS/actions/workflows/code_cov.yml/badge.svg)
 
+## [Demo Video](https://drive.google.com/file/d/12h5izedNfEth56KhbKFRBYDFKU2PPChQ/view?usp=sharing) 
+
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
