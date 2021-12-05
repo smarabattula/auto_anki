@@ -104,8 +104,8 @@ For checking code coverage,
 | extract_sizes.py  | 55    | 6    | 89%   |
 | google_search.py  | 13    | 0    | 100%  |
 | user_cli.py       | 53    | 7    | 87%   |
-| wordprocessing.py | 125   | 44   | 65%   |
-| TOTAL             | 260   | 57   | 78%   |
+| wordprocessing.py | 125   | 23   | 81%   |
+| TOTAL             | 260   | 57   | 85%   |
  
 
 ## How to Contribute
