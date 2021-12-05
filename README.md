@@ -10,11 +10,10 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5745931.svg)](https://doi.org/10.5281/zenodo.5745931)
 [![codecov](https://codecov.io/gh/usmanwardag/auto_anki/branch/main/graph/badge.svg?token=EEGIC8T7QM)](https://codecov.io/gh/usmanwardag/auto_anki)
 
-[![GitHub license](https://img.shields.io/github/license/usmanwardag/auto_anki)](https://github.com/auto_anki/research_buddy/blob/main/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/SmayanaReddy/auto_anki)](https://github.com/auto_anki/research_buddy/issues)
+[![GitHub license](https://img.shields.io/github/license/SmayanaReddy/auto_anki)](https://github.com/SmayanaReddy/auto_anki/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/SmayanaReddy/auto_anki)](https://github.com/SmayanaReddy/auto_anki/issues)
 [![GitHub issues-closed](https://img.shields.io/github/issues-closed/SmayanaReddy/auto_anki)](https://github.com/SmayanaReddy/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
-[![GitHub stars](https://img.shields.io/github/stars/usmanwardag/auto_anki)](https://github.com/usmanwardag/auto_anki/stargazers)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/usmanwardag/auto_anki/pulls)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/SmayanaReddy/auto_anki/pulls)
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
