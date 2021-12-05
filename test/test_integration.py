@@ -37,7 +37,6 @@ def test_groupings():
 
 def test_chunks():
     """
-
     Given the arp file, tests that the tools are able to extract words, form groupings, and extract_noun_chunks
 
     """
