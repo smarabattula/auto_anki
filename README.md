@@ -100,9 +100,9 @@ For checking code coverage,
 
 | Name              | Stmts | Miss | Cover |
 |-------------------|-------|------|-------|
-| anki.py           | 14    | 0    | 100%  |
+| anki.py           | 14    | 3    | 83%  |
 | extract_sizes.py  | 55    | 6    | 89%   |
-| google_search.py  | 13    | 0    | 100%  |
+| google_search.py  | 13    | 2    | 87%  |
 | user_cli.py       | 53    | 7    | 87%   |
 | wordprocessing.py | 125   | 23   | 81%   |
 | TOTAL             | 260   | 57   | 85%   |
