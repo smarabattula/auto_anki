@@ -24,7 +24,6 @@ class TestAnki(unittest.TestCase):
     def test_get_deck(self):
         """
         Define and initialize an anki deck, where we can add cards.
-
         Returns
         ------
         anki deck 
@@ -35,7 +34,6 @@ class TestAnki(unittest.TestCase):
     def test_add_question(self):
         """
         Create a card for a question, answer pair.
-
         Returns
         ------
         anki card 
@@ -47,7 +45,6 @@ class TestAnki(unittest.TestCase):
     def test_add_package(self)-> None:
         """
         Create a package for a deck
-
         Returns
         ------
         None
