@@ -87,6 +87,17 @@ If you are a developer, and want to update documentation:
   `pip install pycco`
 - Use Pycco to generate docs.
   `pycco auto_anki/**/*.py -p`
+  
+## Code Coverage
+
+For checking code coverage, 
+- Install Coverage (https://pypi.org/project/coverage/)
+  `pip install coverage`
+- For generating the report run
+  `coverage run user_cli.py`
+- For viewing the report run
+  `coverage report`
+ 
 
 ## How to Contribute
   
