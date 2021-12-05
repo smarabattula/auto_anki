@@ -14,6 +14,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/SmayanaReddy/auto_anki)](https://github.com/SmayanaReddy/auto_anki/issues)
 [![GitHub issues-closed](https://img.shields.io/github/issues-closed/SmayanaReddy/auto_anki)](https://github.com/SmayanaReddy/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/SmayanaReddy/auto_anki/pulls)
+![version](https://img.shields.io/badge/version-2.0-blue)
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
