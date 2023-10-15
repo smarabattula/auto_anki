@@ -10,8 +10,7 @@ of headers and paragraphs
 
 import re
 import fitz
-from docx2pdf import convert 
-
+from docx2pdf import convert
 
 
 def extract_words(file: str) -> dict:
@@ -33,7 +32,7 @@ def extract_words(file: str) -> dict:
         page_data = {}
         page_data["slide"] = index+1
         page_data["blocks"] = []
-        blocks = page.getText("dict")["blocks"]
+        blocks = page.get_text("dict")["blocks"]
         for block in blocks:  # iterate through the text blocks
             if block['type'] == 0:  # block contains text
                 for line in block["lines"]:  # iterate through the text lines
@@ -43,43 +42,33 @@ def extract_words(file: str) -> dict:
                             "size": span["size"]
                         })
         doc_data["data"].append(page_data)
-        
-    return doc_data
 
+    return doc_data
 
 
 def extract_words_word(file: str) -> list:
     """
     Given a filename, opens the Word and extracts words and metadata from each slide
     """
-    
 
-    template=f"soffice --headless --convert-to pdf {file}"
+    template = f"soffice --headless --convert-to pdf {file}"
     os.system(template)
- 
+
 # Load word document
-    #doc = aw.Document(file)
-    #inputfile=file
-    outputfile= file[:-5]+".pdf"
+    # doc = aw.Document(file)
+    # inputfile=file
+    outputfile = file[:-5]+".pdf"
 
    # Save as PDF
    # doc.save(outputfile)
-   #print(outputfile)
+   # print(outputfile)
    # Load word document
-   #doc = aw.Document(file)
-    #inputfile=file
-    #outputfile= file[:-5]+".pdf"
-   
+   # doc = aw.Document(file)
+    # inputfile=file
+    # outputfile= file[:-5]+".pdf"
 
-    #convert(inputfile,outputfile)
+    # convert(inputfile,outputfile)
     return extract_words(outputfile)
-
-    
-
-
-
-    
-    
 
 
 def get_sizes(doc: dict) -> list:
