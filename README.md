@@ -123,14 +123,13 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 
 ## Contributors
 
-* Smayana Pidugu (spidugu@ncsu.edu)
-* Gokul Krishna Koganti (gkogant@ncsu.edu)
-* Rachana Kondabala (rkondab@ncsu.edu)
-* Harikrishna Selvaraj (hselvar2@ncsu.edu)
-* Kiran Bharadwaj Ganesh (kganesh4@ncsu.edu)
+* Keith Tran (ktran24@ncsu.edu)
+* Benyamin Tabarsi(btaghiz@ncsu.edu)
+* Kimia Fazeli(kfazeli@ncsu.edu)
+* mfaizan@ncsu.edu
 
 
 ## Acknowledgements
-We have built this code on top of the stack from the project https://github.com/usmanwardag/auto_anki
-
+We have built this code on top of the stack from the project [
+](https://github.com/SmayanaReddy/auto_anki)https://github.com/SmayanaReddy/auto_anki
 
