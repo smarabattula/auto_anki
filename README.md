@@ -126,7 +126,7 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 * Keith Tran (ktran24@ncsu.edu)
 * Benyamin Tabarsi(btaghiz@ncsu.edu)
 * Kimia Fazeli(kfazeli@ncsu.edu)
-* mfaizan@ncsu.edu
+* Muhammed Faizan (mfaizan@ncsu.edu)
 
 
 ## Acknowledgements
