@@ -1,4 +1,4 @@
-# **Contributing to Auto Anki** 👍 :partying_face:
+# **Contributing to Auto Anki** 
 We would like to thank you for showing interest in Auto Anki. You are most welcome to suggest improvements and contribute to the project. We are delighted when people want to contribute to Auto Anki!
 
 ## **How Can I Contribute?**:
