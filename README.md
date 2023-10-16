@@ -38,7 +38,7 @@
 </details>
 
 
-Introducing Auto Anki – Your Ultimate Flashcard Companion Powered by ChatGPT 4!
+## Introducing Auto Anki – Your Ultimate Flashcard Companion Powered by ChatGPT 4!
 
 Auto Anki revolutionizes your learning experience by effortlessly transforming your lecture materials into highly accurate and effective flashcards. This version of Auto Anki incorporates the advanced capabilities of ChatGPT 4, ensuring precision and relevance in every flashcard.
 
