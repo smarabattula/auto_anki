@@ -37,27 +37,27 @@
   </ol>
 </details>
 
-Auto Anki generates flash-cards from your lectures, which you can study with ease! Auto Anki builds on [Anki](https://apps.ankiweb.net/), an intelligent flash-card tools for remembering things.
 
-Example QA from lecture            |  Example QA from lecture
-:-------------------------:|:-------------------------:
-![](https://github.com/usmanwardag/auto_anki/blob/main/figs/anki_1.png)  |  ![](https://github.com/usmanwardag/auto_anki/blob/main/figs/anki_2.png)
+Introducing Auto Anki – Your Ultimate Flashcard Companion Powered by ChatGPT 4!
 
-If you are someone who struggles to memorise concepts taught in class, or faces difficulty during revision, or if you are just too lethargic to take notes, then Auto-Anki is for you!
+Auto Anki revolutionizes your learning experience by effortlessly transforming your lecture materials into highly accurate and effective flashcards. This version of Auto Anki incorporates the advanced capabilities of ChatGPT 4, ensuring precision and relevance in every flashcard.
 
-<img src="https://media.giphy.com/media/nMjVMvWm2JIT8Rd1Gt/giphy.gif" width="300" height="300">
+Auto Anki, building upon the intelligent Anki flashcard platform [Anki](https://apps.ankiweb.net/)  , generates flashcards from your lectures, making studying a breeze. It's the perfect tool for anyone who struggles to memorize class concepts, faces revision challenges, or simply prefers a more convenient note-taking approach.
 
-Auto Anki extracts important concepts from lectures, and frames questions based on it. It searches for the answers on the web and extracts the most relevant answers. Auto Anki combines with the powerful features of Anki that let you rate the difficulty level of every question to make it easy for you to memorize tough questions.
+## Here's what Auto Anki with ChatGPT 4 can do for you:
 
-## Why should you use Auto Anki?
+Extract crucial concepts from your lectures and generate questions based on them.
+Search the web for the most relevant answers, guaranteeing the accuracy of your flashcards.
+Utilize Anki's robust features, allowing you to rate the difficulty level of each question, making tough concepts easier to memorize.
 
-- You want to summarize everything in a lecture to flash cards, which you can then memorize.
-- You already use Anki, but have to create the flash cards for lectures manually.
-- You want to break down the lecture pdf into questions and answers.
-- You want to create simple flashcards for easy memorisation and revision.
+## Why should you choose Auto Anki with ChatGPT 4?
 
-<img src="https://media.giphy.com/media/7TMZ8O1bbf1UAnS4Ve/giphy.gif" width="400" height="300">
-We know :)
+Summarize entire lectures into flashcards, perfect for memorization.
+Eliminate the manual effort of creating lecture flashcards in Anki.
+Break down lecture PDFs into concise and effective question-and-answer pairs.
+Create straightforward flashcards for effortless memorization and revision.
+Auto Anki 4.0 is here to enhance your study experience and empower your academic success! 😊
+
 
 ## Check out the video!
 https://user-images.githubusercontent.com/32881355/144337381-2c38d27d-9118-497e-a664-5d0433fedca7.mp4
