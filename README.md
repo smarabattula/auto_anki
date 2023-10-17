@@ -28,6 +28,7 @@
   <ol>
     <li><a href="#why-should-you-use-auto-anki">Why should you use Auto Anki?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
+    <li><a href="#Quick-start-guide">Quick start guide<a</li>>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#code-documentation">Code Documentation</a></li>
     <li><a href="#how-to-contribute">How to Contribute</a></li>
