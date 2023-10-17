@@ -3,9 +3,16 @@ from langchain.chat_models import ChatOpenAI
 from google_search import get_people_also_ask_links, people_also_ask
 import time
 
-t0 = time.time()
+#pip3 install python-dotenv
 
-llm = OpenAI(openai_api_key="")
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv()
+API_KEY = os.environ["API_KEY"]
+
+llm = OpenAI(openai_api_key=API_KEY)
 text = "Can you create 3 anki cards on topic of principal components?"
 dictionary_requirement = "Generate the anki cards in the following format. I will provide an example below. Make sure to have contain in the brackets '[]' " \
                          "[{'Question': 'What do principal components mean?', 'Answer': 'Principal components " \
@@ -22,10 +29,14 @@ dictionary_requirement = "Generate the anki cards in the following format. I wil
 
 chatgpt_prompt = text + dictionary_requirement
 
+# Uncomment this to run the the prompt in chatgpt
 # print(llm.predict(chatgpt_prompt))
-test = "principal components"
-result = get_people_also_ask_links(test)
-print(result)
+
+
+
+# test = "principal components"
+# result = get_people_also_ask_links(test)
+# print(result)
 
 
 
