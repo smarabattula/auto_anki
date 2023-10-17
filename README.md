@@ -18,14 +18,21 @@
 
 ## [Demo Video](https://drive.google.com/file/d/12h5izedNfEth56KhbKFRBYDFKU2PPChQ/view?usp=sharing)
 
-<!-- TABLE OF CONTENTS -->
 
+<!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#why-should-you-use-auto-anki">Why should you use Auto Anki?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
-    <li><a href="#Quick-start-guide">Quick start guide!
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#code-documentation">Code Documentation</a></li>
+    <li><a href="#how-to-contribute">How to Contribute</a></li>
+    <li><a href="#future-roadmap">Future RoadMap</a></li>
+   <li><a href="#contributors">Contributors</a></li>
+   <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
 
 ## Introducing Auto Anki – Your Ultimate Flashcard Companion Powered by ChatGPT 4!
 
