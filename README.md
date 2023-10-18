@@ -6,10 +6,10 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5745931.svg)](https://doi.org/10.5281/zenodo.5745931)
 ![codecov](https://img.shields.io/badge/codecov-85%25-green)
 
-[![GitHub license](https://img.shields.io/github/license/SmayanaReddy/auto_anki)](https://github.com/SmayanaReddy/auto_anki/blob/main/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/SmayanaReddy/auto_anki)](https://github.com/SmayanaReddy/auto_anki/issues)
-[![GitHub issues-closed](https://img.shields.io/github/issues-closed/SmayanaReddy/auto_anki)](https://github.com/SmayanaReddy/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/SmayanaReddy/auto_anki/pulls)
+[![GitHub license](https://img.shields.io/github/license/SmayanaReddy/auto_anki)](https://github.com/tran4code/auto_anki/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/SmayanaReddy/auto_anki)](https://github.com/tran4code/auto_anki/issues)
+[![GitHub issues-closed](https://img.shields.io/github/issues-closed/SmayanaReddy/auto_anki)](https://github.com/tran4code/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/tran4code/auto_anki/pulls)
 ![version](https://img.shields.io/badge/version-3.0-blue)
 ![github workflow](https://github.com/SmayanaReddy/SRIJAS/actions/workflows/unit_test.yml/badge.svg)
 ![github workflow](https://github.com/SmayanaReddy/SRIJAS/actions/workflows/style_checker.yml/badge.svg)
@@ -63,7 +63,7 @@ https://github.com/tran4code/auto_anki/assets/113017516/ab847e56-d290-4faf-9db6-
 # Installation
 
 - Clone the repository
-  ` git clone https://github.com/SmayanaReddy/auto_anki
+  ` git clone https://github.com/tran4code/auto_anki
 - Install all requirements
   ` pip install -r requirements.txt`
 - Install project as Python package
@@ -76,7 +76,7 @@ https://github.com/tran4code/auto_anki/assets/113017516/ab847e56-d290-4faf-9db6-
 ## Code Documentation
 
 Documentation of the entire codebase is generated using [Pycco](https://github.com/pycco-docs/pycco).
-You can find the documentation [here](https://github.com/SmayanaReddy/auto_anki/tree/main/docs).
+You can find the documentation [here](https://github.com/tran4code/auto_anki/tree/main/docs).
 
 If you are a developer, and want to update documentation:
 
@@ -108,9 +108,9 @@ For checking code coverage,
 
 ## How to Contribute
 
-We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/SmayanaReddy/auto_anki/blob/main/CONTRIBUTING.md).
+We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/tran4code/auto_anki/blob/main/CONTRIBUTING.md).
 
-For any feedback, issues, or bug reports, please create an issue [here](https://github.com/SmayanaReddy/auto_anki/issues/new).
+For any feedback, issues, or bug reports, please create an issue [here](https://github.com/tran4code/auto_anki/issues/new).
 
 ## Future RoadMap
 
@@ -132,4 +132,4 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 ## Acknowledgements
 
 We have built this code on top of the stack from the project [
-](https://github.com/SmayanaReddy/auto_anki)https://github.com/SmayanaReddy/auto_anki
+](https://github.com/tran4code/auto_anki)https://github.com/tran4code/auto_anki
