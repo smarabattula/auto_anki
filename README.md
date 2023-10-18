@@ -56,7 +56,9 @@ Auto Anki 4.0 is here to enhance your study experience and empower your academic
 
 ## Check out the video!
 
-https://user-images.githubusercontent.com/32881355/144337381-2c38d27d-9118-497e-a664-5d0433fedca7.mp4
+https://github.com/tran4code/auto_anki/assets/113017516/ab847e56-d290-4faf-9db6-d9967bc955d3
+
+
 
 # Installation
 
