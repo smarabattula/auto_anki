@@ -66,10 +66,12 @@ def duplicate_word_removal(data: list) -> list:
 
     """
     for dictionary in data:
-        ordered_headers = list(OrderedDict.fromkeys(dictionary['Header_keywords']))
+        ordered_headers = list(OrderedDict.fromkeys(
+            dictionary['Header_keywords']))
         dictionary['Header_keywords'] = ordered_headers
 
-        ordered_paragraph = list(OrderedDict.fromkeys(dictionary['Paragraph_keywords']))
+        ordered_paragraph = list(OrderedDict.fromkeys(
+            dictionary['Paragraph_keywords']))
         dictionary['Paragraph_keywords'] = ordered_paragraph
     return data
 
@@ -204,4 +206,3 @@ def extract_noun_chunks(data: list) -> list:
         slide["Header_keywords"] = header_keywords
         slide["Paragraph_keywords"] = paragraph_keywords
     return data
-

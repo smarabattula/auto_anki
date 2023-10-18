@@ -49,6 +49,7 @@ def user_menu():
         print("Thank you for using Auto Anki. Closing Program now.")
         sys.exit(0)
 
+
 if __name__ == "__main__":
     file, lect_name = user_menu()
     # if file.endswith(".pdf"):
@@ -73,10 +74,10 @@ if __name__ == "__main__":
     deck = get_deck(deck_name=lect_name)
     for result in results:
         for qapair in result:
-            question = qapair["Question"] 
+            question = qapair["Question"]
             answer = qapair["Answer"]
-            qa = add_question(question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
+            qa = add_question(
+                question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
             deck.add_note(qa)
 
-    add_package(deck,lect_name)
-    
+    add_package(deck, lect_name)

@@ -27,19 +27,14 @@ chatgpt_prompt = text + dictionary_requirement
 print(llm.predict(chatgpt_prompt))
 
 
-
 # test = "principal components"
 # result = get_people_also_ask_links(test)
 # print(result)
 
 
-
 # test = "principal components"
 # result = get_people_also_ask_links(test)
 # print(result)
-
-
-
 
 
 # import re
@@ -64,4 +59,3 @@ print(llm.predict(chatgpt_prompt))
 #             if answer["has_answer"]:
 #                 result.append({"Question": answer["question"], "Answer": answer["response"], "Related Link": answer["link"]})
 #     return result
-
