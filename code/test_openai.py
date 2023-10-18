@@ -1,13 +1,7 @@
 from langchain.llms import OpenAI
-from langchain.chat_models import ChatOpenAI
-from google_search import get_people_also_ask_links, people_also_ask
-import time
-
-#pip3 install python-dotenv
 
 from dotenv import load_dotenv
 import os
-
 
 load_dotenv()
 API_KEY = os.environ["API_KEY"]
@@ -30,7 +24,7 @@ dictionary_requirement = "Generate the anki cards in the following format. I wil
 chatgpt_prompt = text + dictionary_requirement
 
 # Uncomment this to run the the prompt in chatgpt
-# print(llm.predict(chatgpt_prompt))
+print(llm.predict(chatgpt_prompt))
 
 
 
