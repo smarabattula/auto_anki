@@ -6,15 +6,15 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5745931.svg)](https://doi.org/10.5281/zenodo.5745931)
 ![codecov](https://img.shields.io/badge/codecov-85%25-green)
 
-[![GitHub license](https://img.shields.io/github/license/SmayanaReddy/auto_anki)](https://github.com/tran4code/auto_anki/blob/main/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/SmayanaReddy/auto_anki)](https://github.com/tran4code/auto_anki/issues)
-[![GitHub issues-closed](https://img.shields.io/github/issues-closed/SmayanaReddy/auto_anki)](https://github.com/tran4code/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
+[![GitHub license](https://img.shields.io/github/license/tran4code/auto_anki)](https://github.com/tran4code/auto_anki/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/tran4code/auto_anki)](https://github.com/tran4code/auto_anki/issues)
+[![GitHub issues-closed](https://img.shields.io/github/issues-closed/tran4code/auto_anki)](https://github.com/tran4code/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/tran4code/auto_anki/pulls)
 ![version](https://img.shields.io/badge/version-3.0-blue)
-![github workflow](https://github.com/SmayanaReddy/SRIJAS/actions/workflows/unit_test.yml/badge.svg)
-![github workflow](https://github.com/SmayanaReddy/SRIJAS/actions/workflows/style_checker.yml/badge.svg)
-![github workflow](https://github.com/SmayanaReddy/SRIJAS/actions/workflows/main.yml/badge.svg)
-![github workflow](https://github.com/SmayanaReddy/SRIJAS/actions/workflows/code_cov.yml/badge.svg)
+![github workflow](https://github.com/tran4code/SRIJAS/actions/workflows/unit_test.yml/badge.svg)
+![github workflow](https://github.com/tran4code/SRIJAS/actions/workflows/style_checker.yml/badge.svg)
+![github workflow](https://github.com/tran4code/SRIJAS/actions/workflows/main.yml/badge.svg)
+![github workflow](https://github.com/tran4code/SRIJAS/actions/workflows/code_cov.yml/badge.svg)
 
 ## [Demo Video](https://drive.google.com/file/d/12h5izedNfEth56KhbKFRBYDFKU2PPChQ/view?usp=sharing)
 
