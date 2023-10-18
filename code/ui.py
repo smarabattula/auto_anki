@@ -9,6 +9,7 @@ sys.path.append(
     '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages')
 
 
+
 # import filedialog module
 
 
@@ -31,11 +32,18 @@ def process_(file):
     keyword_data = wp.duplicate_word_removal(keyword_data)
     search_query = wp.construct_search_query(
         keyword_data)
-    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-        # when testing use searchquery[:10 or less].
-        # Still working on better threading to get faster results
-        results = executor.map(get_people_also_ask_links, search_query[:3])
-
+    if source_choice.get() == "Google":
+        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+            # when testing use searchquery[:10 or less].
+            # Still working on better threading to get faster results
+            results = executor.map(get_people_also_ask_links, search_query[:3])
+    elif source_choice.get() == "GPT":
+        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+            # when testing use searchquery[:10 or less].
+            # Still working on better threading to get faster results
+            # results = executor.map(get_gpt_answers, search_query[:3])
+            print()
+  
     auto_anki_model = get_model()
     deck = get_deck(deck_name=lect_name)
     for result in results:
@@ -65,20 +73,18 @@ def browseFiles():
     text_box.grid(column=0, row=3)
     process_(file)
 
-
 # Create the root window
 window = Tk()
+# window.minsize(width=450, height=450)
+window.config(background="#ebeceb")
 
-canvas = Canvas(window, width=600, height=300)
+canvas = Canvas(width=600, height=400)
 canvas.grid(columnspan=2, rowspan=4)
 # Set window title
 window.title('Auto-Anki')
 
 # Set window size
 window.geometry("500x500")
-
-# Set window background color
-window.config(background="white")
 
 # set logo
 logo = ImageTk.PhotoImage(file='code/Auto_Anki_Logo.jpg')
@@ -93,12 +99,24 @@ instructions.grid(column=0, row=1)
 button_explore = Button(window,
                         text="Browse Files",
                         command=browseFiles)
+
+source_choice = StringVar(window) # Variable to hold the choice
+sources = ["Google", "GPT"] # List of choices
+source_choice.set(sources[0]) # Set default value to Google
+
+source_dropdown = OptionMenu(window, source_choice, *sources)
+source_dropdown_label = Label(window, text="Choose an API source:", font="Raleway")
+
+source_dropdown_label.grid(column=0, row=2)
+source_dropdown.grid(column=0, row=3)
+
+
 button_exit = Button(window,
                      text="Exit",
                      command=exit)
 
-button_explore.grid(column=0, row=2)
-button_exit.grid(column=0, row=3)
+button_explore.grid(column=0, row=4)
+button_exit.grid(column=0, row=5)
 
 # Let the window wait for any events
 window.mainloop()
