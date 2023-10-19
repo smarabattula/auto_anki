@@ -56,6 +56,9 @@ Break down lecture PDFs into concise and effective question-and-answer pairs.
 Create straightforward flashcards for effortless memorization and revision.
 Auto Anki 4.0 is here to enhance your study experience and empower your academic success! 😊
 
+## Quick start
+Install Auto-Anki with chatGPT, give your study lectures or documents to it, and voila ! your apkg file is ready! you can give it to Anki application and read your material ! Quick and Easy Peasy!
+
 ## Check out the video!
 
 https://github.com/tran4code/auto_anki/assets/113017516/ab847e56-d290-4faf-9db6-d9967bc955d3
