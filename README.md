@@ -57,7 +57,7 @@ Create straightforward flashcards for effortless memorization and revision.
 Auto Anki 4.0 is here to enhance your study experience and empower your academic success! 😊
 
 ## Quick start
-Install Auto-Anki with chatGPT, give your study lectures or documents to it, and voila ! your apkg file is ready! you can give it to Anki application and read your material ! Quick and Easy Peasy!
+Install Auto-Anki with chatGPT, give your study lectures or documents to it, and voila ! your apkg file is ready! you can give it to Anki application and read your materials ! Quick and Easy Peasy!
 
 ## Check out the video!
 
