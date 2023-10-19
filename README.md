@@ -11,6 +11,7 @@
 [![GitHub issues-closed](https://img.shields.io/github/issues-closed/tran4code/auto_anki)](https://github.com/tran4code/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/tran4code/auto_anki/pulls)
 ![version](https://img.shields.io/badge/version-3.0-blue)
+
 <!-- ![github workflow](https://github.com/tran4code/SRIJAS/actions/workflows/unit_test.yml/badge.svg)
 ![Flake8 Style Check](https://github.com/tran4code/auto_anki/actions/workflows/Flake8%20Style%20Check/badge.svg)
 ![github workflow](https://github.com/tran4code/SRIJAS/actions/workflows/main.yml/badge.svg)
@@ -18,8 +19,8 @@
 
 ## [Demo Video](https://drive.google.com/file/d/12h5izedNfEth56KhbKFRBYDFKU2PPChQ/view?usp=sharing)
 
-
 <!-- TABLE OF CONTENTS -->
+
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
@@ -59,9 +60,24 @@ Auto Anki 4.0 is here to enhance your study experience and empower your academic
 
 https://github.com/tran4code/auto_anki/assets/113017516/ab847e56-d290-4faf-9db6-d9967bc955d3
 
-
 # Successful usecases
 
+🎉️ Case study : Kimia
+Background: Student majoring in Computer Science
+Scenario:
+
+* Kimia was struggling with managing large amounts of information from complex textbooks.
+* Kimia started using Auto-Anki with ChatGPT to extract key content from PDF textbooks and create flashcards automatically.
+* Result: Kimia noticed a significant improvement in her ability to absorb and retain information. Kimia achieved a good grade in her Software Engineering midterm exam and now has more free time for other activities.
+
+🎉️ Case Study: Language Learning
+User: Muhammed
+Background: Language Enthusiast
+Scenario:
+
+* Muhammed was passionate about learning new languages and wanted to create flashcards to improve his vocabulary.
+* He used Auto-Anki with ChatGPT to extract phrases and sentences from Spanish language textbooks and websites.
+* Result: Muhammed  could expand his vocabulary and language skills in only 2 weeks that he has used Auto-Anki, making his conversations more fluent and enjoyable.
 
 # Installation
 
