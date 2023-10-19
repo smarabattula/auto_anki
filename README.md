@@ -33,6 +33,7 @@
     <li><a href="#future-roadmap">Future RoadMap</a></li>
    <li><a href="#contributors">Contact us(Contributors)</a></li>
    <li><a href="#acknowledgements">Acknowledgements</a></li>
+   <li><a href="#Recommended-citation">Recommended citation</a></li>
   </ol>
 </details>
 
@@ -162,3 +163,9 @@ We are here to support you. Feel free to email us with any question or bug repor
 
 We have built this code on top of the stack from the project [
 ](https://github.com/tran4code/auto_anki)https://github.com/tran4code/auto_anki
+
+## Recommended citation
+
+You can cite us like this:
+
+Auto-Anki with ChatGPT. Version 1.0. Keith Tran,Benyamin Tabarsi, Kimia Fazeli, Muhammed Fazian. 2023. [https://github.com/tran4code/auto_anki]
