@@ -1,9 +1,9 @@
-This is our Auto-Anki with chatGPT project's roadmap for the next 3,6, and 12 months
-
-👍 This is our plan for the very first 3 months:
+## This is our Auto-Anki with chatGPT project's roadmap for the next 3,6, and 12 months
 
 
-🚀️ 3-Month Project Roadmap:
+
+
+ 🚀️ 3-Month Project Roadmap:
 
 First month:
 
