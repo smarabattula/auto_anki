@@ -3,7 +3,7 @@
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/SmayanaReddy/auto_anki)
 
 ![Build Status](https://img.shields.io/badge/build-passing-green)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5745931.svg)](https://doi.org/10.5281/zenodo.5745931)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10022019.svg)](https://doi.org/10.5281/zenodo.10022019)
 ![codecov](https://img.shields.io/badge/codecov-85%25-green)
 
 [![GitHub license](https://img.shields.io/github/license/tran4code/auto_anki)](https://github.com/tran4code/auto_anki/blob/main/LICENSE)
