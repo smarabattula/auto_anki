@@ -33,6 +33,7 @@
     <li><a href="#how-to-contribute">How to Contribute</a></li>
     <li><a href="#future-roadmap">Future RoadMap</a></li>
    <li><a href="#contributors">Contact us(Contributors)</a></li>
+    <li><a href="#Funding">Project's Funding</a></li>
    <li><a href="#acknowledgements">Acknowledgements</a></li>
    <li><a href="#Recommended-citation">Recommended citation</a></li>
   </ol>
@@ -153,12 +154,17 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 
 
 ## Contact us(Contributors):
+
 We are here to support you. Feel free to email us with any question or bug reports. We try our best to reply as soon as possible.
 
 * Keith Tran (ktran24@ncsu.edu)
 * Benyamin Tabarsi(btaghiz@ncsu.edu)
 * Kimia Fazeli(kfazeli@ncsu.edu)
 * Mohammed Faizan (mfaizan@ncsu.edu)
+
+## Project's funding
+
+Our project is currently not funded, and we operate on a volunteer and open-source basis , and currently,improvement of the project solely relies on the dedication of our team and contributions from the open-source community.
 
 ## Acknowledgements
 
