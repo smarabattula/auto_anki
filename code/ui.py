@@ -32,16 +32,14 @@ def process_(file):
     keyword_data = wp.duplicate_word_removal(keyword_data)
     search_query = wp.construct_search_query(
         keyword_data)
-    # if source_choice.get() == "Google":
-    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-        # when testing use searchquery[:10 or less].
-        # Still working on better threading to get faster results
-        results = executor.map(get_people_also_ask_links, search_query[:3])
-    # elif source_choice.get() == "GPT":
-    #     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-    #         # when testing use searchquery[:10 or less].
-    #         # Still working on better threading to get faster results
-    #         results = executor.map(gp.get_gpt_answers, search_query[:3])
+    if source_choice.get() == "Google":
+        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+            # when testing use searchquery[:10 or less].
+            # Still working on better threading to get faster results
+            results = executor.map(get_people_also_ask_links, search_query[:3])
+    elif source_choice.get() == "GPT":
+        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+            results = executor.map(gp.get_gpt_answers, search_query[:3])
 
     auto_anki_model = get_model()
     deck = get_deck(deck_name=lect_name)
