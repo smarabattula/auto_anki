@@ -31,7 +31,7 @@
     <li><a href="#code-documentation">Code Documentation</a></li>
     <li><a href="#how-to-contribute">How to Contribute</a></li>
     <li><a href="#future-roadmap">Future RoadMap</a></li>
-   <li><a href="#contributors">Contributors</a></li>
+   <li><a href="#contributors">Contact us(Contributors)</a></li>
    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
@@ -149,7 +149,9 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 
 - Currently Spacy is being used to extract noun phrases from each slide/page of the document. Then the high frequency noun phrases are calculated and used in the final search query. However this causes an issue when every slide has the document’s author name and email address listed. The author name is considered as a noun phrase, and since it appears on every slide has a high frequency, and thus appears on the final search query.
 
-## Contributors
+
+## Contact us(Contributors):
+Feel free to email us with any question or bug reports. We typically respond to inquiries within 24-48 hours
 
 * Keith Tran (ktran24@ncsu.edu)
 * Benyamin Tabarsi(btaghiz@ncsu.edu)
