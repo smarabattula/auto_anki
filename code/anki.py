@@ -6,6 +6,9 @@ import os
 
 
 def get_model():
+     """
+    Define an Anki flashcard model with fields for questions and answers suitable for use in the Anki flashcard application 
+    """
     my_model = genanki.Model(
         1607392319,
         'Anki Model',
