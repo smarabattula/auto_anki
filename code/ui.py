@@ -1,14 +1,14 @@
 import os
-from PIL import Image, ImageTk
+from PIL import ImageTk
 from user_cli import *
 from tkinter import filedialog
 from tkinter import *
 from docx2pdf import convert
 import sys
+import gpt_prompting as gp
+
 sys.path.append(
     '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages')
-
-
 
 # import filedialog module
 
@@ -32,18 +32,17 @@ def process_(file):
     keyword_data = wp.duplicate_word_removal(keyword_data)
     search_query = wp.construct_search_query(
         keyword_data)
-    if source_choice.get() == "Google":
-        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-            # when testing use searchquery[:10 or less].
-            # Still working on better threading to get faster results
-            results = executor.map(get_people_also_ask_links, search_query[:3])
-    elif source_choice.get() == "GPT":
-        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-            # when testing use searchquery[:10 or less].
-            # Still working on better threading to get faster results
-            # results = executor.map(get_gpt_answers, search_query[:3])
-            print()
-  
+    # if source_choice.get() == "Google":
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+        # when testing use searchquery[:10 or less].
+        # Still working on better threading to get faster results
+        results = executor.map(get_people_also_ask_links, search_query[:3])
+    # elif source_choice.get() == "GPT":
+    #     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+    #         # when testing use searchquery[:10 or less].
+    #         # Still working on better threading to get faster results
+    #         results = executor.map(gp.get_gpt_answers, search_query[:3])
+
     auto_anki_model = get_model()
     deck = get_deck(deck_name=lect_name)
     for result in results:
@@ -73,6 +72,7 @@ def browseFiles():
     text_box.grid(column=0, row=3)
     process_(file)
 
+
 # Create the root window
 window = Tk()
 # window.minsize(width=450, height=450)
@@ -100,12 +100,13 @@ button_explore = Button(window,
                         text="Browse Files",
                         command=browseFiles)
 
-source_choice = StringVar(window) # Variable to hold the choice
-sources = ["Google", "GPT"] # List of choices
-source_choice.set(sources[0]) # Set default value to Google
+source_choice = StringVar(window)  # Variable to hold the choice
+sources = ["Google", "GPT"]  # List of choices
+source_choice.set(sources[0])  # Set default value to Google
 
 source_dropdown = OptionMenu(window, source_choice, *sources)
-source_dropdown_label = Label(window, text="Choose an API source:", font="Raleway")
+source_dropdown_label = Label(
+    window, text="Choose an API source:", font="Raleway")
 
 source_dropdown_label.grid(column=0, row=2)
 source_dropdown.grid(column=0, row=3)
