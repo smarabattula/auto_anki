@@ -151,7 +151,7 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 
 
 ## Contact us(Contributors):
-Feel free to email us with any question or bug reports. We try our best to reply as soon as possible.
+We are here to support you. Feel free to email us with any question or bug reports. We try our best to reply as soon as possible.
 
 * Keith Tran (ktran24@ncsu.edu)
 * Benyamin Tabarsi(btaghiz@ncsu.edu)
