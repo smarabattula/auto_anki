@@ -3,7 +3,7 @@
 * Keith Tran (ktran24@ncsu.edu)
 * Benyamin Tabarsi(btaghiz@ncsu.edu)
 * Kimia Fazeli(kfazeli@ncsu.edu)
-* Muhammed Faizan (mfaizan@ncsu.edu)
+* Mohammed Faizan (mfaizan@ncsu.edu)
 
 2. Decision-Making:
 * Major decisions related to project direction, features, and releases will be made by consensus among the core contributors.
