@@ -25,6 +25,7 @@
   <ol>
     <li><a href="#why-should-you-use-auto-anki">Why should you use Auto Anki?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
+    <li><a href="#Sucessful-usecases">Sucessful usecases</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#code-documentation">Code Documentation</a></li>
     <li><a href="#how-to-contribute">How to Contribute</a></li>
@@ -58,6 +59,8 @@ Auto Anki 4.0 is here to enhance your study experience and empower your academic
 
 https://github.com/tran4code/auto_anki/assets/113017516/ab847e56-d290-4faf-9db6-d9967bc955d3
 
+
+# Successful usecases
 
 
 # Installation
