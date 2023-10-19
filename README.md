@@ -11,7 +11,6 @@
 [![GitHub issues-closed](https://img.shields.io/github/issues-closed/tran4code/auto_anki)](https://github.com/tran4code/auto_anki/issues?q=is%3Aissue+is%3Aclosed)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/tran4code/auto_anki/pulls)
 ![version](https://img.shields.io/badge/version-3.0-blue)
-![Style Checker](https://img.shields.io/badge/Passing?logo=pylint&label=Style%20Checker&color=brightgreen)
 
 <!-- ![github workflow](https://github.com/tran4code/SRIJAS/actions/workflows/unit_test.yml/badge.svg)
 ![Flake8 Style Check](https://github.com/tran4code/auto_anki/actions/workflows/Flake8%20Style%20Check/badge.svg)
