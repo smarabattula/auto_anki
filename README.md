@@ -157,7 +157,7 @@ We are here to support you. Feel free to email us with any question or bug repor
 * Keith Tran (ktran24@ncsu.edu)
 * Benyamin Tabarsi(btaghiz@ncsu.edu)
 * Kimia Fazeli(kfazeli@ncsu.edu)
-* Muhammed Faizan (mfaizan@ncsu.edu)
+* Mohammed Faizan (mfaizan@ncsu.edu)
 
 ## Acknowledgements
 
@@ -168,4 +168,4 @@ We have built this code on top of the stack from the project [
 
 You can cite us like this:
 
-Auto-Anki with ChatGPT. Version 1.0. Keith Tran,Benyamin Tabarsi, Kimia Fazeli, Muhammed Fazian. 2023. [https://github.com/tran4code/auto_anki]
+Auto-Anki with ChatGPT. Version 1.0. Keith Tran,Benyamin Tabarsi, Kimia Fazeli, Mohammed Fazian. 2023. [https://github.com/tran4code/auto_anki]
