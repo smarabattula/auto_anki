@@ -3,6 +3,8 @@ from langchain.llms import OpenAI
 from dotenv import load_dotenv
 import os
 
+#This script loads environment variables and prepares a request for generating Anki flashcards using the OpenAI API, with a prompt and format requirements for questions and answers related to principal components
+
 load_dotenv()
 API_KEY = os.environ["API_KEY"]
 
