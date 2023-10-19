@@ -63,7 +63,9 @@ https://github.com/tran4code/auto_anki/assets/113017516/ab847e56-d290-4faf-9db6-
 # Successful usecases
 
 🎉️ Case study : Kimia
+
 Background: Student majoring in Computer Science
+
 Scenario:
 
 * Kimia was struggling with managing large amounts of information from complex textbooks.
@@ -71,8 +73,11 @@ Scenario:
 * Result: Kimia noticed a significant improvement in her ability to absorb and retain information. Kimia achieved a good grade in her Software Engineering midterm exam and now has more free time for other activities.
 
 🎉️ Case Study: Language Learning
+
 User: Muhammed
+
 Background: Language Enthusiast
+
 Scenario:
 
 * Muhammed was passionate about learning new languages and wanted to create flashcards to improve his vocabulary.
