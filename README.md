@@ -92,15 +92,22 @@ Scenario:
 
 # Installation
 
-- Clone the repository
-  ` git clone https://github.com/tran4code/auto_anki
-- Install all requirements
-  ` pip install -r requirements.txt`
-- Install project as Python package
-  ` pip install .`
-- Clone Anki library
-  ` git clone https://github.com/kerrickstaley/genanki; cd genanki`
-- Install Anki library
+1. Clone the repository
+`git clone https://github.com/tran4code/auto_anki`
+2. Set up a virtual environment (Optional, but highly recommended):
+    - Create the virtual environment:
+    ``python -m venv myenv``
+    -  Activate the virtual environment: ``source myenv/bin/activate``.
+    - **Note**: In future runs, you won't need to create the virtual environment again, just activate it.
+3. Install all required packages:
+  `pip install -r requirements.txt`
+4. Install the project as a Python package:
+  `pip install .`
+5. Clone the Anki library
+  `git clone https://github.com/kerrickstaley/genanki` 
+6. Navigate into the cloned directory:
+  `cd genanki`
+7. Install the Anki library
   ` python setup.py install`
 
 ## Code Documentation
