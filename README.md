@@ -80,7 +80,7 @@ Scenario:
 
 🎉️ Case Study: Language Learning
 
-User: Mohammed
+User: Muhammed
 
 Background: Language Enthusiast
 
