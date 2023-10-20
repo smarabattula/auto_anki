@@ -2,6 +2,7 @@
 
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/SmayanaReddy/auto_anki)
 
+![Github](https://img.shields.io/badge/language-python-red.svg)
 ![Build Status](https://img.shields.io/badge/build-passing-green)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5745931.svg)](https://doi.org/10.5281/zenodo.5745931)
 ![codecov](https://img.shields.io/badge/codecov-85%25-green)
