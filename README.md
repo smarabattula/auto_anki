@@ -88,9 +88,9 @@ Background: Language Enthusiast
 
 Scenario:
 
-* Muhammed was passionate about learning new languages and wanted to create flashcards to improve his vocabulary.
+* Mohammed was passionate about learning new languages and wanted to create flashcards to improve his vocabulary.
 * He used Auto-Anki with ChatGPT to extract phrases and sentences from Spanish language textbooks and websites.
-* Result: Muhammed  could expand his vocabulary and language skills in only 2 weeks that he has used Auto-Anki, making his conversations more fluent and enjoyable.
+* Result: Mohammed  could expand his vocabulary and language skills in only 2 weeks that he has used Auto-Anki, making his conversations more fluent and enjoyable.
 
 # Installation
 
