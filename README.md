@@ -62,8 +62,32 @@ Break down lecture PDFs into concise and effective question-and-answer pairs.
 Create straightforward flashcards for effortless memorization and revision.
 Auto Anki 4.0 is here to enhance your study experience and empower your academic success! 😊
 
-## Quick start
-Install Auto-Anki with chatGPT, give your study lectures or documents to it, and voila ! your apkg file is ready! you can give it to Anki application and read your materials ! Quick and Easy Peasy!
+## Quick Start
+Install Auto-Anki with ChatGPT, provide your study lectures or documents, and your APKG file will be ready! You can import it into the Anki application and dive into your materials. It's quick and easy peasy!
+
+Here's a series of pictures to demonstrate the features we've added and how to use them:
+
+### First Feature: Enhanced User Interface
+We've revamped the user interface and introduced a convenient drop-down menu, a new addition not found in the previous version.
+
+<img src="https://github.com/tran4code/auto_anki/assets/113017516/0f8d4620-e795-473e-ae37-15840db64b6e" width="400" />
+
+### Second Feature: ChatGPT Integration
+To provide more accurate answers, we integrated the ChatGPT API. Now, users can generate highly precise flashcards with Auto-Anki powered by ChatGPT.
+
+When you run Auto-Anki, you'll be greeted by this user-friendly interface where you can choose between Google or ChatGPT to generate your flashcards.
+
+<img src="https://github.com/tran4code/auto_anki/assets/113017516/ca20b1dd-9972-4af1-a883-a665f321b9b6" width="400" />
+
+<img src="https://github.com/tran4code/auto_anki/assets/113017516/ad87793c-fa1e-49f5-ab44-e0ee4bd871d1" width="400" />
+
+Here, you can upload your document:
+
+<img src="https://github.com/tran4code/auto_anki/assets/113017516/bc38ce0a-c838-49f5-b125-57c9b46a8365" width="400" />
+
+It produces an APKG file, and with the Anki application, you can open it and enjoy a new and enhanced studying experience.
+
+<img src="https://github.com/tran4code/auto_anki/assets/113017516/a388c8f0-a4a6-486a-8495-d3f49be9042b" width="400" />
 
 ## Check out the video!
 
