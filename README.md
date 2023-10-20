@@ -68,12 +68,13 @@ Install Auto-Anki with ChatGPT, provide your study lectures or documents, and yo
 Here's a series of pictures to demonstrate the features we've added and how to use them:
 
 ### First Feature: Enhanced User Interface
-We've revamped the user interface and introduced a convenient drop-down menu, a new addition not found in the previous version.
+We've revamped the user interface and introduced a convenient drop-down menu, this was not available in the previous version. Also we improved overall appereance.
 
 <img src="https://github.com/tran4code/auto_anki/assets/113017516/0f8d4620-e795-473e-ae37-15840db64b6e" width="400" />
 
 ### Second Feature: ChatGPT Integration
-To provide more accurate answers, we integrated the ChatGPT API. Now, users can generate highly precise flashcards with Auto-Anki powered by ChatGPT.
+To provide more accurate answers, we integrated the ChatGPT API. Now, users can generate highly precise flashcards with Auto-Anki powered by ChatGPT. In the [revious version they could only use google(people aslo asked answers) to generate flash cards.
+
 
 When you run Auto-Anki, you'll be greeted by this user-friendly interface where you can choose between Google or ChatGPT to generate your flashcards.
 
