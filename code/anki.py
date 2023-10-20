@@ -26,7 +26,7 @@ import os
 
 
 def get_model():
-     """
+    """
     Define an Anki flashcard model with fields for questions and answers suitable for use in the Anki flashcard application 
     """
     my_model = genanki.Model(
@@ -43,7 +43,6 @@ def get_model():
                 'afmt': '{{FrontSide}}<hr id="answer">{{Answer}}',
             },
         ])
-
     return my_model
 
 
