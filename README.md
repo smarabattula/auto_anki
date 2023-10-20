@@ -13,11 +13,12 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/tran4code/auto_anki/pulls)
 ![version](https://img.shields.io/badge/version-3.0-blue)
 ![Test Cases](https://img.shields.io/badge/tests-passing-green)
+![Test Cases](https://img.shields.io/badge/test%20cases-20-green)
 <!-- ![github workflow](https://github.com/tran4code/SRIJAS/actions/workflows/unit_test.yml/badge.svg)
 ![Flake8 Style Check](https://github.com/tran4code/auto_anki/actions/workflows/Flake8%20Style%20Check/badge.svg)
 ![github workflow](https://github.com/tran4code/SRIJAS/actions/workflows/main.yml/badge.svg)
 ![github workflow](https://github.com/tran4code/SRIJAS/actions/workflows/code_cov.yml/badge.svg) -->
-![Test Cases](https://img.shields.io/badge/test%20cases-20-green)
+
 
 
 ## [Demo Video](https://drive.google.com/file/d/12h5izedNfEth56KhbKFRBYDFKU2PPChQ/view?usp=sharing)
