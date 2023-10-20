@@ -104,13 +104,15 @@ Scenario:
     - **Note**: In future runs, you won't need to create the virtual environment again, just activate it.
 3. Install all required packages:
   `pip install -r requirements.txt`
-4. Install the project as a Python package:
+4. Download a required model:
+  `python -m spacy download en_core_web_lg`
+5. Install the project as a Python package:
   `pip install .`
-5. Clone the Anki library
+6. Clone the Anki library
   `git clone https://github.com/kerrickstaley/genanki` 
-6. Navigate into the cloned directory:
+7. Navigate into the cloned directory:
   `cd genanki`
-7. Install the Anki library
+8. Install the Anki library
   ` python setup.py install`
 
 ## Code Documentation
