@@ -2,6 +2,9 @@
 ### Making flash cards using ChatGPT
 In the previous version, flash cards were created using google(People also asked section which was not accurate enough for generating Flash card answers. In this version, you have the option to choose to create the flash cards using ChatGPT 4 which is more accuarate and reliable)
 
+### Drop down menu added
+We changed the user interface and added a drop down menu. now users can choose whether google or ChatGPT generated the flash cards for them.
+
 
 ### Answer search
 In the previous version, only a relevant web link for a question was being extracted. In this version, we search the web for the relevant answers as well, and then find the best answer. Therefore, we do only show the user different questions but provide an end-to-end solution with both questions and answers.
