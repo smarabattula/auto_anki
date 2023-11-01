@@ -21,7 +21,7 @@
 
 
 
-## Click to see our ( [Demo Video](https://youtu.be/hLsI2FBElr0) )
+## [Click to see Auto Anki's Demo video](https://youtu.be/hLsI2FBElr0)
 
 <!-- TABLE OF CONTENTS -->
 
