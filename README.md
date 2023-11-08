@@ -139,7 +139,10 @@ Scenario:
   `cd genanki`
 8. Install the Anki library
   ` python setup.py install`
+9. The command to run the project is:
+ `python3 code/ui.py`
 
+    
 ## Code Documentation
 
 Documentation of the entire codebase is generated using [Pycco](https://github.com/pycco-docs/pycco).
