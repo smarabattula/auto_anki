@@ -25,7 +25,7 @@ from PIL import ImageTk
 from user_cli import *
 from tkinter import filedialog
 from tkinter import *
-from tkinter import filedialog, Tk, Label, Button, StringVar, OptionMenu, messagebox, Text
+from tkinter import filedialog, Tk, ttk, Label, Button, StringVar, OptionMenu, messagebox, Text
 from docx2pdf import convert
 import sys
 import threading
@@ -39,7 +39,7 @@ sys.path.append(
 
 def process_(file, progress_callback, finish_callback):
     try:
-
+        update_status("Processing file...")
         lect_name = file.split("/")[-1].split(".")[0]
 
         if file.split("/")[-1].split(".")[1] == "pdf":
@@ -88,7 +88,7 @@ def process_(file, progress_callback, finish_callback):
         progress_callback(100)
 
         finish_callback()
-
+        update_status("File processed successfully.")
     except Exception as e:
         messagebox.showerror("Error", str(e))
         finish_callback()
@@ -128,18 +128,27 @@ def browseFiles():
             file, update_progress, on_finish), daemon=True).start()
 
 
+def update_status(message):
+    status_label.config(text=message)
+    window.update_idletasks()
+
+
 # Create the root window
 window = Tk()
 # window.minsize(width=450, height=450)
-window.config(background="#ebeceb")
+window.config(background="#515A5A")
 
-canvas = Canvas(width=600, height=600)
-canvas.grid(columnspan=2, rowspan=4)
+canvas = Canvas(width=440, height=500)
+
+# canvas color
+canvas.configure(bg='#515A5A')
+
+canvas.grid(columnspan=2, rowspan=8)
 # Set window title
 window.title('Auto-Anki')
 
 # Set window size
-window.geometry("700x700")
+window.geometry("450x600")
 
 # set logo
 logo = ImageTk.PhotoImage(file='code/Auto_Anki_Logo.jpg')
@@ -166,10 +175,22 @@ source_dropdown_label = Label(
 source_dropdown_label.grid(column=0, row=2)
 source_dropdown.grid(column=0, row=3)
 
+
+style = ttk.Style(window)
+# Set the theme to the default theme
+style.theme_use('default')
+style.configure('TProgressbar', thickness=10)
+
+
 # Progress bar widget
-progress = Progressbar(window, orient="horizontal",
-                       length=300, mode="determinate")
-progress.grid(column=0, row=6, columnspan=2, pady=20)
+progress = Progressbar(window, style='TProgressbar', orient="horizontal",
+                       length=250, mode="determinate")
+progress.grid(column=0, row=6)  # , columnspan=2, pady=20)
+
+# Status
+status_label = Label(window, text="Ready", bd=1, relief="sunken", anchor="w")
+status_label.grid(column=0, row=7, columnspan=2,
+                  sticky="we", padx=(10, 10), pady=(10, 10))
 
 
 button_exit = Button(window,
