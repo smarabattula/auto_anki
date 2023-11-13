@@ -137,19 +137,27 @@ def update_status(message):
 window = Tk()
 # window.minsize(width=450, height=450)
 window.config(background="#515A5A")
-
-canvas = Canvas(width=440, height=500)
-
-# canvas color
-canvas.configure(bg='#515A5A')
-
-canvas.grid(columnspan=2, rowspan=8)
 # Set window title
 window.title('Auto-Anki')
 
 # Set window size
-window.geometry("450x600")
+window.geometry("450x550")
 
+canvas = Canvas(window, bg='#515A5A')
+
+
+# Configure the grid to be responsive
+number_of_rows = 8  # Replace with the actual number of rows you have
+number_of_columns = 1  # Replace with the actual number of columns you have
+
+for i in range(number_of_rows):
+    window.grid_rowconfigure(i, weight=1)
+
+for j in range(number_of_columns):
+    window.grid_columnconfigure(j, weight=1)
+
+canvas.grid(row=0, column=0, rowspan=number_of_rows,
+            columnspan=number_of_columns, sticky='nsew')
 # set logo
 logo = ImageTk.PhotoImage(file='code/Auto_Anki_Logo.jpg')
 logo_label = Label(image=logo)
