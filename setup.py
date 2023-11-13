@@ -25,6 +25,7 @@ setup(
         "cymem==2.0.8",
         "dataclasses-json==0.6.1",
         "docx2pdf==0.1.8",
+        "flask==3.0.0",
         "frozendict==2.3.8",
         "frozenlist==1.4.0",
         "genanki==0.13.0",
