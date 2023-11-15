@@ -68,7 +68,7 @@ def process_(file):  # , progress_callback, finish_callback):
         elif source_choice.get() == "GPT":
             with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
                 results = executor.map(gp.get_gpt_answers, search_query[:3])
-
+        # print(results)
         auto_anki_model = get_model()
         deck = get_deck(deck_name=lect_name)
         for result in results:
@@ -96,14 +96,14 @@ def process_url(url):  # , progress_callback, finish_callback):
         auto_anki_model = get_model()
         lect_name = url.split("/")[-1]
         deck = get_deck(deck_name=lect_name)
-        print(results)
+        # print(results)
 
         for result in results_list:
-            print(result)
+            # print(result)
             # no error till here
             question = result["Question"]
             answer = result["Answer"]
-            print(question, answer)
+            # print(question, answer)
             qa = add_question(
                 question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
             deck.add_note(qa)
