@@ -38,7 +38,7 @@ sys.path.append(
 # import filedialog module
 
 
-def process_(file, progress_callback, finish_callback):
+def process_(file):  # , progress_callback, finish_callback):
     try:
         update_status("Processing file...")
         lect_name = file.split("/")[-1].split(".")[0]
@@ -70,78 +70,41 @@ def process_(file, progress_callback, finish_callback):
 
         auto_anki_model = get_model()
         deck = get_deck(deck_name=lect_name)
-        total_qapairs = sum(len(result) for result in results)
-        # print("total qapairs", total_qapairs)
-        processed_qapairs = 0
-        # print("HEy brfore", results)
         for result in results:
-            # print(result)
             for qapair in result:
                 question = qapair["Question"]
-
-                print(question, "question")
-
                 answer = qapair["Answer"]
                 qa = add_question(
                     question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
                 deck.add_note(qa)
-                print("Hey"*5, result)
-
-                processed_qapairs += 1
-                # Calculate dynamic progress
-                progress_percentage = 70 + \
-                    (processed_qapairs / total_qapairs * 20)
-                progress_callback(progress_percentage)
-
         add_package(deck, lect_name)
-        progress_callback(100)
-
-        finish_callback()
         update_status("File processed successfully.")
     except Exception as e:
         messagebox.showerror("Error", str(e))
-        finish_callback()
-    # import time
-    # time.sleep(5)  # Change ::::This simulate long-running process
-    # callback()
+        # finish_callback()
 
 
 # Fcuntion for processing url
-def process_url(url, progress_callback, finish_callback):
+def process_url(url):  # , progress_callback, finish_callback):
     try:
         update_status("Processing URL...")
-        # Here, call the function to process the URL
-        # For example, you might need to modify your get_gpt_answers function to accept and process URLs
-        # Modify this call as per your updated function
+
         results = gp4.get_gpt_link_answers(url)
-    #     auto_anki_model = get_model()
-    #     deck = get_deck(deck_name=lect_name)
-    #     total_qapairs = sum(len(result) for result in results)
-    #     processed_qapairs = 0
-    #     for result in results:
-    #         for qapair in result:
-    #             question = qapair["Question"]
-    #             answer = qapair["Answer"]
-    #             qa = add_question(
-    #                 question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
-    #             deck.add_note(qa)
-    #             processed_qapairs += 1
-    #             # Calculate dynamic progress
-    #             progress_percentage = 70 + \
-    #                 (processed_qapairs / total_qapairs * 20)
-    #             progress_callback(progress_percentage)
-
-    #     add_package(deck, lect_name)
-    #     progress_callback(100)
-
-    #     finish_callback()
-    #     update_status("Link processed successfully.")
-
-    #     # ... [rest of the code to process the qapairs and create flashcards]
-
+        auto_anki_model = get_model()
+        lect_name = url.split("/")[-1]
+        deck = get_deck(deck_name=lect_name)
+        print(results)
+        for result in results:
+            for qapair in result:
+                question = qapair["Question"]
+                answer = qapair["Answer"]
+                qa = add_question(
+                    question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
+                deck.add_note(qa)
+        add_package(deck, lect_name)
+        update_status("File processed successfully.")
     except Exception as e:
         messagebox.showerror("Error", str(e))
-        finish_callback()
 
 
 # # New function to handle URL input
@@ -149,8 +112,7 @@ def process_link():
     url = url_input.get()
     if url:
         # You might want to add some validation for the URL here
-        threading.Thread(target=process_url, args=(
-            url, update_progress, on_finish), daemon=True).start()
+        process_url(url)
     else:
         messagebox.showerror("Error", "Please enter a valid URL")
 
@@ -183,9 +145,10 @@ def browseFiles():
         text_box.tag_configure("center", justify="center")
         text_box.tag_add("center", 1.0, "end")
         text_box.grid(column=0, row=3)
+        process_(file)
 
-        threading.Thread(target=process_, args=(
-            file, update_progress, on_finish), daemon=True).start()
+        # threading.Thread(target=process_, args=(
+        #     file, update_progress, on_finish), daemon=True).start()
 
 
 def update_status(message):
