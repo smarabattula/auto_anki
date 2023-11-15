@@ -29,8 +29,5 @@ def get_gpt_link_answers(url):
             },
         ],
     )
-    # print(completion.choices[0].message.content)
+
     return completion.choices[0].message.content
-
-
-# print(get_gpt_link_answers('https://en.wikipedia.org/wiki/Metagenomics'))

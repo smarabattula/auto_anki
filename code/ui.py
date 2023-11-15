@@ -32,6 +32,7 @@ import threading
 import gpt_prompting as gp
 import gpt4 as gp4
 from tkinter.ttk import Progressbar
+import json
 sys.path.append(
     '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages')
 
@@ -90,17 +91,22 @@ def process_url(url):  # , progress_callback, finish_callback):
         update_status("Processing URL...")
 
         results = gp4.get_gpt_link_answers(url)
+        results_json = results.replace("'", '"')
+        results_list = json.loads(results_json)
         auto_anki_model = get_model()
         lect_name = url.split("/")[-1]
         deck = get_deck(deck_name=lect_name)
         print(results)
-        for result in results:
-            for qapair in result:
-                question = qapair["Question"]
-                answer = qapair["Answer"]
-                qa = add_question(
-                    question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
-                deck.add_note(qa)
+
+        for result in results_list:
+            print(result)
+            # no error till here
+            question = result["Question"]
+            answer = result["Answer"]
+            print(question, answer)
+            qa = add_question(
+                question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
+            deck.add_note(qa)
         add_package(deck, lect_name)
         update_status("File processed successfully.")
     except Exception as e:
