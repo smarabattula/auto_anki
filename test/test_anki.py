@@ -5,7 +5,7 @@ from os import name
 import genanki 
 import unittest
 
-from anki import add_package, add_question, get_deck, get_model
+from code.anki import add_package, add_question, get_deck, get_model
 
 
 class TestAnki(unittest.TestCase):

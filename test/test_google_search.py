@@ -2,7 +2,7 @@
 # MIT License
 
 import unittest
-from google_search import get_people_also_ask_links
+from code.google_search import get_people_also_ask_links
 
 class TestGoogleSearch(unittest.TestCase):
     def setUp(self) -> None:

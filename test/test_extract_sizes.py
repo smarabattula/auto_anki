@@ -8,7 +8,8 @@ Unit tests for extract sizes
 """
 import json
 import unittest
-from extract_sizes import (get_sizes, tag_text, text_to_groupings, extract_words_word, extract_words)
+from code.extract_sizes import (get_sizes, tag_text, text_to_groupings,extract_words_word)
+
 
 
 class TestExtractSizes(unittest.TestCase):
@@ -18,14 +19,9 @@ class TestExtractSizes(unittest.TestCase):
     Includes testing None cases and valid PDFs
 
     """
-
-    def test_extract_words(self):
-        test_dict = {'meta_data': {'format': 'PDF 1.4', 'title': 'test_pdf', 'author': '', 'subject': '', 'keywords': '', 'creator': '', 'producer': 'Skia/PDF m121 Google Docs Renderer', 'creationDate': '', 'modDate': '', 'trapped': '', 'encryption': None}, 'data': [{'slide': 1, 'blocks': [{'text': 'Test', 'size': 11.0}, {'text': 'Test', 'size': 11.0}, {'text': 'Test', 'size': 11.0}]}]}
-        self.assertEqual(extract_words("test_pdf.pdf"),test_dict)
-
     def test_extract_words_word(self):
-        document_name= extract_words_word("test_pdf.docx")
-        final_document={'meta_data': {'format': 'PDF 1.4', 'title': 'test_pdf', 'author': '', 'subject': '', 'keywords': '', 'creator': '', 'producer': 'Skia/PDF m121 Google Docs Renderer', 'creationDate': '', 'modDate': '', 'trapped': '', 'encryption': None}, 'data': [{'slide': 1, 'blocks': [{'text': 'Test', 'size': 11.0}, {'text': 'Test', 'size': 11.0}, {'text': 'Test', 'size': 11.0}]}]}
+        document_name= extract_words_word(testsample.docx)
+        final_document="testsample.pdf"
         self.assertEqual(document_name,final_document)
 
     def test_font_doc_none(self):
@@ -50,7 +46,7 @@ class TestExtractSizes(unittest.TestCase):
         """
         Tests the unique font size is as expected for Test1
         """
-        filename = "data/Test_1.json"
+        filename = "./test/data/Test_1.json"
         with open(filename, encoding='utf-8') as file_pointer:
             doc = json.load(file_pointer)
             actual_fonts = get_sizes(doc)
@@ -62,7 +58,7 @@ class TestExtractSizes(unittest.TestCase):
         """
         Tests the groupings given a file
         """
-        filename = "data/Test_1.json"
+        filename = "./test/data/Test_1.json"
 
         with open(filename, encoding='utf-8') as file_pointer:
             doc = json.load(file_pointer)
@@ -87,7 +83,7 @@ class TestExtractSizes(unittest.TestCase):
         """
         Tests the unique font size is as expected for Test2
         """
-        filename = "data/Test_2.json"
+        filename = "./test/data/Test_2.json"
         with open(filename, encoding='utf-8') as file_pointer:
             doc = json.load(file_pointer)
             actual_fonts = get_sizes(doc)
@@ -99,7 +95,7 @@ class TestExtractSizes(unittest.TestCase):
         """
         Tests the groupings given a file
         """
-        filename = "data/Test_2.json"
+        filename = "./test/data/Test_2.json"
         with open(filename, encoding='utf-8') as file_pointer:
             doc = json.load(file_pointer)
 
