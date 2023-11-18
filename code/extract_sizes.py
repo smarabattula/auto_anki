@@ -22,8 +22,8 @@
 
 """
 
-File completing step 2: given a pdf document, return a dictionary
-of headers and paragraphs
+File completing step 2: given a pdf document
+return a dictionaryof headers and paragraphs
 
 """
 
@@ -31,14 +31,16 @@ import os
 import re
 import fitz
 
+
 def extract_words(file: str) -> dict:
     """
-    Given a filename, opens the PDF and extracts words and metadata from each slide
+    Given a filename,
+    opens the PDF and extracts words & metadata from each slide
 
     :param file: String representing file path
     :type: string
     :rtype: dict
-    :return: dictionary representing document metadata and words extracted from each slide
+    :return: dict, Contains extracted metadata & words from all slides
     """
     # document = stream=mem_area,
     print(file)
@@ -51,10 +53,14 @@ def extract_words(file: str) -> dict:
         page_data["slide"] = index+1
         page_data["blocks"] = []
         blocks = page.get_text("dict")["blocks"]
-        for block in blocks:  # iterate through the text blocks
-            if block['type'] == 0:  # block contains text
-                for line in block["lines"]:  # iterate through the text lines
-                    for span in line["spans"]:  # iterate through the text spans
+        # iterate through the text blocks
+        for block in blocks:
+            # block contains text
+            if block['type'] == 0:
+                # iterate through the text lines
+                for line in block["lines"]:
+                    # iterate through the text spans
+                    for span in line["spans"]:
                         page_data["blocks"].append({
                             "text": re.sub(r"\W{3,}", " ", span["text"]),
                             "size": span["size"]
@@ -66,25 +72,26 @@ def extract_words(file: str) -> dict:
 
 def extract_words_word(file: str) -> list:
     """
-    Given a filename, opens the Word and extracts words and metadata from each slide
+    Given a filename,
+    Opens the Word
+    Then extracts words and metadata from each slide
     """
 
     template = f"soffice --headless --convert-to pdf {file}"
     os.system(template)
 
-# Load word document
+    # Load word document
     # doc = aw.Document(file)
     # inputfile=file
     outputfile = file[:-5]+".pdf"
 
-   # Save as PDF
-   # doc.save(outputfile)
-   # print(outputfile)
-   # Load word document
-   # doc = aw.Document(file)
+    # Save as PDF
+    # doc.save(outputfile)
+    # print(outputfile)
+    # Load word document
+    # doc = aw.Document(file)
     # inputfile=file
     # outputfile= file[:-5]+".pdf"
-
     # convert(inputfile,outputfile)
     return extract_words(outputfile)
 
@@ -123,7 +130,7 @@ def tag_text(unique_fonts: list, doc: dict) -> list:
     :param doc: a list of blocks per each document page
     :type doc: dict
     :rtype: list
-    :return: a list of dictionaries categorizing each text into its respective category
+    :return: a list of dicts categorizing texts into respective categories
     """
     # check that both are not None, or empty
     if not doc or not unique_fonts:
@@ -152,12 +159,13 @@ def tag_text(unique_fonts: list, doc: dict) -> list:
 
 def text_to_groupings(doc: dict) -> list:
     """
-    Given a pdf document, returns a dictionary of Headers, Paragraphs, and page number
+    Given a pdf document,
+    Returns a dictionary of Headers, Paragraphs, and page number
 
     :param doc: a PDF document containing only words
     :type: dict
     :rtype: list
-    :return: a dictionary categorizing each text into its respective category
+    :return: dict categorizing each text into its respective category
     """
     font_count = get_sizes(doc)
     lst_fonts = tag_text(font_count, doc)

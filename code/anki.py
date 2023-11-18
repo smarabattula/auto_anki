@@ -23,9 +23,11 @@
 import genanki
 import os
 
+
 def get_model():
     """
-    Define an Anki flashcard model with fields for questions and answers suitable for use in the Anki flashcard application
+    Define an Anki flashcard model with fields for questions and answers
+    Suitable for use in the Anki flashcard application
     """
     my_model = genanki.Model(
         1607392319,
@@ -82,7 +84,8 @@ def add_package(deck, output_fname):
     ------
     None
     """
-    anki_path = os.path.join(os.path.dirname(os.path.realpath(__file__)),"anki_decks")
+    app_cwd = os.path.dirname(os.path.realpath(__file__))
+    anki_path = os.path.join(app_cwd, "anki_decks")
     if not os.path.exists(anki_path):
         os.makedirs(anki_path)
     genanki.Package(deck).write_to_file(f'{anki_path}/{output_fname}.apkg')
