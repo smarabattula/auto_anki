@@ -210,3 +210,7 @@ fabric.properties
 
 # virtual environment directory
 myenv/
+
+# Generated Anki decks
+code/anki_decks
+uploads/

@@ -23,7 +23,7 @@ Mandatory
 
 appscript==1.2.2
 License: MIT
-Mandatory
+Mandatory for MacOS only
 async-timeout==4.0.3
 
 License: MIT
