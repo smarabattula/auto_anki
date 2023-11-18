@@ -39,7 +39,7 @@ sys.path.append(
 # import filedialog module
 
 
-def process_(file):  # , progress_callback, finish_callback):
+def process_(file,):  # , progress_callback, finish_callback):
     try:
         update_status("Processing file...")
         lect_name = file.split("/")[-1].split(".")[0]

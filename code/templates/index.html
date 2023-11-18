@@ -1,0 +1,123 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auto-Anki</title>
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+</head>
+<body style="background-color: #ebeceb; font-family: 'Robota', sans-serif;">
+    <h1>Auto-Anki</h1>
+    <img src="{{ url_for('static', filename='Auto_Anki_Logo.jpg') }}" alt="Auto-Anki Logo" style="width: 200px; height: 200px;"><br><br>
+    <p>Select a PDF file on your computer or enter a URL:</p>
+    <form id="fileForm" method="post" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="file"><br><br>
+        <label for="source">Choose an API source:</label>
+        <select name="source" id="source">
+            <option value="Google" selected>Google</option>
+            <option value="GPT">GPT</option>
+        </select><br><br>
+        <input type="text" name="url" id="urlInput" placeholder="Enter URL">
+        <button type="button" onclick="processUrl()">Process URL</button><br><br>
+        <input type="submit" value="Upload">
+        <div><p>Status: <span id="content">{{status_label['message']}}</span></p></div>
+    </form>
+
+    <!-- Additional content to be displayed after processing the file -->
+    <div id="additionalContent" style="display: none;">
+        <!-- Your additional content goes here -->
+        <p id="p-additionalContent">File processed successfully! Here's some additional content.</p>
+    </div>
+
+    <script>
+        function updateStatus(message) {
+            // Update content dynamically
+            document.getElementById('content').innerText = message;
+            console.log(message);
+        }
+
+        function processUrl() {
+            var urlInput = document.getElementById('urlInput').value;
+            if (urlInput) {
+                // Update status immediately
+                updateStatus("Processing URL...");
+
+                // Make an asynchronous request to the server
+                fetch('/upload', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'url=' + encodeURIComponent(urlInput),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Update status dynamically
+                    updateStatus(data['message']);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Update status in case of an error
+                    updateStatus('Error processing URL');
+                });
+            } else {
+                alert("Please enter a valid URL");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fetch data from Flask API endpoint
+            fetch('/api/status')
+                .then(response => response.json())
+                .then(data => {
+                    // Update content dynamically
+                    updateStatus(data['message']);
+                    // Show/hide loading and additional content
+                    if (data['flag'] == true) {
+                        document.getElementById('additionalContent').style.display = 'block';
+                    } else {
+                        document.getElementById('additionalContent').style.display = 'none';
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+
+            // Handle form submission asynchronously
+            document.getElementById('fileForm').addEventListener('submit', function (event) {
+                event.preventDefault();  // Prevent the default form submission
+                var formData = new FormData(this);
+
+                // Make an AJAX request to handle form submission
+                fetch('/upload', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Update status dynamically
+                    updateStatus(data['message']);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Update status in case of an error
+                    updateStatus('Error processing file');
+                });
+            });
+        });
+
+        // Run RefreshStatus() when the window is refreshed
+        window.onload = function () {
+            fetch('/api/refresh')
+                .then(response => response.json())
+                .then(data => {
+                    // Update content dynamically
+                    updateStatus(data['message']);
+                    // Show/hide loading and additional content
+                    document.getElementById('additionalContent').style.display = 'none';
+                })
+                .catch(error => console.error('Error:', error));
+        };
+    </script>
+
+</body>
+</html>

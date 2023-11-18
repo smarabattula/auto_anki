@@ -1,33 +1,31 @@
 # MIT License
-# 
+#
 # Copyright 2023 auto_anki
-# 
-# Permission is hereby granted, free of charge, to any person obtaining a copy 
-# of this software and associated documentation files (the “Software”), to deal 
-# in the Software without restriction, including without limitation the rights 
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
-# copies of the Software, and to permit persons to whom the Software is 
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the “Software”), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
-# 
-# The above copyright notice and this permission notice shall be included in 
+#
+# The above copyright notice and this permission notice shall be included in
 # all copies or substantial portions of the Software.
-# 
-# THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+#
+# THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
 
 import genanki
 import os
 
-
 def get_model():
     """
-    Define an Anki flashcard model with fields for questions and answers suitable for use in the Anki flashcard application 
+    Define an Anki flashcard model with fields for questions and answers suitable for use in the Anki flashcard application
     """
     my_model = genanki.Model(
         1607392319,
@@ -52,7 +50,7 @@ def get_deck(deck_name):
 
     Returns
     ------
-    anki deck 
+    anki deck
     """
 
     my_deck = genanki.Deck(
@@ -67,7 +65,7 @@ def add_question(question, answer, curr_model):
 
     Returns
     ------
-    anki card 
+    anki card
     """
 
     my_note = genanki.Note(
@@ -84,5 +82,7 @@ def add_package(deck, output_fname):
     ------
     None
     """
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    genanki.Package(deck).write_to_file(f'{dir_path}/{output_fname}.apkg')
+    anki_path = os.path.join(os.path.dirname(os.path.realpath(__file__)),"anki_decks")
+    if not os.path.exists(anki_path):
+        os.makedirs(anki_path)
+    genanki.Package(deck).write_to_file(f'{anki_path}/{output_fname}.apkg')
