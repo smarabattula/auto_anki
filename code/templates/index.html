@@ -1,33 +1,118 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto-Anki</title>
-    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-</head>
-<body style="background-color: #ebeceb; font-family: 'Robota', sans-serif;">
-    <h1>Auto-Anki</h1>
-    <img src="{{ url_for('static', filename='Auto_Anki_Logo.jpg') }}" alt="Auto-Anki Logo" style="width: 200px; height: 200px;"><br><br>
-    <p>Select a PDF file on your computer or enter a URL:</p>
-    <form id="fileForm" method="post" action="/upload" enctype="multipart/form-data">
-        <input type="file" name="file"><br><br>
-        <label for="source">Choose an API source:</label>
-        <select name="source" id="source">
-            <option value="Google" selected>Google</option>
-            <option value="GPT">GPT</option>
-        </select><br><br>
-        <input type="text" name="url" id="urlInput" placeholder="Enter URL">
-        <button type="button" onclick="processUrl()">Process URL</button><br><br>
-        <input type="submit" value="Upload">
-        <div><p>Status: <span id="content">{{status_label['message']}}</span></p></div>
-    </form>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Additional content to be displayed after processing the file -->
-    <div id="additionalContent" style="display: none;">
-        <!-- Your additional content goes here -->
-        <p id="p-additionalContent">File processed successfully! Here's some additional content.</p>
+    <style>
+        body {
+            background-color: #ebeceb;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        header {
+            text-align: center;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            display: block;
+            margin: 20px auto;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        #urlForm {
+            display: none;
+        }
+
+        #content {
+            font-weight: bold;
+        }
+
+        #additionalContent {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #additionalContent p {
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar navbar-dark bg-primary">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Auto-Anki</span>
+        </div>
+    </header>
+
+    <div class="container mt-3">
+        <img src="{{ url_for('static', filename='Auto_Anki_Logo.jpg') }}" alt="Auto-Anki Logo">
+
+        <label class="form-label">Select upload type:</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="uploadType" value="file" id="fileRadio" checked>
+            <label class="form-check-label" for="fileRadio">File</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="uploadType" value="url" id="urlRadio">
+            <label class="form-check-label" for="urlRadio">URL</label>
+        </div>
+
+        <!-- Form for file upload -->
+        <form id="fileForm" method="post" action="/upload/file" enctype="multipart/form-data">
+
+
+            <div class="mb-3">
+                <label for="source" class="form-label">Choose an API source:</label>
+
+                <select name="source" id="source" class="form-select">
+                    <option value="Google" selected>Google</option>
+                    <option value="GPT">GPT</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <input type="file" name="file" id="fileInput" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+
+        <!-- Form for URL processing -->
+        <form id="urlForm" method="post" action="/upload/url" enctype="multipart/form-data">
+            <div class="mb-3">
+                <input type="text" name="url" id="urlInput" placeholder="Enter URL" class="form-control">
+            </div>
+            <button type="button" onclick="processUrl()" class="btn btn-primary">Process URL</button>
+        </form>
+
+        <div class="mb-3">
+            <p>Status: <span id="content">{{status_label['message']}}</span></p>
+        </div>
+
+        <!-- Additional content to be displayed after processing the file -->
+        <div id="additionalContent">
+            <p>Your additional content goes here.</p>
+        </div>
     </div>
 
     <script>
@@ -37,19 +122,61 @@
             console.log(message);
         }
 
+        function processFile() {
+            // Update status immediately
+            updateStatus("Processing file...");
+
+            // Create a FormData object
+            var formData = new FormData();
+
+            // Get the file input element
+            var fileInput = document.getElementById('fileInput');
+            console.log("hi");
+            console.log(fileInput);
+            // Check if a file is selected
+            if (fileInput.files.length > 0) {
+                // Append the file to the FormData object
+                formData.append('file', fileInput.files[0]);
+                console.log(formData);
+                // Determine the correct URL based on the selected upload type
+                var uploadFile = '/upload/file'
+                // Make an asynchronous request to the server
+                fetch(uploadFile, {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Update status dynamically
+                    updateStatus(data['message']);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Update status in case of an error
+                    updateStatus('Error processing file');
+                });
+            } else {
+                // No file selected, show an alert or update the status accordingly
+                updateStatus('No file selected');
+            }
+        }
         function processUrl() {
             var urlInput = document.getElementById('urlInput').value;
             if (urlInput) {
                 // Update status immediately
                 updateStatus("Processing URL...");
 
+                // Create a FormData object and append the URL input
+                var formData = new FormData();
+                formData.append('url', urlInput);
+
+                // Determine the correct URL based on the selected upload type
+                var uploadUrl = '/upload/url';
+
                 // Make an asynchronous request to the server
-                fetch('/upload', {
+                fetch(uploadUrl, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: 'url=' + encodeURIComponent(urlInput),
+                    body: formData,
                 })
                 .then(response => response.json())
                 .then(data => {
@@ -66,6 +193,15 @@
             }
         }
 
+        // Event listener for radio button changes
+        document.querySelectorAll('input[name="uploadType"]').forEach((radio) => {
+            radio.addEventListener('change', function () {
+                // Show/hide file and URL forms based on selection
+                document.getElementById('fileForm').style.display = this.value === 'file' ? 'block' : 'none';
+                document.getElementById('urlForm').style.display = this.value === 'url' ? 'block' : 'none';
+            });
+        });
+
         document.addEventListener('DOMContentLoaded', function () {
             // Fetch data from Flask API endpoint
             fetch('/api/status')
@@ -75,9 +211,9 @@
                     updateStatus(data['message']);
                     // Show/hide loading and additional content
                     if (data['flag'] == true) {
-                        document.getElementById('additionalContent').style.display = 'block';
+                        document.getElementById('additionalContent').innerHTML = "File processed successfully! Here's some additional content.";
                     } else {
-                        document.getElementById('additionalContent').style.display = 'none';
+                        document.getElementById('additionalContent').innerHTML = '';
                     }
                 })
                 .catch(error => console.error('Error:', error));
@@ -86,9 +222,13 @@
             document.getElementById('fileForm').addEventListener('submit', function (event) {
                 event.preventDefault();  // Prevent the default form submission
                 var formData = new FormData(this);
+                // Determine the correct URL based on the selected upload type
+                var uploadUrl = document.querySelector('input[name="uploadType"]:checked').value === 'file'
+                    ? '/upload/file'
+                    : '/upload/url';
 
                 // Make an AJAX request to handle form submission
-                fetch('/upload', {
+                fetch(uploadUrl, {
                     method: 'POST',
                     body: formData,
                 })
