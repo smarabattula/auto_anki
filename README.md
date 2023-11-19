@@ -166,13 +166,13 @@ For checking code coverage,
 
 | Name              | Stmts | Miss | Cover |
 | ----------------- | ----- | ---- | ----- |
-| anki.py           | 14    | 0    | 100%  |
-| extract_sizes.py  | 56    | 0    | 100%  |
+| anki.py           | 17    | 1    | 94%   |
+| extract_sizes.py  | 55    | 0    | 100%  |
 | google_search.py  | 13    | 0    | 100%  |
-| gpt_prompting.py  | 15    | 6    | 60%   |
+| gpt_prompting.py  | 15    | 7    | 53%   |
 | user_cli.py       | 34    | 2    | 94%   |
 | wordprocessing.py | 125   | 22   | 82%   |
-| TOTAL             | 257   | 30   | 88%   |
+| TOTAL             | 259   | 32   | 88%   |
 
 ## How to Contribute
 
