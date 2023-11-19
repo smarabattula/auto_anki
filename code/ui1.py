@@ -29,13 +29,14 @@ import gpt4 as gp4
 from tkinter import messagebox
 # from tkinter.ttk import Progressbar
 import json
+import re
 
 from flask import Flask, render_template, request, jsonify, session
 
 sys.path.append(
     '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages')
 
-# import filedialog module
+
 def process_(file):  # , progress_callback, finish_callback):
     try:
         if file:
@@ -61,14 +62,12 @@ def process_(file):  # , progress_callback, finish_callback):
 
             source_choice = request.form['source']
 
-            # if source_choice.get() == "Google":
             if source_choice == "Google":
                 with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
                     # when testing use searchquery[:10 or less].
                     # Still working on better threading to get faster results
                     results = executor.map(
                         get_people_also_ask_links, search_query[:3])
-        # elif source_choice.get() == "GPT":
             elif source_choice == "GPT":
                 with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
                     results = executor.map(gp.get_gpt_answers, search_query[:3])
@@ -84,18 +83,29 @@ def process_(file):  # , progress_callback, finish_callback):
                     deck.add_note(qa)
             add_package(deck, lect_name)
     except Exception as e:
-        print("Upload Error", str(e))
+        print("file process_ Error", str(e))
         messagebox.showerror("file process_ Error", str(e))
         # finish_callback()
 
 
-# Fcuntion for processing url
+# Function for processing url
 def process_url(url):  # , progress_callback, finish_callback):
-    try:
-        # status_label.update_status("Processing URL...",False)
 
+    try:
         results = gp4.get_gpt_link_answers(url)
-        results_json = results.replace("'", '"')
+        results = gp4.get_gpt_link_answers(url)
+            # Define a regular expression pattern to match key-value pairs
+        pattern = re.compile(r"'(\w+)': '([^']+)'")
+
+        # replace single quotes around question and ans
+        # replace double quote within strs with single quote
+        results_json = pattern.sub(
+            lambda m: '"{}": "{}"'.format(
+                m.group(1), m.group(2).replace('"', r"'")
+                ),
+            results
+            )
+        print(results_json)
         results_list = json.loads(results_json)
         auto_anki_model = get_model()
         lect_name = url.split("/")[-1]
@@ -114,17 +124,18 @@ def process_url(url):  # , progress_callback, finish_callback):
         add_package(deck, lect_name)
         # status_label.update_status("File processed successfully.",True)
     except Exception as e:
+        print("process_url error", str(e))
         messagebox.showerror("process_url Error", str(e))
 
-
-# # New function to handle URL input
+# New function to handle URL input
 def process_link(url_input):
     url = url_input.get()
     if url:
         # You might want to add some validation for the URL here
         process_url(url)
     else:
-        messagebox.showerror("Error", "Please enter a valid URL")
+        print("process_link Error", "Please enter a valid URL")
+        messagebox.showerror("process_link Error", "Please enter a valid URL")
 
 def new_status():
     return {'message':'Ready','flag':False}
@@ -136,12 +147,12 @@ app.config['SECRET_KEY'] = os.urandom(24)
 def index():
     return render_template('index.html',status_label=new_status())
 
-@app.route('/upload', methods=['POST'])
-def upload():
+@app.route('/upload/file', methods=['POST'])
+def upload_file():
     try:
         status_label = session.get('status_label', new_status())
 
-        # Check if 'file' or 'url' is present in the request
+        # Check if 'file' is present in the request
         if request.files['file']:
             # Process file
             file = request.files['file']
@@ -153,7 +164,20 @@ def upload():
             file.save(upload_path)
             process_(os.path.join("uploads", file.filename))
             status_label['message'], status_label['flag'] = "File processed successfully!", True
-        elif request.form['url']:
+
+        session['status_label'] = status_label
+
+        return jsonify(status_label)
+    except Exception as e:
+        print("Upload Error", str(e))
+        return jsonify(status_label)
+
+@app.route('/upload/url', methods=['POST'])
+def upload_url():
+    try:
+        status_label = session.get('status_label', new_status())
+        # Check if 'url' is present in the request
+        if request.form['url']:
             # Process URL
             url = request.form['url']
             status_label['message'], status_label['flag'] = "Processing URL...", False
@@ -164,8 +188,8 @@ def upload():
 
         return jsonify(status_label)
     except Exception as e:
-        print("Upload Error", str(e))
-        messagebox.showerror("Upload Error", str(e))
+        print("Upload URL Error", str(e))
+        return jsonify(status_label)
 
 @app.route('/api/status')
 def api_get_status():
@@ -182,4 +206,3 @@ if __name__ == '__main__':
     # Set cache control headers
     app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
     app.run(debug=True)
-
