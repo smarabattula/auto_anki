@@ -1,9 +1,10 @@
 <h1> Version Improvements</h1><br/>
-<h3> Making more presice Anki cards using ChatGPT </h3>
+<h3> Making more precise Anki cards using ChatGPT </h3>
 <ul>
-  <li> Older version used google(People also asked section and created answers in the Anki cards that were not eccurate enough.</li>
-  <li> We added ChatGPT API and changed how the Anki cards are generated.</li>
-  <li> This way we created more accurate Anki cards answers that are indeed useful.</li>
+  <li> Fixed GPT search results as previous repo code wasn't working for GPT option.</li>
+  <li> Users can now generate anki cards via entering URL links for web pages!</li>
+  <li> Upgraded to GPT-4 for better search results.</li>
+  <li>Improved and Responsive UI in TkInter and Flask.</li>
 </ul>
   <b> User Interface:</b>
 

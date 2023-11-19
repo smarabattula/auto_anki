@@ -2,12 +2,11 @@ import openai
 from dotenv import load_dotenv
 import os
 
-
 def get_gpt_link_answers(url):
     load_dotenv()
     API_KEY = os.environ["API_KEY"]
     openai.api_key = API_KEY
-    completion = openai.chat.completions.create(
+    completion = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[
             {

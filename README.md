@@ -73,7 +73,7 @@ We've revamped the user interface and introduced a convenient drop-down menu, th
 <img src="https://github.com/tran4code/auto_anki/assets/113017516/0f8d4620-e795-473e-ae37-15840db64b6e" width="400" />
 
 ### Second Feature: ChatGPT Integration
-To provide more accurate answers, we integrated the ChatGPT API. Now, users can generate highly precise flashcards with Auto-Anki powered by ChatGPT. In the [revious version they could only use google(people aslo asked answers) to generate flash cards.
+To provide more accurate answers, we integrated the ChatGPT API. Now, users can generate highly precise flashcards with Auto-Anki powered by ChatGPT. In the previous version they could only use google(people aslo asked answers) to generate flash cards.
 
 
 When you run Auto-Anki, you'll be greeted by this user-friendly interface where you can choose between Google or ChatGPT to generate your flashcards.
@@ -121,28 +121,25 @@ Scenario:
 # Installation
 
 1. Clone the repository
-`git clone https://github.com/tran4code/auto_anki`
+`git clone https://github.com/smarabattula/auto_anki`
 2. Set up a virtual environment (Optional, but highly recommended):
     - Create the virtual environment:
     ``python -m venv myenv``
-    -  Activate the virtual environment: ``source myenv/bin/activate``.
+    -  Activate the virtual environment: ``source myenv/bin/activate``(for MacOS) and ``source myenv/Scripts/activate`` (for Windows).
     - **Note**: In future runs, you won't need to create the virtual environment again, just activate it.
 3. Install all required packages:
   `pip install -r requirements.txt`
 4. Download a required model:
   `python -m spacy download en_core_web_lg`
-5. Install the project as a Python package:
-  `pip install .`
-6. Clone the Anki library
-  `git clone https://github.com/kerrickstaley/genanki` 
-7. Navigate into the cloned directory:
-  `cd genanki`
-8. Install the Anki library
-  ` python setup.py install`
-9. The command to run the project is:
+5. Add the Anki library as submodule in your project folder
+  `git submodule add https://github.com/kerrickstaley/genanki genanki`
+6. Navigate into the cloned directory and Install the Anki library:
+  `cd genanki;  python setup.py install`
+7. Navigate to Project folder again The command to run the project is:
  `python3 code/ui.py`
+8. Install the project as a Python package(Optional):
+  `pip install .`
 
-    
 ## Code Documentation
 
 Documentation of the entire codebase is generated using [Pycco](https://github.com/pycco-docs/pycco).
