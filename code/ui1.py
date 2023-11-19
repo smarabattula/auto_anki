@@ -137,15 +137,19 @@ def process_link(url_input):
         print("process_link Error", "Please enter a valid URL")
         messagebox.showerror("process_link Error", "Please enter a valid URL")
 
+
 def new_status():
     return {'message':'Ready','flag':False}
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
 
+
 @app.route('/')
 def index():
     return render_template('index.html',status_label=new_status())
+
 
 @app.route('/upload/file', methods=['POST'])
 def upload_file():
@@ -172,6 +176,7 @@ def upload_file():
         print("Upload Error", str(e))
         return jsonify(status_label)
 
+
 @app.route('/upload/url', methods=['POST'])
 def upload_url():
     try:
@@ -191,16 +196,19 @@ def upload_url():
         print("Upload URL Error", str(e))
         return jsonify(status_label)
 
+
 @app.route('/api/status')
 def api_get_status():
     # Use session.get to get the user-specific status_label
     status_label = session.get('status_label', new_status())
     return jsonify(status_label)
 
+
 @app.route('/api/refresh')
 def api_refresh_status():
     session['status_label'] = new_status()
     return jsonify(session['status_label'])
+
 
 if __name__ == '__main__':
     # Set cache control headers

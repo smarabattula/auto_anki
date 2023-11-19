@@ -81,8 +81,11 @@
 
         <!-- Form for file upload -->
         <form id="fileForm" method="post" action="/upload/file" enctype="multipart/form-data">
+
+
             <div class="mb-3">
                 <label for="source" class="form-label">Choose an API source:</label>
+
                 <select name="source" id="source" class="form-select">
                     <option value="Google" selected>Google</option>
                     <option value="GPT">GPT</option>
@@ -119,6 +122,44 @@
             console.log(message);
         }
 
+        function processFile() {
+            // Update status immediately
+            updateStatus("Processing file...");
+
+            // Create a FormData object
+            var formData = new FormData();
+
+            // Get the file input element
+            var fileInput = document.getElementById('fileInput');
+            console.log("hi");
+            console.log(fileInput);
+            // Check if a file is selected
+            if (fileInput.files.length > 0) {
+                // Append the file to the FormData object
+                formData.append('file', fileInput.files[0]);
+                console.log(formData);
+                // Determine the correct URL based on the selected upload type
+                var uploadFile = '/upload/file'
+                // Make an asynchronous request to the server
+                fetch(uploadFile, {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Update status dynamically
+                    updateStatus(data['message']);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Update status in case of an error
+                    updateStatus('Error processing file');
+                });
+            } else {
+                // No file selected, show an alert or update the status accordingly
+                updateStatus('No file selected');
+            }
+        }
         function processUrl() {
             var urlInput = document.getElementById('urlInput').value;
             if (urlInput) {
@@ -130,9 +171,7 @@
                 formData.append('url', urlInput);
 
                 // Determine the correct URL based on the selected upload type
-                var uploadUrl = document.querySelector('input[name="uploadType"]:checked').value === 'file'
-                    ? '/upload/file'
-                    : '/upload/url';
+                var uploadUrl = '/upload/url';
 
                 // Make an asynchronous request to the server
                 fetch(uploadUrl, {
