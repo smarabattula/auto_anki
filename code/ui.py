@@ -50,6 +50,10 @@ def process_(file):  # , progress_callback, finish_callback):
             template = f"soffice --headless --convert-to pdf {file}"
             os.system(template)
             file = file[:-5] + ".pdf"
+        elif file.split("/")[-1].split(".")[1] == "pptx":
+            template = f"unoconv -f pdf '{file}'"
+            os.system(template)
+            file = file[:-5] + ".pdf"
 
         raw_data = extract_words(file)
         raw_data = text_to_groupings(raw_data)
@@ -127,8 +131,9 @@ def process_link():
 # file explorer window
 
 
-def update_progress(value):
-    progress['value'] = value
+def update_progress(n):
+    progress['value'] = n  # Update the progress bar's value
+    progress_label['text'] = f"{n}/100"  # Update the label text
     window.update_idletasks()
 
 
@@ -141,7 +146,7 @@ def on_finish():
 def browseFiles():
     # file = filedialog.askopenfilename(initialdir="/",title="Select a File",filetypes=(("Text files","*.txt*"),("all files","*.*")))
     file = filedialog.askopenfilename(parent=window, title="Choose a file", filetypes=[
-                                      ("Doc file", "*.docx"), ("Pdf file", "*.pdf")])
+                                      ("Doc file", "*.docx"), ("Pdf file", "*.pdf"), ("PowerPoint file", "*.pptx")])
 
     # Change label contents
 
@@ -170,14 +175,14 @@ window.config(background="#515A5A")
 window.title('Auto-Anki')
 
 # Set window size
-window.geometry("450x550")
+window.geometry("550x550")
 
 canvas = Canvas(window, bg='#515A5A')
 
 
 # Configure the grid to be responsive
 number_of_rows = 8  # Replace with the actual number of rows you have
-number_of_columns = 1  # Replace with the actual number of columns you have
+number_of_columns = 2  # Replace with the actual number of columns you have
 
 for i in range(number_of_rows):
     window.grid_rowconfigure(i, weight=1)
@@ -219,14 +224,14 @@ style.theme_use('default')
 style.configure('TProgressbar', thickness=10)
 
 
-# Progress bar widget
-progress = Progressbar(window, style='TProgressbar', orient="horizontal",
-                       length=250, mode="determinate")
-progress.grid(column=0, row=6)  # , columnspan=2, pady=20)
+# # Progress bar widget
+# progress = Progressbar(window, style='TProgressbar', orient="horizontal",
+#                        length=250, mode="determinate")
+# progress.grid(column=0, row=6)  # , columnspan=2, pady=20)
 
 # Status
 status_label = Label(window, text="Ready", bd=1, relief="sunken", anchor="w")
-status_label.grid(column=0, row=7, columnspan=2,
+status_label.grid(column=0, row=6, columnspan=2,
                   sticky="we", padx=(10, 10), pady=(10, 10))
 
 
