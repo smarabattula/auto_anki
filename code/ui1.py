@@ -22,7 +22,6 @@
 
 import os
 from user_cli import *
-from tkinter import *
 import sys
 import gpt_prompting as gp
 import gpt4 as gp4
@@ -119,7 +118,9 @@ def process_url(url):  # , progress_callback, finish_callback):
             answer = result["Answer"]
             # print(question, answer)
             qa = add_question(
-                question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
+                question=f'{question}',
+                answer=f'{answer}',
+                curr_model=auto_anki_model)
             deck.add_note(qa)
         add_package(deck, lect_name)
         # status_label.update_status("File processed successfully.",True)
