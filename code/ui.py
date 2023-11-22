@@ -33,13 +33,14 @@ import gpt_prompting as gp
 import gpt4 as gp4
 from tkinter.ttk import Progressbar
 import json
+import random
 sys.path.append(
     '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages')
 
 # import filedialog module
 
 
-def process_(file):  # , progress_callback, finish_callback):
+def process_(file, c_count):  # , progress_callback, finish_callback):
     try:
         update_status("Processing file...")
         lect_name = file.split("/")[-1].split(".")[0]
@@ -51,7 +52,8 @@ def process_(file):  # , progress_callback, finish_callback):
             os.system(template)
             file = file[:-5] + ".pdf"
         elif file.split("/")[-1].split(".")[1] == "pptx":
-            template = f"unoconv -f pdf '{file}'"
+            # template = f"unoconv -f pdf '{file}'"
+            template = f"soffice --headless --convert-to pdf {file}"
             os.system(template)
             file = file[:-5] + ".pdf"
 
@@ -63,16 +65,21 @@ def process_(file):  # , progress_callback, finish_callback):
         keyword_data = wp.duplicate_word_removal(keyword_data)
         search_query = wp.construct_search_query(
             keyword_data)
+        # print(search_query)
         if source_choice.get() == "Google":
             with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
                 # when testing use searchquery[:10 or less].
                 # Still working on better threading to get faster results
                 results = executor.map(
-                    get_people_also_ask_links, search_query[:3])
+                    get_people_also_ask_links, search_query[:c_count])
         elif source_choice.get() == "GPT":
             with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-                results = executor.map(gp.get_gpt_answers, search_query[:3])
-        # print(results)
+                results = executor.map(
+                    gp.get_gpt_answers, search_query[:c_count])
+        # selecting random customised number of flash cards
+        print(results)
+        results = random.sample(results, int(c_count))
+        print("\n\n\n\n\n", results)
         auto_anki_model = get_model()
         deck = get_deck(deck_name=lect_name)
         for result in results:
@@ -83,6 +90,8 @@ def process_(file):  # , progress_callback, finish_callback):
                     question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
                 deck.add_note(qa)
         add_package(deck, lect_name)
+        messagebox.showinfo(
+            "Hurray!", "The Anki deck has been created successfully.")
         update_status("File processed successfully.")
     except Exception as e:
         messagebox.showerror("Error", str(e))
@@ -90,11 +99,11 @@ def process_(file):  # , progress_callback, finish_callback):
 
 
 # Fcuntion for processing url
-def process_url(url):  # , progress_callback, finish_callback):
+def process_url(url, c_count):  # , progress_callback, finish_callback):
     try:
         update_status("Processing URL...")
 
-        results = gp4.get_gpt_link_answers(url)
+        results = gp4.get_gpt_link_answers(url, c_count)
         results_json = results.replace("'", '"')
         results_list = json.loads(results_json)
         auto_anki_model = get_model()
@@ -120,9 +129,10 @@ def process_url(url):  # , progress_callback, finish_callback):
 # # New function to handle URL input
 def process_link():
     url = url_input.get()
+    c_count = cards_count.get()
     if url:
         # You might want to add some validation for the URL here
-        process_url(url)
+        process_url(url, c_count)
     else:
         messagebox.showerror("Error", "Please enter a valid URL")
 
@@ -156,7 +166,8 @@ def browseFiles():
         text_box.tag_configure("center", justify="center")
         text_box.tag_add("center", 1.0, "end")
         text_box.grid(column=0, row=3)
-        process_(file)
+        c_count = int(cards_count.get())
+        process_(file, c_count)
 
         # threading.Thread(target=process_, args=(
         #     file, update_progress, on_finish), daemon=True).start()
@@ -175,14 +186,14 @@ window.config(background="#515A5A")
 window.title('Auto-Anki')
 
 # Set window size
-window.geometry("550x550")
+window.geometry("500x550")
 
 canvas = Canvas(window, bg='#515A5A')
 
 
 # Configure the grid to be responsive
-number_of_rows = 8  # Replace with the actual number of rows you have
-number_of_columns = 2  # Replace with the actual number of columns you have
+number_of_rows = 7  # Replace with the actual number of rows you have
+number_of_columns = 3  # Replace with the actual number of columns you have
 
 for i in range(number_of_rows):
     window.grid_rowconfigure(i, weight=1)
@@ -196,11 +207,11 @@ canvas.grid(row=0, column=0, rowspan=number_of_rows,
 logo = ImageTk.PhotoImage(file='code/Auto_Anki_Logo.jpg')
 logo_label = Label(image=logo)
 logo_label.image = logo
-logo_label.grid(column=0, row=0)
+logo_label.grid(column=0, row=0, columnspan=3)
 
 instructions = Label(
-    window, text="Select a PDF file on your computer", font="Raleway")
-instructions.grid(column=0, row=1)
+    window, text="    Select file to upload: ", font="Raleway")
+instructions.grid(column=0, row=2, sticky='w')
 
 button_explore = Button(window,
                         text="Browse Files",
@@ -212,10 +223,10 @@ source_choice.set(sources[0])  # Set default value to Google
 
 source_dropdown = OptionMenu(window, source_choice, *sources)
 source_dropdown_label = Label(
-    window, text="Choose an API source:", font="Raleway")
+    window, text="    Choose an API source:", font="Raleway")
 
-source_dropdown_label.grid(column=0, row=2)
-source_dropdown.grid(column=0, row=3)
+source_dropdown_label.grid(column=0, row=1, sticky='w')
+source_dropdown.grid(column=1, row=1)
 
 
 style = ttk.Style(window)
@@ -230,28 +241,41 @@ style.configure('TProgressbar', thickness=10)
 # progress.grid(column=0, row=6)  # , columnspan=2, pady=20)
 
 # Status
-status_label = Label(window, text="Ready", bd=1, relief="sunken", anchor="w")
-status_label.grid(column=0, row=6, columnspan=2,
+status_label = Label(window, text="Ready", bd=1,
+                     relief="sunken")  # , anchor="w")
+status_label.grid(column=0, row=5, columnspan=3,
                   sticky="we", padx=(10, 10), pady=(10, 10))
-
+status_label.config(justify="center")
 
 button_exit = Button(window,
                      text="Exit",
                      command=exit)
 
-button_explore.grid(column=0, row=5)
-button_exit.grid(column=1, row=5)
+button_explore.grid(column=1, row=2)
+button_exit.grid(column=0, row=6, columnspan=3)
 
 
 # Add a text field for URL input
-url_input = Entry(window, width=50)
-url_input.grid(column=0, row=4)
+url_input = Entry(window, width=30)
+url_input.grid(column=1, row=3)
 
+
+# Add a text field for no.of flash cards input
+instructions2 = Label(
+    window, text="    Number of flash cards: ", font="Raleway")
+instructions2.grid(column=0, row=4, sticky='w')
+cards_count = Entry(window, width=5)
+cards_count.grid(column=1, row=4)
+# c_count = cards_count.get()
+
+instructions1 = Label(
+    window, text="    Process URL: ", font="Raleway")
+instructions1.grid(column=0, row=3, sticky='w')
 # Add a button to process the URL
 button_process_url = Button(window,
-                            text="Process URL",
+                            text="->",
                             command=process_link)
-button_process_url.grid(column=1, row=4)
+button_process_url.grid(column=2, row=3)
 
 
 # Let the window wait for any events
