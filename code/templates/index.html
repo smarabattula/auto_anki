@@ -1,691 +1,157 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Auto-Anki</title>
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Bootstrap JS and Popper.js -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-            <!-- AJAX CSS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-        <style>
-            body {
-                background-color: #ebeceb;
-                font-family: 'Roboto', sans-serif;
-            }
-
-            header {
-                text-align: center;
-                background-color: #3498db;
-                color: #fff;
-                padding: 10px;
-            }
-
-            img {
-                width: 200px;
-                height: 200px;
-                display: block;
-                margin: 20px auto;
-            }
-
-            label {
-                margin-bottom: 10px;
-            }
-
-            input[type="radio"] {
-                margin-right: 5px;
-            }
-
-            form {
-                margin-bottom: 20px;
-            }
-
-            #urlForm {
-                display: none;
-            }
-
-            #content {
-                font-weight: bold;
-            }
-
-            #additionalContent {
-                display: none;
-                margin-top: 20px;
-            }
-
-            #additionalContent p {
-                color: #27ae60;
-            }
-
-        /*Styling for Select Box*/
-        /* font-face */
-        @font-face {
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
-        }
-        /* variables */
-        /* */
-        .container {
-        margin: 10px auto;
-        max-width: 400px;
-        text-align: center;
-        }
-        .selected-item {
-        margin: 20px 0;
-        }
-        /* custom select style */
-        .cusSelBlock {
-        height: 50px;
-        min-width: 250px;
-        }
-        #source {
-        height: 100%;
-        width: 100%;
-        }
-        .s-hidden {
-        visibility: hidden;
-        }
-        .cusSelBlock {
-        display: inline-block;
-        position: relative;
-        perspective: 800px;
-        }
-        .selectLabel {
-        position: absolute;
-        left: 0;
-        top: 0;
-        z-index: 9999;
-        background-color: #fff;
-        border: 1px solid #333;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-        color: #333;
-        cursor: pointer;
-        display: block;
-        height: 100%;
-        width: 100%;
-        letter-spacing: 2px;
-        line-height: 50px;
-        padding: 0 50px 0 20px;
-        text-align: left;
-        transform-style: preserve-3d;
-        transform-origin: 50% 0%;
-        transition: transform 300ms;
-        -webkit-backface-visibility: hidden;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        }
-        .selectLabel:after {
-        content: '\25BC';
-        border-left: 1px solid #333;
-        color: #333;
-        font-size: 12px;
-        line-height: 17px;
-        padding: 10px;
-        text-align: center;
-        position: absolute;
-        right: 0px;
-        top: 15%;
-        height: 70%;
-        width: 50px;
-        }
-        .selectLabel:active {
-        transform: rotateX(30deg);
-        }
-        .selectLabel:active:after {
-        content: '\25B2';
-        }
-        .selectLabel.active:after {
-        content: '\25B2';
-        }
-        ::-webkit-scrollbar {
-        display: none;
-        }
-        .options {
-        position: absolute;
-        top: 50px;
-        height: 1px;
-        width: 100%;
-        }
-        .options li {
-        background-color: #ffffff;
-        border-left: 1px solid #333;
-        border-right: 1px solid #333;
-        border-bottom: 1px solid #333;
-        cursor: pointer;
-        display: block;
-        line-height: 50px;
-        list-style: none;
-        opacity: 1;
-        padding: 0 50px 0 20px;
-        text-align: left;
-        transition: transform 300ms ease;
-        position: absolute;
-        top: -50px;
-        left: 0;
-        z-index: 0;
-        height: 50px;
-        width: 100%;
-        }
-        .options li:hover,
-        .options li.active {
-        background-color: #333;
-        color: #fff;
-        }
-        .options li:nth-child(1) {
-        transform: translateY(2px);
-        z-index: 6;
-        }
-        .options li:nth-child(2) {
-        transform: translateY(4px);
-        z-index: 5;
-        }
-        .options li:nth-child(3) {
-        z-index: 4;
-        }
-        .options li:nth-child(4) {
-        z-index: 3;
-        }
-        .options li:nth-child(5) {
-        z-index: 2;
-        }
-        .options li:nth-child(6) {
-        z-index: 1;
-        }
-        /**/
-        .feaBlock {
-        margin: 20px 0;
-        text-align: left;
-        }
-        .source-selected
-        {
-            color:mediumseagreen;
-        }
-
-        /*
-    get rid of the fieldset styling and keep
-    this all on a single line
-    */
-    .radio-switch {
-    border: none;
-    padding: 0;
-    white-space: nowrap;
-    }
-
-    /*
-    radio button groups often benefit from a legend to
-    provide context as to what the different
-    options pertain to. Ideally this would be visible to all
-    users, but you know...
-    */
-    .radio-switch legend {
-    font-size: 2px;
-    opacity: 0;
-    position: absolute;
-    }
-
-    /*
-    relative labels to help position the pseudo elements
-    the z-index will be handy later, when the labels that
-    overlap the visual switch UI need to be adjusted
-    to allow for a user to toggle the switch without
-    having to move their mouse/finger to the different
-    sides of the UI
-    */
-    .radio-switch label {
-    display: inline-block;
-    line-height: 2;
-    position: relative;
-    z-index: 2;
-    }
-
-    /*
-    inputs set to opcacity 0 are still accessible.
-    Apparently there can be issues targetting inputs with
-    Dragon speech recognition software if you use the typical
-    'visually-hidden' class...so might as well just avoid that issue...
-    */
-    .radio-switch input {
-    opacity: 0;
-    position: absolute;
-    }
-
-    /*
-    a 2 option toggle can only have 2 options...so instead of
-    adding more classes, i'm just going to use some
-    structural pseudo-classes to target them...
-    cause why let all that good work go to waste?!
-
-    the large padding is used to position the labels
-    on top of the visual UI, so the switch UI itself
-    can be mouse clicked or finger tapped to toggle
-    the current option
-    */
-    .radio-switch label:first-of-type {
-    padding-right: 5em;
-    }
-
-    .radio-switch label:last-child {
-    margin-left: -4.25em;
-    padding-left: 5em;
-    }
-
-    /*
-    oh focus within, I can't wait for you to have even more support.
-    But you'll never be in IE11, so we're going to need a
-    polyfill for you for a bit...
-    */
-    .radio-switch:focus-within label:first-of-type:after {
-    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2196f3;
-    }
-
-    /* polyfill class*/
-    .radio-switch.focus-within label:first-of-type:after {
-    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2196f3;
-    }
-
-    /* making the switch UI.  */
-    .radio-switch label:first-of-type:before,
-    .radio-switch label:first-of-type:after {
-    border: 1px solid #aaa;
-    content: "";
-    height: 2em;
-    overflow: hidden;
-    pointer-events: none;
-    position: absolute;
-    vertical-align: middle;
-    }
-
-    .radio-switch label:first-of-type:before {
-    background: #fff;
-    border: 1px solid #aaa;
-    border-radius: 100%;
-    position: absolute;
-    right: -.075em;
-    transform: translateX(0em);
-    transition: transform .2s ease-in-out;
-    width: 2em;
-    z-index: 2;
-    }
-
-    .radio-switch label:first-of-type:after {
-    background: #27ae60;
-    border-radius: 1em;
-    margin: 0 1em;
-    transition: background .2s ease-in-out;
-    width: 4em;
-    }
-
-    .form-check-input:hover {
-    cursor: pointer;
-    }
-    /*
-    Visually change the switch UI to match the
-    checked state of the first radio button
-    */
-    .radio-switch input:first-of-type:checked ~ label:first-of-type:after {
-    background: #2196f3;
-    }
-
-    .radio-switch input:first-of-type:checked ~ label:first-of-type:before {
-    transform: translateX(-2em);
-    }
-
-    /* Move the 2nd label to have a lower z-index, so when that
-    option is toggled, the first label will overlay on top of the
-    Switch ui, and the switch can be pressed again to toggle back
-    to the prevoius state. */
-    .radio-switch input:last-of-type:checked ~ label:last-of-type {
-    z-index: 1;
-    }
-
-
-
-    /*
-    system defaut fonts sure do load quick...
-    */
-
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-Anki</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- AJAX CSS -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+    <link href = "{{url_for('static',filename = './css/index.css')}}" rel = "stylesheet">
+    <script src = "{{url_for('static',filename = './js/index.js')}}"></script>
 </head>
-    <body>
-        <header class="navbar navbar-dark bg-primary">
-            <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">Auto-Anki</span>
+<body>
+
+    <div class="container">
+        <img src="{{ url_for('static', filename='./images/Auto_Anki_Logo.jpg') }}" alt="Auto-Anki Logo">
+
+        <fieldset class="radio-switch">
+            <legend>
+              Upload Type
+            </legend>
+            <input class="form-check-input" type="radio" name="uploadType" value="file" id="fileRadio" checked>
+            <label class="form-check-label" for="fileRadio">
+              File
+            </label>
+
+            <input class="form-check-input" type="radio" name="uploadType" value="url" id="urlRadio">
+            <label class="form-check-label" for="urlRadio">
+              URL
+            </label>
+          </fieldset>
+
+        <!-- Form for file upload -->
+        <form id="fileForm" enctype="multipart/form-data">
+            <div class="container">
+                <!-- <div class="selected-item">
+                    <p>You Selected Source: <span id = "source-selected"></span></p>
+                </div> -->
+                <label for="source">Choose an API source to generate Anki cards!</label>
+            <select name="source" id="source">
+                <option value="GPT" selected>GPT</option>
+                <option value="Google">Google</option>
+            </select>
             </div>
-        </header>
-
-        <div class="container mt-3">
-            <img src="{{ url_for('static', filename='Auto_Anki_Logo.jpg') }}" alt="Auto-Anki Logo">
-
-            <fieldset class="radio-switch">
-                <legend>
-                  Upload Type
-                </legend>
-                <input class="form-check-input" type="radio" name="uploadType" value="file" id="fileRadio" checked>
-                <label class="form-check-label" for="fileRadio">
-                  File
-                </label>
-
-                <input class="form-check-input" type="radio" name="uploadType" value="url" id="urlRadio">
-                <label class="form-check-label" for="urlRadio">
-                  URL
-                </label>
-              </fieldset>
-
-            <!-- Form for file upload -->
-            <form id="fileForm" method="post" action="/upload/file" enctype="multipart/form-data">
-                <div class="container">
-                    <!-- <div class="selected-item">
-                        <p>You Selected Source: <span id = "source-selected"></span></p>
-                    </div> -->
-                    <label for="source">Choose an API source to generate Anki cards!</label>
-                <select name="source" id="source">
-                    <option value="GPT" selected>GPT</option>
-                    <option value="Google">Google</option>
-                </select>
-                </div>
-
-                <div class="mb-3">
-                    <input type="file" name="file" id="fileInput" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Upload</button>
-            </form>
-
-            <!-- Form for URL processing -->
-            <form id="urlForm" method="post" action="/upload/url" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <input type="text" name="url" id="urlInput" placeholder="Enter URL" class="form-control">
-                </div>
-                <button type="button" onclick="processUrl()" class="btn btn-primary">Process URL</button>
-            </form>
 
             <div class="mb-3">
-                <p>Status: <span id="content">{{status_label['message']}}</span></p>
+                <input type="file" name="file" id="fileInput" class="form-control">
             </div>
+            <button type="button" class="btn btn-primary" onclick="changeColor(this);">Process File! </button>
+        </form>
 
-            <!-- Additional content to be displayed after processing the file -->
-            <div id="additionalContent">
-                <p>Your additional content goes here.</p>
+        <!-- Form for URL processing -->
+        <form id="urlForm" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="urlInput">Enter web URL to generate Anki cards!</label>
+                <input type="text" name="url" id="urlInput" placeholder="https://openai.com/safety" class="form-control">
             </div>
+            <button type="button" onclick="processUrl()" class="btn btn-primary">Process URL</button>
+        </form>
+
+        <div class="mb-3">
+            <p>Status: <span id="content">{{status_label['message']}}</span></p>
         </div>
 
-        <script>
-        $(function () {
+        <!-- Additional content to be displayed after processing the file -->
+        <div id="additionalContent">
+            <p>Your additional content goes here.</p>
+        </div>
+    </div>
 
-        var defaultselectbox = $('#source');
-        var numOfOptions = $('#source').children('option').length;
+<script>
 
-        // hide select tag
-        defaultselectbox.addClass('s-hidden');
 
-        // wrapping default selectbox into custom select block
-        defaultselectbox.wrap('<div class="cusSelBlock"></div>');
+var defaultselectbox = $('#source');
+var numOfOptions = $('#source').children('option').length;
 
-        // creating custom select div
-        defaultselectbox.after('<div class="selectLabel"></div>');
+// Call the functions as needed
+initializeCustomSelect();
 
-        // getting default select box selected value
-        $('.selectLabel').text(defaultselectbox.children('option').eq(0).text());
+// Event listener for radio button changes
+document.querySelectorAll('input[name="uploadType"]').forEach((radio) => {
+    radio.addEventListener('change', function () {
+        document.getElementById('fileForm').style.display = this.value === 'file' ? 'block' : 'none';
+        document.getElementById('urlForm').style.display = this.value === 'url' ? 'block' : 'none';
+    });
+});
 
-        // appending options to custom un-ordered list tag
-        var cusList = $('<ul/>', { 'class': 'options'} ).insertAfter($('.selectLabel'));
-
-        // generating custom list items
-        for(var i=0; i< numOfOptions; i++) {
-            $('<li/>', {
-            text: defaultselectbox.children('option').eq(i).text(),
-            rel: defaultselectbox.children('option').eq(i).val()
-            }).appendTo(cusList);
-        }
-
-        // open-list and close-list items functions
-        function openList() {
-            for(var i=0; i< numOfOptions; i++) {
-                $('.options').children('li').eq(i).attr('tabindex', i).css(
-                    'transform', 'translateY('+(i*100+100)+'%)').css(
-                    'transition-delay', i*30+'ms');
-            }
-        }
-
-        function closeList() {
-            for(var i=0; i< numOfOptions; i++) {
-                $('.options').children('li').eq(i).css(
-                    'transform', 'translateY('+i*0+'px)').css('transition-delay', i*0+'ms');
-            }
-            $('.options').children('li').eq(1).css('transform', 'translateY('+2+'px)');
-            $('.options').children('li').eq(2).css('transform', 'translateY('+4+'px)');
-        }
-
-        // click event functions
-        $('.selectLabel').click(function () {
-            $(this).toggleClass('active');
-            if( $(this).hasClass('active') ) {
-                openList();
-                focusItems();
-            }
-            else {
-                closeList();
-            }
-        });
-
-        $(".options li").on('keypress click', function(e) {
-            e.preventDefault();
-            $('.options li').siblings().removeClass();
-            closeList();
-            $('.selectLabel').removeClass('active');
-            $('.selectLabel').text($(this).text());
-            defaultselectbox.val($(this).text());
-            $('.selected-item p span').text($('.selectLabel').text());
-        });
-
-        });
-
-        function focusItems() {
-
-        $('.options').on('focus', 'li', function() {
-            $this = $(this);
-            $this.addClass('active').siblings().removeClass();
-        }).on('keydown', 'li', function(e) {
-            $this = $(this);
-            if (e.keyCode == 40) {
-                $this.next().focus();
-                return false;
-            } else if (e.keyCode == 38) {
-                $this.prev().focus();
-                return false;
-            }
-        }).find('li').first().focus();
-
-    }
-
-        function updateStatus(message) {
-            // Update content dynamically
-            document.getElementById('content').innerText = message;
-            console.log(message);
-        }
-
-        function processFile() {
-            // Update status immediately
-            updateStatus("Processing file...");
-
-            // Create a FormData object
-            var formData = new FormData();
-
-            // Get the file input element
-            var fileInput = document.getElementById('fileInput');
-            console.log("hi");
-            console.log(fileInput);
-            // Check if a file is selected
-            if (fileInput.files.length > 0) {
-                // Append the file to the FormData object
-                formData.append('file', fileInput.files[0]);
-                console.log(formData);
-                // Determine the correct URL based on the selected upload type
-                var uploadFile = '/upload/file'
-                // Make an asynchronous request to the server
-                fetch(uploadFile, {
-                    method: 'POST',
-                    body: formData,
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Update status dynamically
-                    updateStatus(data['message']);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    // Update status in case of an error
-                    updateStatus('Error processing file');
-                });
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('/api/status')
+        .then(response => response.json())
+        .then(data => {
+            updateStatus(data['message']);
+            if (data['flag'] == true) {
+                document.getElementById('additionalContent').innerHTML = "File processed successfully! Here's some additional content.";
             } else {
-                // No file selected, show an alert or update the status accordingly
-                updateStatus('No file selected');
+                document.getElementById('additionalContent').innerHTML = '';
             }
-        }
+        })
+        .catch(error => console.error('Error:', error));
+
+document.getElementById('fileForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+    var formData = new FormData(this);
+    var uploadUrl = document.querySelector('input[name="uploadType"]:checked').value === 'file'
+        ? '/upload/file'
+        : '/upload/url';
+
+    fetch(uploadUrl, {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+        updateStatus(data['message']);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        updateStatus('Error processing file');
+    });
+});
+});
 
 
-        /*
-         Focus within pollyfill
-        Credit: https://gist.github.com/aFarkas/a7e0d85450f323d5e164
-        */
-        (function(window, document){
-        'use strict';
-        var slice = [].slice;
-        var removeClass = function(elem){
-            elem.classList.remove('focus-within');
-        };
-        var update = (function(){
-            var running, last;
-            var action = function(){
-            var element = document.activeElement;
-            running = false;
-            if(last !== element){
-                last = element;
-                slice.call(document.getElementsByClassName('focus-within')).forEach(removeClass);
-                while(element && element.classList){
-                element.classList.add('focus-within');
-                element = element.parentNode;
-                }
-            }
-            };
-            return function(){
-            if(!running){
-                requestAnimationFrame(action);
-                running = true;
-            }
-            };
-        })();
-        document.addEventListener('focus', update, true);
-        document.addEventListener('blur', update, true);
-        update();
-        })(window, document);
+window.onload = function () {
+    fetch('/api/refresh')
+        .then(response => response.json())
+        .then(data => {
+            updateStatus(data['message']);
+            document.getElementById('additionalContent').style.display = 'none';
+        })
+        .catch(error => console.error('Error:', error));
+};
 
-        function processUrl() {
-            var urlInput = document.getElementById('urlInput').value;
-            if (urlInput) {
-                // Update status immediately
-                updateStatus("Processing URL...");
+let clicked = false;
+let button_false_clr = "#2196F3";
+let btn_true_clr = "#5BC236";
 
-                // Create a FormData object and append the URL input
-                var formData = new FormData();
-                formData.append('url', urlInput);
+function changeColor(button) {
+if (!clicked) {
+    button.style.backgroundColor = btn_true_clr;
+    button.style.borderColor = btn_true_clr;
+} else {
+    button.style.backgroundColor = button_false_clr;
+    button.style.borderColor = button_false_clr;
+}
+clicked = !clicked;
+processFile();
+}
 
-                // Determine the correct URL based on the selected upload type
-                var uploadUrl = '/upload/url';
+</script>
 
-                // Make an asynchronous request to the server
-                fetch(uploadUrl, {
-                    method: 'POST',
-                    body: formData,
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Update status dynamically
-                    updateStatus(data['message']);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    // Update status in case of an error
-                    updateStatus('Error processing URL');
-                });
-            } else {
-                alert("Please enter a valid URL");
-            }
-        }
-
-        // Event listener for radio button changes
-        document.querySelectorAll('input[name="uploadType"]').forEach((radio) => {
-            radio.addEventListener('change', function () {
-                // Show/hide file and URL forms based on selection
-                document.getElementById('fileForm').style.display = this.value === 'file' ? 'block' : 'none';
-                document.getElementById('urlForm').style.display = this.value === 'url' ? 'block' : 'none';
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // Fetch data from Flask API endpoint
-            fetch('/api/status')
-                .then(response => response.json())
-                .then(data => {
-                    // Update content dynamically
-                    updateStatus(data['message']);
-                    // Show/hide loading and additional content
-                    if (data['flag'] == true) {
-                        document.getElementById('additionalContent').innerHTML = "File processed successfully! Here's some additional content.";
-                    } else {
-                        document.getElementById('additionalContent').innerHTML = '';
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-
-            // Handle form submission asynchronously
-            document.getElementById('fileForm').addEventListener('submit', function (event) {
-                event.preventDefault();  // Prevent the default form submission
-                var formData = new FormData(this);
-                // Determine the correct URL based on the selected upload type
-                var uploadUrl = document.querySelector('input[name="uploadType"]:checked').value === 'file'
-                    ? '/upload/file'
-                    : '/upload/url';
-
-                // Make an AJAX request to handle form submission
-                fetch(uploadUrl, {
-                    method: 'POST',
-                    body: formData,
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Update status dynamically
-                    updateStatus(data['message']);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    // Update status in case of an error
-                    updateStatus('Error processing file');
-                });
-            });
-        });
-
-        // Run RefreshStatus() when the window is refreshed
-        window.onload = function () {
-            fetch('/api/refresh')
-                .then(response => response.json())
-                .then(data => {
-                    // Update content dynamically
-                    updateStatus(data['message']);
-                    // Show/hide loading and additional content
-                    document.getElementById('additionalContent').style.display = 'none';
-                })
-                .catch(error => console.error('Error:', error));
-        };
-        </script>
-
-
-    </body>
-    </html>
+</body>
+</html>
