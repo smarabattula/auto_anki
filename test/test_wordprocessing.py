@@ -3,7 +3,7 @@
 
 import unittest
 import json
-from wordprocessing import keyword_extractor, duplicate_word_removal, merge_slide_with_same_headers, \
+from code.wordprocessing import keyword_extractor, duplicate_word_removal, merge_slide_with_same_headers, \
     merge_slide_with_same_slide_number, extract_noun_chunks, construct_search_query
 
 

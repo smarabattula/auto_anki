@@ -126,10 +126,6 @@ def process_link():
 # Function for opening the
 # file explorer window
 
-# def browseFiles():
-#     # file = filedialog.askopenfilename(initialdir="/",title="Select a File",filetypes=(("Text files","*.txt*"),("all files","*.*")))
-#     file = filedialog.askopenfilename(parent=window, title="Choose a file", filetypes=[
-#                                       ("Doc file", "*.docx"), ("Pdf file", "*.pdf")])
 
 def update_progress(value):
     progress['value'] = value
@@ -197,19 +193,13 @@ logo_label = Label(image=logo)
 logo_label.image = logo
 logo_label.grid(column=0, row=0)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+instructions = Label(
+    window, text="Select a PDF file on your computer", font="Raleway")
+instructions.grid(column=0, row=1)
 
-@app.route('/upload', methods=['POST'])
-def upload():
-    file = request.files['file']
-    print(os.path.exists("./uploads"))
-    if not os.path.exists("./uploads"):
-        os.makedirs("uploads")
-    file.save(os.path.join("uploads", file.filename))
-    process_(os.path.join("uploads",file.filename))
-    return "File processed successfully!"
+button_explore = Button(window,
+                        text="Browse Files",
+                        command=browseFiles)
 
 source_choice = StringVar(window)  # Variable to hold the choice
 sources = ["Google", "GPT"]  # List of choices

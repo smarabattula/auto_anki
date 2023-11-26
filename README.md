@@ -159,9 +159,9 @@ For checking code coverage,
 - Install Coverage (https://pypi.org/project/coverage/)
   `pip install coverage`
 - For generating the report run
-  `python -m coverage run -m unittest discover`
+  `coverage run user_cli.py`
 - For viewing the report run
-  `python -m coverage report`
+  `coverage report`
 
 
 | Name              | Stmts | Miss | Cover |

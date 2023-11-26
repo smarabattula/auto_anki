@@ -2,11 +2,20 @@ import openai
 from dotenv import load_dotenv
 import os
 
+
 def get_gpt_link_answers(url):
+    """
+    Given a url, returns the GPT answers
+
+    :param url: the prompt to GPT
+    :type: str
+    :rtype: list
+    :return: list of QA's
+    """
     load_dotenv()
     API_KEY = os.environ["API_KEY"]
     openai.api_key = API_KEY
-    completion = openai.ChatCompletion.create(
+    completion = openai.chat.completions.create(
         model="gpt-4",
         messages=[
             {
