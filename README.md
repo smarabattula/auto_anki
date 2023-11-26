@@ -159,20 +159,21 @@ For checking code coverage,
 - Install Coverage (https://pypi.org/project/coverage/)
   `pip install coverage`
 - For generating the report run
-  `coverage run user_cli.py`
+  `cd code`
+  `python -m coverage run -m unittest discover`
 - For viewing the report run
-  `coverage report`
+  `python -m coverage report`
 
 
 | Name              | Stmts | Miss | Cover |
 | ----------------- | ----- | ---- | ----- |
 | anki.py           | 17    | 1    | 94%   |
-| extract_sizes.py  | 55    | 0    | 100%  |
+| extract_sizes.py  | 54    | 15   | 72%   |
 | google_search.py  | 13    | 0    | 100%  |
 | gpt_prompting.py  | 15    | 7    | 53%   |
 | user_cli.py       | 34    | 2    | 94%   |
-| wordprocessing.py | 125   | 22   | 82%   |
-| TOTAL             | 259   | 32   | 88%   |
+| wordprocessing.py | 125   | 4    | 97%   |
+| TOTAL             | 258   | 29   | 89%   |
 
 ## How to Contribute
 
