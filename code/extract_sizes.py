@@ -42,7 +42,6 @@ def extract_words(file: str) -> dict:
     :return: dict, Contains extracted metadata & words from all slides
     """
     # document = stream=mem_area,
-    print(file)
     document = fitz.open(file, filetype="pdf")
     doc_data = {}
     doc_data["meta_data"] = document.metadata
