@@ -70,7 +70,8 @@ def process_(file):  # , progress_callback, finish_callback):
                         get_people_also_ask_links, search_query[:3])
             elif source_choice == "GPT":
                 with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-                    results = executor.map(gp.get_gpt_answers, search_query[:3])
+                    results = executor.map(
+                        gp.get_gpt_answers, search_query[:3])
             # print(results)
             auto_anki_model = get_model()
             deck = get_deck(deck_name=lect_name)
@@ -94,7 +95,7 @@ def process_url(url):  # , progress_callback, finish_callback):
     try:
         results = gp4.get_gpt_link_answers(url)
         results = gp4.get_gpt_link_answers(url)
-            # Define a regular expression pattern to match key-value pairs
+        # Define a regular expression pattern to match key-value pairs
         pattern = re.compile(r"'(\w+)': '([^']+)'")
 
         # replace single quotes around question and ans
@@ -102,9 +103,9 @@ def process_url(url):  # , progress_callback, finish_callback):
         results_json = pattern.sub(
             lambda m: '"{}": "{}"'.format(
                 m.group(1), m.group(2).replace('"', r"'")
-                ),
+            ),
             results
-            )
+        )
         print(results_json)
         results_list = json.loads(results_json)
         auto_anki_model = get_model()
@@ -128,6 +129,8 @@ def process_url(url):  # , progress_callback, finish_callback):
         messagebox.showerror("process_url Error", str(e))
 
 # New function to handle URL input
+
+
 def process_link(url_input):
     url = url_input.get()
     if url:
@@ -139,7 +142,7 @@ def process_link(url_input):
 
 
 def new_status():
-    return {'message':'Ready','flag':False}
+    return {'message': 'Ready', 'flag': False}
 
 
 app = Flask(__name__)
@@ -148,7 +151,7 @@ app.config['SECRET_KEY'] = os.urandom(24)
 
 @app.route('/')
 def index():
-    return render_template('index.html',status_label=new_status())
+    return render_template('index.html', status_label=new_status())
 
 
 @app.route('/upload/file', methods=['POST'])
@@ -213,4 +216,4 @@ def api_refresh_status():
 if __name__ == '__main__':
     # Set cache control headers
     app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-    app.run(host ='0.0.0.0', port = 5000, debug = True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
