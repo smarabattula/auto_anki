@@ -156,14 +156,12 @@ If you are a developer, and want to update documentation:
 
 For checking code coverage,
 
-- Install Coverage (https://pypi.org/project/coverage/):
+- Install Coverage (https://pypi.org/project/coverage/)
   `pip install coverage`
-- For generating the report run:
-
+- For generating the report run
   `cd code`
-
   `python -m coverage run -m unittest discover`
-- For viewing the report run:
+- For viewing the report run
   `python -m coverage report`
 
 
