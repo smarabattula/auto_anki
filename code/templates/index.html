@@ -35,7 +35,7 @@
           </fieldset>
 
         <!-- Form for file upload -->
-        <form id="fileForm" enctype="multipart/form-data">
+        <form id="fileForm" method="post" action="/upload/file" enctype="multipart/form-data">
             <div class="container">
                 <!-- <div class="selected-item">
                     <p>You Selected Source: <span id = "source-selected"></span></p>
@@ -50,7 +50,7 @@
             <div class="mb-3">
                 <input type="file" name="file" id="fileInput" class="form-control">
             </div>
-            <button type="button" class="btn btn-primary" onclick="changeColor(this);">Process File! </button>
+            <button type="submit" class="btn btn-primary" onclick="changeColor(this);">Process File! </button>
         </form>
 
         <!-- Form for URL processing -->
@@ -148,7 +148,7 @@ if (!clicked) {
     button.style.borderColor = button_false_clr;
 }
 clicked = !clicked;
-processFile();
+// processFile();
 }
 
 </script>
