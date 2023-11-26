@@ -89,9 +89,9 @@ class TestWordProcessing(unittest.TestCase):
     def test_construct_search_query(self):
         '''Test the search query method'''
 
-        with open("./data/Test_3.json", mode="r") as file:
+        with open("code/data/Test_3.json", mode="r") as file:
             input_data = json.load(file)
-        with open("./data/Test_3_Result.json", mode="r") as file:
+        with open("code/data/Test_3_Result.json", mode="r") as file:
             output_data = json.load(file)
 
         search_query = construct_search_query(input_data)
