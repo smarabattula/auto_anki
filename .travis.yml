@@ -10,7 +10,7 @@ install:
   - git clone https://github.com/kerrickstaley/genanki; cd genanki; python setup.py install; cd ..
 script:
   - python -m pytest -v test/
-  - coverage run --source ./code/ -m pytest -v ./test/
+  - python -m coverage run --source ./code/ -m pytest -v ./test/
   - pylint code/
 after_success:
   - bash <(curl -s https://codecov.io/bash)
