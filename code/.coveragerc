@@ -1,0 +1,4 @@
+ [report]
+exclude_lines =
+    if __name__ == .__main__.:
+omit = test_anki.py, test_extract_sizes.py, test_google_search.py, test_gpt_prompting.py, test_integration.py, test_openai.py, test_user_cli.py,test_wordprocessing.py

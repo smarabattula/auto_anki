@@ -1,8 +1,8 @@
 # Copyright 2021 auto_anki
 # MIT License
 
-from code.extract_sizes import extract_words, text_to_groupings
-from code.wordprocessing import extract_noun_chunks, merge_slide_with_same_headers, duplicate_word_removal, \
+from extract_sizes import extract_words, text_to_groupings
+from wordprocessing import extract_noun_chunks, merge_slide_with_same_headers, duplicate_word_removal, \
     construct_search_query
 
 """

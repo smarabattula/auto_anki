@@ -1,5 +1,5 @@
 import unittest
-from code.gpt_prompting import get_gpt_answers
+from gpt_prompting import get_gpt_answers
 
 class TestGPTSearch(unittest.TestCase):
 

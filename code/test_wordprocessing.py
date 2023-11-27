@@ -3,7 +3,7 @@
 
 import unittest
 import json
-from code.wordprocessing import keyword_extractor, duplicate_word_removal, merge_slide_with_same_headers, \
+from wordprocessing import keyword_extractor, duplicate_word_removal, merge_slide_with_same_headers, \
     merge_slide_with_same_slide_number, extract_noun_chunks, construct_search_query
 
 
@@ -89,9 +89,9 @@ class TestWordProcessing(unittest.TestCase):
     def test_construct_search_query(self):
         '''Test the search query method'''
 
-        with open("./test/data/Test_3.json", mode="r") as file:
+        with open("code/data/Test_3.json", mode="r") as file:
             input_data = json.load(file)
-        with open("./test/data/Test_3_Result.json", mode="r") as file:
+        with open("code/data/Test_3_Result.json", mode="r") as file:
             output_data = json.load(file)
 
         search_query = construct_search_query(input_data)
