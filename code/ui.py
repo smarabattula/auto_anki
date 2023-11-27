@@ -40,7 +40,7 @@ sys.path.append(
 # import filedialog module
 
 
-def process_(file, c_count):  # , progress_callback, finish_callback):
+def process_(file, c_count):
     try:
         update_status("Processing file...")
         lect_name = file.split("/")[-1].split(".")[0]
@@ -76,47 +76,39 @@ def process_(file, c_count):  # , progress_callback, finish_callback):
             with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
                 results = executor.map(
                     gp.get_gpt_answers, search_query[:c_count])
+
         # selecting random customised number of flash cards
-        print(results)
-        results = random.sample(results, int(c_count))
-        print("\n\n\n\n\n", results)
+        results_new = [qapair for result in results for qapair in result]
+        results_new = random.sample(results_new, int(c_count))
         auto_anki_model = get_model()
         deck = get_deck(deck_name=lect_name)
-        for result in results:
-            for qapair in result:
-                question = qapair["Question"]
-                answer = qapair["Answer"]
-                qa = add_question(
-                    question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
-                deck.add_note(qa)
+        for qapair in results_new:
+            question = qapair["Question"]
+            answer = qapair["Answer"]
+            qa = add_question(
+                question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
+            deck.add_note(qa)
         add_package(deck, lect_name)
         messagebox.showinfo(
             "Hurray!", "The Anki deck has been created successfully.")
         update_status("File processed successfully.")
     except Exception as e:
         messagebox.showerror("Error", str(e))
-        # finish_callback()
 
 
 # Fcuntion for processing url
-def process_url(url, c_count):  # , progress_callback, finish_callback):
+def process_url(url, c_count):
     try:
         update_status("Processing URL...")
-
         results = gp4.get_gpt_link_answers(url, c_count)
         results_json = results.replace("'", '"')
         results_list = json.loads(results_json)
         auto_anki_model = get_model()
         lect_name = url.split("/")[-1]
         deck = get_deck(deck_name=lect_name)
-        # print(results)
-
         for result in results_list:
-            # print(result)
-            # no error till here
             question = result["Question"]
             answer = result["Answer"]
-            # print(question, answer)
             qa = add_question(
                 question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
             deck.add_note(qa)
@@ -126,7 +118,7 @@ def process_url(url, c_count):  # , progress_callback, finish_callback):
         messagebox.showerror("Error", str(e))
 
 
-# # New function to handle URL input
+# Function to call process_url
 def process_link():
     url = url_input.get()
     c_count = cards_count.get()
@@ -137,28 +129,24 @@ def process_link():
         messagebox.showerror("Error", "Please enter a valid URL")
 
 
-# Function for opening the
-# file explorer window
+# def update_progress(n):
+#     progress['value'] = n  # Update the progress bar's value
+#     progress_label['text'] = f"{n}/100"  # Update the label text
+#     window.update_idletasks()
 
-
-def update_progress(n):
-    progress['value'] = n  # Update the progress bar's value
-    progress_label['text'] = f"{n}/100"  # Update the label text
-    window.update_idletasks()
-
-
+# Function to show finish message
 def on_finish():
-    progress['value'] = 0
+    # progress['value'] = 0
     messagebox.showinfo(
         "Success", "The Anki deck has been created successfully.")
+
+# Function for opening the file explorer window
 
 
 def browseFiles():
     # file = filedialog.askopenfilename(initialdir="/",title="Select a File",filetypes=(("Text files","*.txt*"),("all files","*.*")))
     file = filedialog.askopenfilename(parent=window, title="Choose a file", filetypes=[
                                       ("Doc file", "*.docx"), ("Pdf file", "*.pdf"), ("PowerPoint file", "*.pptx")])
-
-    # Change label contents
 
     if file:
         text_box = Text(window, height=10, width=50, padx=15, pady=15)
@@ -168,9 +156,6 @@ def browseFiles():
         text_box.grid(column=0, row=3)
         c_count = int(cards_count.get())
         process_(file, c_count)
-
-        # threading.Thread(target=process_, args=(
-        #     file, update_progress, on_finish), daemon=True).start()
 
 
 def update_status(message):
@@ -192,8 +177,8 @@ canvas = Canvas(window, bg='#515A5A')
 
 
 # Configure the grid to be responsive
-number_of_rows = 7  # Replace with the actual number of rows you have
-number_of_columns = 3  # Replace with the actual number of columns you have
+number_of_rows = 7
+number_of_columns = 3
 
 for i in range(number_of_rows):
     window.grid_rowconfigure(i, weight=1)
@@ -235,11 +220,6 @@ style.theme_use('default')
 style.configure('TProgressbar', thickness=10)
 
 
-# # Progress bar widget
-# progress = Progressbar(window, style='TProgressbar', orient="horizontal",
-#                        length=250, mode="determinate")
-# progress.grid(column=0, row=6)  # , columnspan=2, pady=20)
-
 # Status
 status_label = Label(window, text="Ready", bd=1,
                      relief="sunken")  # , anchor="w")
@@ -266,7 +246,7 @@ instructions2 = Label(
 instructions2.grid(column=0, row=4, sticky='w')
 cards_count = Entry(window, width=5)
 cards_count.grid(column=1, row=4)
-# c_count = cards_count.get()
+
 
 instructions1 = Label(
     window, text="    Process URL: ", font="Raleway")
