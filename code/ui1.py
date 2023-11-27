@@ -28,7 +28,7 @@ import gpt4 as gp4
 from tkinter import messagebox
 # from tkinter.ttk import Progressbar
 import json
-import re
+from docx2pdf import convert
 
 from flask import Flask, render_template, request, jsonify, session
 
@@ -88,17 +88,16 @@ sys.path.append(
 
 
 def process_(file):
+    print("Processing",file)
     try:
         if file:
             # lect_name = file.split("/")[-1].split(".")[0]
             lect_name = os.path.basename(file).split(".")[0]
-            # status_label.update_status("Processing file...",False)
 
             if file.split("/")[-1].split(".")[1] == "pdf":
                 pass
             elif file.split("/")[-1].split(".")[1] == "docx":
-                template = f"soffice --headless --convert-to pdf {file}"
-                os.system(template)
+                convert(file,os.path.join("uploads",lect_name+'.pdf'))
                 file = file[:-5] + ".pdf"
 
             raw_data = extract_words(file)
@@ -143,19 +142,7 @@ def process_url(url):  # , progress_callback, finish_callback):
     print("processing url", url)
     try:
         results = gp4.get_gpt_link_answers(url)
-        results = gp4.get_gpt_link_answers(url)
-            # Define a regular expression pattern to match key-value pairs
-        pattern = re.compile(r"'(\w+)': '([^']+)'")
-
-        # replace single quotes around question and ans
-        # replace double quote within strs with single quote
-        results_json = pattern.sub(
-            lambda m: '"{}": "{}"'.format(
-                m.group(1), m.group(2).replace('"', r"'")
-                ),
-            results
-            )
-        print(results_json)
+        results_json = results.replace("'", '"')
         results_list = json.loads(results_json)
         auto_anki_model = get_model()
         lect_name = url.split("/")[-1]
@@ -174,7 +161,6 @@ def process_url(url):  # , progress_callback, finish_callback):
                 curr_model=auto_anki_model)
             deck.add_note(qa)
         add_package(deck, lect_name)
-        # status_label.update_status("File processed successfully.",True)
     except Exception as e:
         print("process_url error", str(e))
         messagebox.showerror("process_url Error", str(e))
@@ -204,26 +190,6 @@ def index():
 
 
 @app.route('/upload/file', methods=['POST'])
-# def upload_file():
-#     status_label = session.get('status_label', new_status())
-#     print("Request",request, request.files)
-#     # Check if 'file' is present in the request
-#     if request.files['file']:
-#         # Process file
-#         file = request.files['file']
-#         status_label['message'], status_label['flag'] = "Processing file...", False
-
-#         upload_path = os.path.join("uploads", file.filename)
-#         if not os.path.exists("uploads"):
-#             os.makedirs("uploads")
-#         file.save(upload_path)
-#         process_(os.path.join("uploads", file.filename))
-#         status_label['message'], status_label['flag'] = "File processed successfully!", True
-
-#     session['status_label'] = status_label
-
-#     return jsonify(status_label)
-
 def upload_file():
     try:
         status_label = session.get('status_label', new_status())
