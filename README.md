@@ -36,6 +36,7 @@
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#Sucessful-usecases">Sucessful usecases</a></li>
     <li><a href="#installation">Installation</a></li>
+    <li><a href="#docker-deployment">Docker Deployment</a></li>
     <li><a href="#code-documentation">Code Documentation</a></li>
     <li><a href="#how-to-contribute">How to Contribute</a></li>
     <li><a href="#future-roadmap">Future RoadMap</a></li>
@@ -143,6 +144,26 @@ Scenario:
  `python3 code/ui.py`
 8. Install the project as a Python package(Optional):
   `pip install .`
+
+# Docker Deployment
+
+1. Create Docker Account (`https://www.docker.com/`)
+
+2. Install Docker Dektop (`https://www.docker.com/products/docker-desktop/`)
+
+3. In Search bar at top of docker desktop application search for `auto_anki`
+
+4. Pull `msills23/auto_anki` image
+
+5. Click the run action on the image
+
+6. Expand the optional settings and enter `5000` for the port number
+
+7. Run the new container
+
+8. Go to containers tab and click on the square with an arrow through it to the right of the port numbers
+
+This will open the GUI in your web browser
 
 ## Code Documentation
 
