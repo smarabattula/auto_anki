@@ -171,7 +171,7 @@ For checking code coverage,
 | extract_sizes.py  | 49    | 16   | 67%   |
 | user_cli.py       | 34    | 2    | 94%   |
 | wordprocessing.py | 125   | 4    | 97%   |
-| TOTAL             | 258   | 29   | 89%   |
+| TOTAL             | 238   | 23   | 90%   |
 
 ## How to Contribute
 
