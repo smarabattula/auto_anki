@@ -68,32 +68,6 @@ def extract_words(file: str) -> dict:
     return doc_data
 
 
-def extract_words_word(file: str) -> list:
-    """
-    Given a filename,
-    Opens the Word
-    Then extracts words and metadata from each slide
-    """
-
-    template = f"soffice --headless --convert-to pdf {file}"
-    os.system(template)
-
-    # Load word document
-    # doc = aw.Document(file)
-    # inputfile=file
-    outputfile = file[:-5]+".pdf"
-
-    # Save as PDF
-    # doc.save(outputfile)
-    # print(outputfile)
-    # Load word document
-    # doc = aw.Document(file)
-    # inputfile=file
-    # outputfile= file[:-5]+".pdf"
-    # convert(inputfile,outputfile)
-    return extract_words(outputfile)
-
-
 def get_sizes(doc: dict) -> list:
     """
     Helper function to get unique sizes within a PDF
