@@ -219,10 +219,9 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 
 We are here to support you. Feel free to email us with any question or bug reports. We try our best to reply as soon as possible.
 
-* Keith Tran (ktran24@ncsu.edu)
-* Benyamin Tabarsi(btaghiz@ncsu.edu)
-* Kimia Fazeli(kfazeli@ncsu.edu)
-* Mohammed Faizan (mfaizan@ncsu.edu)
+* Sasank Marabattula (smaraba@ncsu.edu)
+* Varun Deepak Gudhe (vgudhe@ncsu.edu)
+* MatthewSills (msills@ncsu.edu)
 
 ## Project's funding
 
