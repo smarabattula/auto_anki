@@ -30,7 +30,7 @@ from tkinter import messagebox
 import json
 from docx2pdf import convert
 
-from flask import Flask, render_template, request, jsonify, session
+from flask import Flask, render_template, request, jsonify, session, send_file
 
 sys.path.append(
     '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages')
