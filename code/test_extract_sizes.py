@@ -46,7 +46,7 @@ class TestExtractSizes(unittest.TestCase):
         """
         Tests the unique font size is as expected for Test1
         """
-        filename = "./data/Test_1.json"
+        filename = "code/data/Test_1.json"
         with open(filename, encoding='utf-8') as file_pointer:
             doc = json.load(file_pointer)
             actual_fonts = get_sizes(doc)
@@ -58,7 +58,7 @@ class TestExtractSizes(unittest.TestCase):
         """
         Tests the groupings given a file
         """
-        filename = "./data/Test_1.json"
+        filename = "code/data/Test_1.json"
 
         with open(filename, encoding='utf-8') as file_pointer:
             doc = json.load(file_pointer)
@@ -83,7 +83,7 @@ class TestExtractSizes(unittest.TestCase):
         """
         Tests the unique font size is as expected for Test2
         """
-        filename = "./data/Test_2.json"
+        filename = "code/data/Test_2.json"
         with open(filename, encoding='utf-8') as file_pointer:
             doc = json.load(file_pointer)
             actual_fonts = get_sizes(doc)
@@ -95,7 +95,7 @@ class TestExtractSizes(unittest.TestCase):
         """
         Tests the groupings given a file
         """
-        filename = "./data/Test_2.json"
+        filename = "code/data/Test_2.json"
         with open(filename, encoding='utf-8') as file_pointer:
             doc = json.load(file_pointer)
 

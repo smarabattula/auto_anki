@@ -31,7 +31,7 @@ jobs:
     
     - name: Run tests
       run: |
-        coverage run -m unittest discover -s test -p 'test_*.py'
+        python -m coverage run -m unittest discover code
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
