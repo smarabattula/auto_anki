@@ -1,8 +1,17 @@
 # Auto Anki
 
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/SmayanaReddy/auto_anki)
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/smarabattula/auto_anki)
 
-![Github](https://img.shields.io/badge/language-python-red.svg)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
+![CodeCov](https://img.shields.io/badge/Codecov-F01F7A?style=for-the-badge&logo=Codecov&logoColor=white)
+![GHActions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+
 ![Build Status](https://img.shields.io/badge/build-passing-green)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5745931.svg)](https://doi.org/10.5281/zenodo.5745931)
 [![codecov](https://codecov.io/gh/smarabattula/auto_anki/graph/badge.svg)](https://codecov.io/gh/smarabattula/auto_anki)<br>
@@ -14,10 +23,6 @@
 ![version](https://img.shields.io/badge/version-3.0-blue)
 ![Test Cases](https://img.shields.io/badge/tests-passing-green)
 ![Test Cases](https://img.shields.io/badge/test%20cases-20-green)
-<!-- ![github workflow](https://github.com/tran4code/SRIJAS/actions/workflows/unit_test.yml/badge.svg)
-![Flake8 Style Check](https://github.com/tran4code/auto_anki/actions/workflows/Flake8%20Style%20Check/badge.svg)
-![github workflow](https://github.com/tran4code/SRIJAS/actions/workflows/main.yml/badge.svg)
-![github workflow](https://github.com/tran4code/SRIJAS/actions/workflows/code_cov.yml/badge.svg) -->
 
 
 
