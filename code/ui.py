@@ -188,7 +188,7 @@ for j in range(number_of_columns):
 canvas.grid(row=0, column=0, rowspan=number_of_rows,
             columnspan=number_of_columns, sticky='nsew')
 # set logo
-logo = ImageTk.PhotoImage(file='code/Auto_Anki_Logo.jpg')
+logo = ImageTk.PhotoImage(file='code/static/images/Auto_Anki_Logo.jpg')
 logo_label = Label(image=logo)
 logo_label.image = logo
 logo_label.grid(column=0, row=0)
