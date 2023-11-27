@@ -47,17 +47,31 @@
             </select>
             </div>
 
+        <!-- Add the text box for inputting a value -->
+            <div class="mb-3">
+                <label for="fileValueInput">Enter # anki cards between 5 and 100:</label>
+                <input type="number" name="file_value" id="fileValueInput" placeholder="10" class="form-control" min="5" max="100" required>
+                <div>*Recommended 10 flash cards to memoize a topic, within range of 5 to 100</div>
+            </div>
+
             <div class="mb-3">
                 <input type="file" name="file" id="fileInput" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary" onclick="changeColor(this);">Process File! </button>
         </form>
-        <a href="/download">Download APKG File</a>
+
         <!-- Form for URL processing -->
         <form id="urlForm" enctype="multipart/form-data">
+
             <div class="mb-3">
                 <label for="urlInput">Enter web URL to generate Anki cards!</label>
                 <input type="text" name="url" id="urlInput" placeholder="https://openai.com/safety" class="form-control">
+            </div>
+                    <!-- Add the text box for inputting a value -->
+            <div class="mb-3">
+                <label for="urlValueInput">Enter # anki cards between 5 and 100: </label>
+                <input type="number" name="url_value" id="urlValueInput" class="form-control" placeholder="10" min="5" max="100" required>
+                <div>*Recommended 10 flash cards to memoize a topic, within range of 5 to 100</div>
             </div>
             <button type="button" onclick="processUrl()" class="btn btn-primary">Process URL</button>
         </form>
@@ -66,10 +80,9 @@
             <p>Status: <span id="content">{{status_label['message']}}</span></p>
         </div>
 
-        <!-- Additional content to be displayed after processing the file -->
-        <div id="additionalContent">
-            <p>Your additional content goes here.</p>
-        </div>
+        <a class="btn btn-primary" href="/download">Download APKG File*</a>
+        <div>*After status says file/url processed succesfully!</div>
+
     </div>
 
 <script>
@@ -94,11 +107,11 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             updateStatus(data['message']);
-            if (data['flag'] == true) {
-                document.getElementById('additionalContent').innerHTML = "File processed successfully! Here's some additional content.";
-            } else {
-                document.getElementById('additionalContent').innerHTML = '';
-            }
+            // if (data['flag'] == true) {
+            //     document.getElementById('additionalContent').innerHTML = "File processed successfully! Here's some additional content.";
+            // } else {
+            //     document.getElementById('additionalContent').innerHTML = '';
+            // }
         })
         .catch(error => console.error('Error:', error));
 
@@ -130,7 +143,6 @@ window.onload = function () {
         .then(response => response.json())
         .then(data => {
             updateStatus(data['message']);
-            document.getElementById('additionalContent').style.display = 'none';
         })
         .catch(error => console.error('Error:', error));
 };

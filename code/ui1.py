@@ -28,6 +28,7 @@ import gpt4 as gp4
 from tkinter import messagebox
 # from tkinter.ttk import Progressbar
 import json
+import random
 from docx2pdf import convert
 
 from flask import Flask, render_template, request, jsonify, session, send_file
@@ -37,11 +38,10 @@ sys.path.append(
 
 
 
-def process_(file):
+def process_(file,c_count):
     print("Processing",file)
     try:
         if file:
-            # lect_name = file.split("/")[-1].split(".")[0]
             lect_name = os.path.basename(file).split(".")[0]
 
             if file.split("/")[-1].split(".")[1] == "pdf":
@@ -66,21 +66,25 @@ def process_(file):
                     # when testing use searchquery[:10 or less].
                     # Still working on better threading to get faster results
                     results = executor.map(
-                        get_people_also_ask_links, search_query[:3])
+                        get_people_also_ask_links, search_query[:c_count])
             elif source_choice == "GPT":
                 with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-                    results = executor.map(gp.get_gpt_answers, search_query[:3])
-            # print(results)
+                    results = executor.map(gp.get_gpt_answers, search_query[:c_count])
+
+            results_new = [qapair for result in results for qapair in result]
+            print(len(results_new),c_count)
+            if len(results_new) > int(c_count):
+                results_new = random.sample(results_new, int(c_count))
             auto_anki_model = get_model()
             deck = get_deck(deck_name=lect_name)
-            for result in results:
-                for qapair in result:
-                    question = qapair["Question"]
-                    answer = qapair["Answer"]
-                    qa = add_question(
-                        question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
-                    deck.add_note(qa)
+            for qapair in results_new:
+                question = qapair["Question"]
+                answer = qapair["Answer"]
+                qa = add_question(
+                    question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
+                deck.add_note(qa)
             add_package(deck, lect_name)
+
     except Exception as e:
         print("file process_ Error", str(e))
         messagebox.showerror("file process_ Error", str(e))
@@ -88,50 +92,38 @@ def process_(file):
 
 
 # Function for processing url
-def process_url(url):  # , progress_callback, finish_callback):
+def process_url(url,c_count):  # , progress_callback, finish_callback):
     print("processing url", url)
+
     try:
-        results = gp4.get_gpt_link_answers(url)
+        results = gp4.get_gpt_link_answers(url, c_count)
         results_json = results.replace("'", '"')
         results_list = json.loads(results_json)
         auto_anki_model = get_model()
         lect_name = url.split("/")[-1]
         deck = get_deck(deck_name=lect_name)
-        # print(results)
-
         for result in results_list:
-            # print(result)
-            # no error till here
             question = result["Question"]
             answer = result["Answer"]
-            # print(question, answer)
             qa = add_question(
                 question=f'{question}',
                 answer=f'{answer}',
                 curr_model=auto_anki_model)
             deck.add_note(qa)
         add_package(deck, lect_name)
+
     except Exception as e:
         print("process_url error", str(e))
         messagebox.showerror("process_url Error", str(e))
 
-# New function to handle URL input
-def process_link(url_input):
-    url = url_input.get()
-    if url:
-        # You might want to add some validation for the URL here
-        process_url(url)
-    else:
-        print("process_link Error", "Please enter a valid URL")
-        messagebox.showerror("process_link Error", "Please enter a valid URL")
-
-
-def new_status():
-    return {'message':'Ready','flag':False}
 
 current_filename = None
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
+
+
+def new_status():
+    return {'message':'Ready','flag':False}
 
 
 @app.route('/')
@@ -144,9 +136,11 @@ def upload_file():
     try:
         status_label = session.get('status_label', new_status())
         global current_filename
-
         # Check if 'file' is present in the request
         if request.files['file']:
+            c_count = 5
+            if request.form['file_value']:
+                c_count = min(max(int(request.form['file_value']),5),100)
             # Process file
             file = request.files['file']
             current_filename = file.filename
@@ -156,7 +150,7 @@ def upload_file():
             if not os.path.exists("uploads"):
                 os.makedirs("uploads")
             file.save(upload_path)
-            process_(os.path.join("uploads", file.filename))
+            process_(os.path.join("uploads", file.filename),c_count)
             status_label['message'], status_label['flag'] = "File processed successfully!", True
 
         session['status_label'] = status_label
@@ -174,11 +168,14 @@ def upload_url():
         status_label = session.get('status_label', new_status())
         # Check if 'url' is present in the request
         if request.form['url']:
+            c_count = 5
+            if request.form['url_value']:
+                c_count = min(max(int(request.form['url_value']),5),100)
             # Process URL
             url = request.form['url']
             current_filename=url.split("/")[-1]
             status_label['message'], status_label['flag'] = "Processing URL...", False
-            process_url(url)
+            process_url(url,c_count)
             status_label['message'], status_label['flag'] = "URL processed successfully!", True
 
         session['status_label'] = status_label
