@@ -19,7 +19,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
+from ui_main import process_, process_url
 import os
 from user_cli import *
 import sys
@@ -36,86 +36,9 @@ sys.path.append(
     '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages')
 
 
-
-def process_(file):
-    print("Processing",file)
-    try:
-        if file:
-            # lect_name = file.split("/")[-1].split(".")[0]
-            lect_name = os.path.basename(file).split(".")[0]
-
-            if file.split("/")[-1].split(".")[1] == "pdf":
-                pass
-            elif file.split("/")[-1].split(".")[1] == "docx":
-                convert(file,os.path.join("uploads",lect_name+'.pdf'))
-                file = file[:-5] + ".pdf"
-
-            raw_data = extract_words(file)
-            raw_data = text_to_groupings(raw_data)
-            keyword_data = wp.extract_noun_chunks(raw_data)
-            keyword_data = wp.merge_slide_with_same_headers(keyword_data)
-
-            keyword_data = wp.duplicate_word_removal(keyword_data)
-            search_query = wp.construct_search_query(
-                keyword_data)
-
-            source_choice = request.form['source']
-
-            if source_choice == "Google":
-                with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-                    # when testing use searchquery[:10 or less].
-                    # Still working on better threading to get faster results
-                    results = executor.map(
-                        get_people_also_ask_links, search_query[:3])
-            elif source_choice == "GPT":
-                with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-                    results = executor.map(gp.get_gpt_answers, search_query[:3])
-            # print(results)
-            auto_anki_model = get_model()
-            deck = get_deck(deck_name=lect_name)
-            for result in results:
-                for qapair in result:
-                    question = qapair["Question"]
-                    answer = qapair["Answer"]
-                    qa = add_question(
-                        question=f'{question}', answer=f'{answer}', curr_model=auto_anki_model)
-                    deck.add_note(qa)
-            add_package(deck, lect_name)
-    except Exception as e:
-        print("file process_ Error", str(e))
-        messagebox.showerror("file process_ Error", str(e))
-        # finish_callback()
-
-
-# Function for processing url
-def process_url(url):  # , progress_callback, finish_callback):
-    print("processing url", url)
-    try:
-        results = gp4.get_gpt_link_answers(url)
-        results_json = results.replace("'", '"')
-        results_list = json.loads(results_json)
-        auto_anki_model = get_model()
-        lect_name = url.split("/")[-1]
-        deck = get_deck(deck_name=lect_name)
-        # print(results)
-
-        for result in results_list:
-            # print(result)
-            # no error till here
-            question = result["Question"]
-            answer = result["Answer"]
-            # print(question, answer)
-            qa = add_question(
-                question=f'{question}',
-                answer=f'{answer}',
-                curr_model=auto_anki_model)
-            deck.add_note(qa)
-        add_package(deck, lect_name)
-    except Exception as e:
-        print("process_url error", str(e))
-        messagebox.showerror("process_url Error", str(e))
-
 # New function to handle URL input
+
+
 def process_link(url_input):
     url = url_input.get()
     if url:
@@ -127,7 +50,8 @@ def process_link(url_input):
 
 
 def new_status():
-    return {'message':'Ready','flag':False}
+    return {'message': 'Ready', 'flag': False}
+
 
 current_filename = None
 app = Flask(__name__)
@@ -136,7 +60,7 @@ app.config['SECRET_KEY'] = os.urandom(24)
 
 @app.route('/')
 def index():
-    return render_template('index.html',status_label=new_status())
+    return render_template('index.html', status_label=new_status())
 
 
 @app.route('/upload/file', methods=['POST'])
@@ -176,7 +100,7 @@ def upload_url():
         if request.form['url']:
             # Process URL
             url = request.form['url']
-            current_filename=url.split("/")[-1]
+            current_filename = url.split("/")[-1]
             status_label['message'], status_label['flag'] = "Processing URL...", False
             process_url(url)
             status_label['message'], status_label['flag'] = "URL processed successfully!", True
@@ -221,4 +145,4 @@ def download_apkg():
 if __name__ == '__main__':
     # Set cache control headers
     app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-    app.run(host ='0.0.0.0', port = 5000, debug = True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
