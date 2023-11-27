@@ -143,11 +143,13 @@ def index():
 def upload_file():
     try:
         status_label = session.get('status_label', new_status())
+        global current_filename
 
         # Check if 'file' is present in the request
         if request.files['file']:
             # Process file
             file = request.files['file']
+            current_filename = file.filename
             status_label['message'], status_label['flag'] = "Processing file...", False
 
             upload_path = os.path.join("uploads", file.filename)
@@ -168,11 +170,13 @@ def upload_file():
 @app.route('/upload/url', methods=['POST'])
 def upload_url():
     try:
+        global current_filename
         status_label = session.get('status_label', new_status())
         # Check if 'url' is present in the request
         if request.form['url']:
             # Process URL
             url = request.form['url']
+            current_filename=url.split("/")[-1]
             status_label['message'], status_label['flag'] = "Processing URL...", False
             process_url(url)
             status_label['message'], status_label['flag'] = "URL processed successfully!", True
