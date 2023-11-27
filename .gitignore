@@ -214,3 +214,5 @@ myenv/
 # Generated Anki decks
 code/anki_decks
 uploads/
+
+genanki

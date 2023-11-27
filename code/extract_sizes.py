@@ -26,7 +26,6 @@ File completing step 2: given a pdf document
 return a dictionaryof headers and paragraphs
 
 """
-import os
 import re
 import fitz
 
