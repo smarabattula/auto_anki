@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import os
 
 
-def get_gpt_link_answers(url):
+def get_gpt_link_answers(url, c_count):
     """
     Given a url, returns the GPT answers
 
@@ -21,7 +21,7 @@ def get_gpt_link_answers(url):
             {
                 "role": "user",
                 "content": url +
-                "             Go through this link and Can you create 3 anki cards on important topics in this?" +
+                "             Go through this link and Can you create "+str(c_count)+" anki cards on important topics in this? and also avoid single quotes in the answer" +
                 "Generate the anki cards in the following format. I will provide an example below. Make sure to have contain in the brackets '[]' "
                 "[{'Question': 'What do principal components mean?', 'Answer': 'Principal components "
                 "are new variables that are constructed as linear combinations or mixtures of the initial "
