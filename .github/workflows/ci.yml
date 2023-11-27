@@ -27,6 +27,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip  # Ensure pip is up-to-date
         pip install .  # Install project dependencies
+        python -m spacy download en_core_web_lg
         pip install coverage
     
     - name: Run tests
