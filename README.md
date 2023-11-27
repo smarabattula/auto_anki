@@ -12,7 +12,7 @@
 ![GHActions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
 
 ![Build Status](https://img.shields.io/badge/build-passing-green)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5745931.svg)](https://doi.org/10.5281/zenodo.5745931)
+[![DOI](https://zenodo.org/badge/713026474.svg)](https://zenodo.org/doi/10.5281/zenodo.10211336)
 [![codecov](https://codecov.io/gh/smarabattula/auto_anki/graph/badge.svg)](https://codecov.io/gh/smarabattula/auto_anki)<br>
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 [![GitHub license](https://img.shields.io/github/license/smarabattula/auto_anki)](https://github.com/smarabattula/auto_anki/blob/main/LICENSE)
