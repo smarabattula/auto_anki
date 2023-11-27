@@ -200,20 +200,26 @@ For checking code coverage,
 
 ## How to Contribute
 
-We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/tran4code/auto_anki/blob/main/CONTRIBUTING.md).
+We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/varundeepakgudhe/auto_anki/blob/main/CONTRIBUTING.md).
 
-For any feedback, issues, or bug reports, please create an issue [here](https://github.com/tran4code/auto_anki/issues/new).
+For any feedback, issues, or bug reports, please create an issue [here](https://github.com/varundeepakgudhe/auto_anki/issues/new).
 
 ## Future RoadMap
 
-#### Build a browser extension with the current functionality
+#### Development of In-App Flashcard Viewer:
 
-- A browser extension which will extract contents of the current webpage which the user is on and produce a new deck of anki cards based on the material.
+- Create an interactive flashcard viewer within the web application, allowing users to review and study the flashcards directly on the site.
+- Implement features such as flipping the card for answers, progressing to the next card, and random shuffle.
 
-#### Improve word extraction logic
+#### Adaptive Learning Algorithms:
 
-- Currently Spacy is being used to extract noun phrases from each slide/page of the document. Then the high frequency noun phrases are calculated and used in the final search query. However this causes an issue when every slide has the document’s author name and email address listed. The author name is considered as a noun phrase, and since it appears on every slide has a high frequency, and thus appears on the final search query.
+- Introduce machine learning algorithms that adapt to individual user learning patterns and preferences.
+- Provide personalized recommendations and flashcard adjustments based on user performance.
 
+#### Multilingual Support:
+
+- Expand the application's capabilities to support multiple languages.
+- Integrate automatic translation features for creating flashcards in different languages. 
 
 ## Contact us(Contributors):
 
@@ -236,4 +242,4 @@ We have built this code on top of the stack from the project [
 
 You can cite us like this:
 
-Auto-Anki with ChatGPT. Version 1.0. Keith Tran,Benyamin Tabarsi, Kimia Fazeli, Mohammed Fazian. 2023. [https://github.com/tran4code/auto_anki]
+WebGPT-4 Anki Builder. Version 1.0. Sasank Marabattula, Varun Deepak Gudhe, MatthewSills. 2023. [https://github.com/varundeepakgudhe/auto_anki]
