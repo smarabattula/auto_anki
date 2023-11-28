@@ -70,6 +70,11 @@ This tool is a breakthrough in adaptive learning. Whether cramming for exams, re
 
 
 **Dive into the world of WebGPT-4 Anki Builder, where your study sessions turn into a knowledge fiesta, and learning feels like unlocking cheat codes for your brain!** 🚀🧠🎉
+
+## Top-Level Architecture:
+![image](https://github.com/varundeepakgudhe/auto_anki/assets/112991463/4e3110f6-74f7-403a-836a-e28dba30e40a)
+
+
 ## Quick Start
 Step into the future with WebGPT-4 Anki Builder: Just upload your study materials or feed in a URL, and voilà – your personalized APKG file is crafted in a flash! Import it into Anki and make studying not just a breeze, but a thrilling adventure. Quick, effortless, and smart – it's learning, reimagined! 🌟📚💡
 
