@@ -1,5 +1,5 @@
 <h1> Version Improvements</h1><br/>
-<h3> Making more precise Anki cards using ChatGPT </h3>
+<h3> Making more precise Anki cards using WebGPT-4 Anki Builder </h3>
 <ul>
   <li> Fixed GPT search results as previous repo code wasn't working for GPT option.</li>
   <li> Users can now generate anki cards via entering URL links for web pages!</li>

@@ -352,3 +352,28 @@ yarl==1.9.2
 Web Address: [yarl on GitHub](https://github.com/aio-libs/yarl/)
 License: Apache 2.0
 Mandatory
+
+docker-ce=5:20.10.12~3-0~ubuntu-focal
+Web Address: https://docs.docker.com/engine/install/ubuntu/
+License: Apache-2.0
+Optional
+
+containerd.io=1.4.12-1
+Web Address: https://containerd.io/
+License: Apache-2.0
+Optional
+
+docker-compose=1.29.2
+Web Address: https://github.com/docker/compose
+License: Apache-2.0
+Optional
+
+docker-buildx=0.8.2
+Web Address: https://github.com/docker/buildx
+License: Apache-2.0
+Optional
+
+docker-credential-pass=0.10.0
+Web Address: https://github.com/docker/docker-credential-helpers
+License: MIT
+Optional
