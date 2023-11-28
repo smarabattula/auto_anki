@@ -32,6 +32,7 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
+    <li><a href="#introducing-webgpt-4-anki-builder--the-next-level-learning-experience">Introducing WebGPT-4 Anki Builder – The Next-Level Learning Experience!</a></li>
     <li><a href="#why-should-you-use-auto-anki">Why should you use Auto Anki?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#Sucessful-usecases">Sucessful usecases</a></li>
@@ -46,6 +47,8 @@
    <li><a href="#Recommended-citation">Recommended citation</a></li>
   </ol>
 </details>
+
+
 
 ## Introducing WebGPT-4 Anki Builder – The Next-Level Learning Experience!
 WebGPT-4 Anki Builder takes the innovative concept of Auto Anki with ChatGPT 4 and elevates it to new heights, introducing a dynamic web application platform. This advanced tool seamlessly turns various types of educational content, including web pages, into highly effective and precise flashcards, driven by the power of ChatGPT 4 and GPT-4's URL processing capabilities.
@@ -234,7 +237,7 @@ Scenario:
 9. Install the project as a Python package(Optional):
   `pip install .`
 
-# Docker Deployment
+# Docker Deployment for Web Application
 
 1. Create Docker Account (`https://www.docker.com/`)
 
@@ -304,11 +307,6 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 
 - Introduce machine learning algorithms that adapt to individual user learning patterns and preferences.
 - Provide personalized recommendations and flashcard adjustments based on user performance.
-
-#### Multilingual Support:
-
-- Expand the application's capabilities to support multiple languages.
-- Integrate automatic translation features for creating flashcards in different languages. 
 
 ## Contact us(Contributors):
 
