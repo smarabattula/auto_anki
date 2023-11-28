@@ -1,4 +1,4 @@
-# Auto Anki
+# WebGPT-4 Anki Builder
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
@@ -47,51 +47,139 @@
   </ol>
 </details>
 
-## Introducing Auto Anki – Your Ultimate Flashcard Companion Powered by ChatGPT 4!
+## Introducing WebGPT-4 Anki Builder – The Next-Level Learning Experience!
+WebGPT-4 Anki Builder takes the innovative concept of Auto Anki with ChatGPT 4 and elevates it to new heights, introducing a dynamic web application platform. This advanced tool seamlessly turns various types of educational content, including web pages, into highly effective and precise flashcards, driven by the power of ChatGPT 4 and GPT-4's URL processing capabilities.
 
-Auto Anki revolutionizes your learning experience by effortlessly transforming your lecture materials into highly accurate and effective flashcards. This version of Auto Anki incorporates the advanced capabilities of ChatGPT 4, ensuring precision and relevance in every flashcard.
+Designed for students, educators, and lifelong learners, WebGPT-4 Anki Builder is your go-to solution for transforming complex information into manageable study aids. Whether you're handling dense academic materials or seeking to grasp intricate concepts, our application is engineered to streamline your learning process.
 
-Auto Anki, building upon the intelligent Anki flashcard platform [Anki](https://apps.ankiweb.net/)  , generates flashcards from your lectures, making studying a breeze. It's the perfect tool for anyone who struggles to memorize class concepts, faces revision challenges, or simply prefers a more convenient note-taking approach.
+## Here's what WebGPT-4 Anki Builder can do for you:
 
-## Here's what Auto Anki with ChatGPT 4 can do for you:
+The WebGPT-4 Anki Builder not only extracts crucial concepts from your lectures to generate targeted questions, ensuring a thorough grasp of the material, but also searches the web for the most relevant answers to guarantee the accuracy of your flashcards. It leverages Anki's robust features to allow users to rate the difficulty level of each question, aiding in the memorization of challenging concepts. 
 
-Extract crucial concepts from your lectures and generate questions based on them.
-Search the web for the most relevant answers, guaranteeing the accuracy of your flashcards.
-Utilize Anki's robust features, allowing you to rate the difficulty level of each question, making tough concepts easier to memorize.
+Building upon this, the application now enables the creation of flashcards directly from web content using GPT-4 integration, capturing the essence of diverse subject matters. It offers customizable flashcard creation, empowering users to tailor the number of flashcards to their learning needs. The responsive web design ensures a seamless user experience across various devices. With real-time status updates, learners stay informed throughout the flashcard creation process, and enhanced error reporting with informative pop-ups guides them through any issues encountered. Finally, the upgraded GPT-4 integration enhances the relevance and accuracy of the flashcards, enriching the learning experience.
 
-## Why should you choose Auto Anki with ChatGPT 4?
+## Why should you choose WebGPT-4 Anki Builder?
 
-Summarize entire lectures into flashcards, perfect for memorization.
-Eliminate the manual effort of creating lecture flashcards in Anki.
-Break down lecture PDFs into concise and effective question-and-answer pairs.
-Create straightforward flashcards for effortless memorization and revision.
-Auto Anki 4.0 is here to enhance your study experience and empower your academic success! 😊
+**Picture this:** you're faced with an ocean of educational content, daunting and seemingly impenetrable. Then, along comes WebGPT-4 Anki Builder, a beacon of clarity in this sea of information. It's not just a study tool; it's your personal academic ally, transforming complex lecture materials into easily digestible flashcards. With the power of GPT-4, it sifts through content, pinpointing and extracting key concepts, and tailoring these into a format that makes learning not just effective, but enjoyable.
 
+This tool is a breakthrough in adaptive learning. Whether cramming for exams, revisiting old topics, or delving into new ones, WebGPT-4 Anki Builder molds itself to fit your unique learning needs. It offers a responsive, seamless study experience across all devices, complemented by real-time updates that keep you informed of your progress. The real magic lies in its precision – enhanced error reporting and the accuracy of GPT-4 integration ensure that what you're studying is not just relevant but also meticulously curated for your success.
+
+
+**Dive into the world of WebGPT-4 Anki Builder, where your study sessions turn into a knowledge fiesta, and learning feels like unlocking cheat codes for your brain!** 🚀🧠🎉
 ## Quick Start
-Install Auto-Anki with ChatGPT, provide your study lectures or documents, and your APKG file will be ready! You can import it into the Anki application and dive into your materials. It's quick and easy peasy!
+Step into the future with WebGPT-4 Anki Builder: Just upload your study materials or feed in a URL, and voilà – your personalized APKG file is crafted in a flash! Import it into Anki and make studying not just a breeze, but a thrilling adventure. Quick, effortless, and smart – it's learning, reimagined! 🌟📚💡
 
-Here's a series of pictures to demonstrate the features we've added and how to use them:
+After you run the application:
+  
+<p align="center">
+   
+  <img src="https://github.com/varundeepakgudhe/auto_anki/assets/112991463/e0df677b-50f1-441a-a714-f517d15eaaa9" alt="Tkinter GUI" width="371"/>
+  <img src="https://github.com/varundeepakgudhe/auto_anki/assets/112991463/e54b164c-1da8-4683-adbf-031641dd503d" alt="Web Application" width="430"/> 
+</p>
+<!-- ![image](https://github.com/varundeepakgudhe/auto_anki/assets/112991463/e0df677b-50f1-441a-a714-f517d15eaaa9) -->
 
-### First Feature: Enhanced User Interface
-We've revamped the user interface and introduced a convenient drop-down menu, this was not available in the previous version. Also we improved overall appereance.
+- **The above two represents:** **1. The updated Tkinter GUI** **2. Web Application of the Auto Anki**
+- **How to use Tkinter GUI**
+  
+   - For file upload:
+     
+     - Choose the API source from the dropdown (Google or GPT-4)
+     - Enter the number of flashcards you want to generate(default: 10)
+     - Click on browse files to select the file you want to process (Type: PDF or DOCX)
+     - After selecting the file, it will be processed and apkg file is generated in anki-decks folder
+   
 
-<img src="https://github.com/tran4code/auto_anki/assets/113017516/0f8d4620-e795-473e-ae37-15840db64b6e" width="400" />
+  - For URL processing:
+    
+    - Paste the url of the website you want to generate anki cards on, in the url input field
+    - Enter the number of flashcards you want to generate
+    - Click on the -> button to process the url
+    - Now, it will be processed and apkg file is generated in anki-decks folder
+      
+  - Take the apkg file and upload in anki software to view the ankicards
+    
+- **How to use Web Application**
+    
+   - The toggle by default will be File
+     
+      - For file upload, Choose the API source from the dropdown (Google or GPT-4)
+      - Enter the number of flashcards you want to generate
+      - Click on Choose File to select the file you want to process (Type: PDF or DOCX)
+      - After choosing the file, click on Process File
+      - After the status changes from Ready to File is processed, click on Download APKG File*
+      - The apkg file can be found in your downloads
+        
+   - Swithc toggle to URL for url processing
+     
+      - Enter the url of the website you want to generate anki cards on, in the url input field
+      - Enter the number of flashcards you want to generate
+      - Click on Process URL
+      - After the status changes from Ready to File is processed, click on Download APKG File*
+        
+   - Take the apkg file and upload in anki software to view the ankicards
+### New Features
+Here's a series of pictures to demonstrate the features we've added:
+#### 1. URL Processing with GPT-4 Integration
 
-### Second Feature: ChatGPT Integration
-To provide more accurate answers, we integrated the ChatGPT API. Now, users can generate highly precise flashcards with Auto-Anki powered by ChatGPT. In the previous version they could only use google(people aslo asked answers) to generate flash cards.
+Our latest update introduces a revolutionary URL processing feature. Now, users can create flashcards directly from any website. This enhancement is powered by the integration of GPT-4, ensuring highly accurate and relevant content extraction. This is a significant leap from the previous version, which was limited to generating flashcards only from PDF or DOCX files.
+
+![image](https://github.com/varundeepakgudhe/auto_anki/assets/112991463/da47ae0a-6bb3-4b01-8059-1a0281cc48ba)
 
 
-When you run Auto-Anki, you'll be greeted by this user-friendly interface where you can choose between Google or ChatGPT to generate your flashcards.
 
-<img src="https://github.com/tran4code/auto_anki/assets/113017516/ca20b1dd-9972-4af1-a883-a665f321b9b6" width="400" />
+#### 2. Customizable Flashcard Quantity
 
-<img src="https://github.com/tran4code/auto_anki/assets/113017516/ad87793c-fa1e-49f5-ab44-e0ee4bd871d1" width="400" />
+Flexibility is key in our new update. Users now have the option to specify the number of flashcards they wish to generate. This new feature contrasts with the earlier version's fixed flashcard output, offering a more tailored learning experience.
 
-Here, you can upload your document:
+![image](https://github.com/varundeepakgudhe/auto_anki/assets/112991463/33137a6e-d613-4d8a-9407-5a961f612b98)
 
-<img src="https://github.com/tran4code/auto_anki/assets/113017516/bc38ce0a-c838-49f5-b125-57c9b46a8365" width="400" />
 
-It produces an APKG file, and with the Anki application, you can open it and enjoy a new and enhanced studying experience.
+#### 3. Responsive GUI Design
+
+We've overhauled the user interface, transitioning from a non-responsive tkinter-based GUI to a fully responsive design. This update enhances user interaction, making the application more adaptable to various screen sizes and user needs.
+
+![image](https://github.com/varundeepakgudhe/auto_anki/assets/112991463/df4b0ca9-a586-4e25-a153-e58daa98fbee)
+
+
+#### 4. Integrated Status Bar
+
+Our new status bar provides real-time updates on the application's state. It indicates when the GUI is ready, when files are being processed, and when the processing is complete. This feature eliminates the need to manually check for file generation, streamlining the user experience.
+
+In the screenshots, we can see the status bar shows the status of the application after the file is uploaded 
+- 1) Processing file...  
+- 2) File processed successfully.
+    
+<p align="center">
+  <img src="https://github.com/varundeepakgudhe/auto_anki/assets/112991463/313a3881-203f-46ee-8c89-12737cd6942c" alt="Processing file... " width="350"/>
+  <img src="https://github.com/varundeepakgudhe/auto_anki/assets/112991463/deca29c4-82a0-4e05-8986-7e8fb606fede" alt="File processed successfully." width="350"/> 
+</p>
+
+
+#### 5. Improved Error Handling and Messaging
+
+To further aid user understanding, we've implemented a message box that displays errors or confirms successful file generation. This feature provides clear, immediate feedback about the application's status and any issues encountered during file processing, a significant improvement over the previous version's lack of in-app updates.
+
+In the below example, we removed the API KEY and tried to run the url processing:
+
+![Screenshot 2023-11-27 at 8 08 11 PM](https://github.com/varundeepakgudhe/auto_anki/assets/112991463/6ed70c7c-3493-46e4-a61a-c90c0bfdfc6a)
+
+#### 6. Rewritten GPT Integration for Enhanced Accuracy and Improved Document Processing
+
+In response to the latest changes in OpenAI's API, we've completely rewritten our GPT integration, upgrading to the cutting-edge GPT-4 model. This overhaul was crucial not only for adhering to new API standards but also for significantly boosting the precision of flashcard generation. Moreover, we addressed the previously non-functional document-to-PDF conversion feature. Our team re-engineered this aspect from the ground up, ensuring smooth and efficient conversion, thereby enhancing the overall functionality and user experience of our learning tool.
+
+#### 7. Introducing Our Ace Card: A Dynamic Web Interface ✨
+
+Elevating our toolkit to new heights, we proudly introduce the seventh major update — a shift to a dynamic web application, enhancing user engagement far beyond what the previous tkinter GUI could offer. This new web interface boasts a dynamic background, a toggle button for effortless switching between file and URL processing, and a direct download option for the generated APKG files post-processing. It's a comprehensive upgrade that not only makes the application more visually appealing and interactive but also significantly enriches the user's experience with its streamlined and intuitive functionality.
+
+![image](https://github.com/varundeepakgudhe/auto_anki/assets/112991463/bad16c68-7e9c-48f8-afee-c8f8704f56f2)
+
+
+
+
+
+
+
+#### With the Anki application, you can open the apkg file and enjoy a new and enhanced studying experience.
 
 <img src="https://github.com/tran4code/auto_anki/assets/113017516/a388c8f0-a4a6-486a-8495-d3f49be9042b" width="400" />
 
@@ -137,12 +225,13 @@ Scenario:
 4. Download a required model:
   `python -m spacy download en_core_web_lg`
 5. Add the Anki library as submodule in your project folder
-  `git submodule add https://github.com/kerrickstaley/genanki genanki`
+  `git clone https://github.com/kerrickstaley/genanki`
 6. Navigate into the cloned directory and Install the Anki library:
   `cd genanki;  python setup.py install`
 7. Navigate to Project folder again The command to run the project is:
- `python3 code/ui.py`
-8. Install the project as a Python package(Optional):
+    - Web Application:`python3 code/ui1.py`
+    - Tkinter GUI : `python3 code/ui.py`
+9. Install the project as a Python package(Optional):
   `pip install .`
 
 # Docker Deployment
