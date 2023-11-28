@@ -13,7 +13,7 @@
 
 ![Build Status](https://img.shields.io/badge/build-passing-green)
 [![DOI](https://zenodo.org/badge/713026474.svg)](https://zenodo.org/doi/10.5281/zenodo.10211336)
-[![codecov](https://codecov.io/gh/smarabattula/auto_anki/graph/badge.svg)](https://codecov.io/gh/smarabattula/auto_anki)<br>
+[![codecov](https://codecov.io/gh/varundeepakgudhe/auto_anki/graph/badge.svg?token=P4BJH7OMK7)](https://codecov.io/gh/varundeepakgudhe/auto_anki)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 [![GitHub license](https://img.shields.io/github/license/smarabattula/auto_anki)](https://github.com/smarabattula/auto_anki/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/smarabattula/auto_anki)](https://github.com/smarabattula/auto_anki/issues)
@@ -32,16 +32,17 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#introducing-webgpt-4-anki-builder--the-next-level-learning-experience">Introducing WebGPT-4 Anki Builder – The Next-Level Learning Experience!</a></li>
-    <li><a href="#why-should-you-use-auto-anki">Why should you use Auto Anki?</a></li>
+    <li><a href="#introducing-webgpt-4-anki-builder--the-next-level-learning-experience">Introducing WebGPT-4 Anki Builder</a></li>
+    <li><a href="#why-should-you-choose-webgpt-4-anki-builder">Why should you choose WebGPT-4 Anki Builder?</a></li>
+    <li><a href="#quick-start">Quick Start</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#Sucessful-usecases">Sucessful usecases</a></li>
     <li><a href="#installation">Installation</a></li>
-    <li><a href="#docker-deployment">Docker Deployment</a></li>
+    <li><a href="#docker-deployment-for-web-application">Docker Deployment for Web Application</a></li>
     <li><a href="#code-documentation">Code Documentation</a></li>
     <li><a href="#how-to-contribute">How to Contribute</a></li>
     <li><a href="#future-roadmap">Future RoadMap</a></li>
-   <li><a href="#contributors">Contact us(Contributors)</a></li>
+    <li><a href="#contributors">Contact us(Contributors)</a></li>
     <li><a href="#Funding">Project's Funding</a></li>
    <li><a href="#acknowledgements">Acknowledgements</a></li>
    <li><a href="#Recommended-citation">Recommended citation</a></li>
@@ -166,9 +167,9 @@ In the below example, we removed the API KEY and tried to run the url processing
 
 ![Screenshot 2023-11-27 at 8 08 11 PM](https://github.com/varundeepakgudhe/auto_anki/assets/112991463/6ed70c7c-3493-46e4-a61a-c90c0bfdfc6a)
 
-#### 6. Rewritten GPT Integration for Enhanced Accuracy and Improved Document Processing
+#### 6. Rewritten GPT Integration for Enhanced Accuracy
 
-In response to the latest changes in OpenAI's API, we've completely rewritten our GPT integration, upgrading to the cutting-edge GPT-4 model. This overhaul was crucial not only for adhering to new API standards but also for significantly boosting the precision of flashcard generation. Moreover, we addressed the previously non-functional document-to-PDF conversion feature. Our team re-engineered this aspect from the ground up, ensuring smooth and efficient conversion, thereby enhancing the overall functionality and user experience of our learning tool.
+In response to the latest changes in OpenAI's API, we've completely rewritten our GPT integration, upgrading to the cutting-edge GPT-4 model. This overhaul was crucial not only for adhering to new API standards but also for significantly boosting the precision of flashcard generation. Our team re-engineered this aspect from the ground up, ensuring smooth and efficient conversion, thereby enhancing the overall functionality and user experience of our learning tool.
 
 #### 7. Introducing Our Ace Card: A Dynamic Web Interface ✨
 
@@ -188,7 +189,11 @@ Elevating our toolkit to new heights, we proudly introduce the seventh major upd
 
 ## Check out the video!
 
-https://github.com/tran4code/auto_anki/assets/113017516/ab847e56-d290-4faf-9db6-d9967bc955d3
+
+https://github.com/varundeepakgudhe/auto_anki/assets/112991463/b9b57b33-627b-4d36-a1f9-920eb5b049fd
+
+
+
 
 # Successful usecases
 
