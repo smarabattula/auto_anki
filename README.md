@@ -197,27 +197,40 @@ https://github.com/varundeepakgudhe/auto_anki/assets/112991463/b9b57b33-627b-4d3
 
 # Successful usecases
 
-🎉️ Case study : Kimia
+🎉️ 🎉️ Case Study: Web Development Mastery
 
-Background: Student majoring in Computer Science
+User: Matthew
 
-Scenario:
-
-* Kimia was struggling with managing large amounts of information from complex textbooks.
-* Kimia started using Auto-Anki with ChatGPT to extract key content from PDF textbooks and create flashcards automatically.
-* Result: Kimia noticed a significant improvement in her ability to absorb and retain information. Kimia achieved a good grade in her Software Engineering midterm exam and now has more free time for other activities.
-
-🎉️ Case Study: Language Learning
-
-User: Mohammed
-
-Background: Language Enthusiast
+Background: Aspiring Web Developer
 
 Scenario:
 
-* Mohammed was passionate about learning new languages and wanted to create flashcards to improve his vocabulary.
-* He used Auto-Anki with ChatGPT to extract phrases and sentences from Spanish language textbooks and websites.
-* Result: Mohammed  could expand his vocabulary and language skills in only 2 weeks that he has used Auto-Anki, making his conversations more fluent and enjoyable.
+- Matthew, an aspiring web developer, found himself overwhelmed with the sheer volume of coding concepts and frameworks he needed to master.
+- He turned to WebGPT-4 Anki Builder for help, using it to generate flashcards from various online programming tutorials and documentation.
+- Matthew utilized the URL processing feature to directly create cards from web resources, making his study sessions more efficient and focused.
+
+Result:
+
+- In just a few weeks, Matthew observed a remarkable improvement in his understanding of complex web development concepts.
+- He successfully built his first full-stack web application, crediting the clarity and retention provided by WebGPT-4 Anki Builder for his accelerated learning curve.
+
+
+🎉️ 🎉️ Case Study: Mastering Kubernetes and Flask
+
+User: Varun
+
+Background: Computer Science Major
+
+Scenario:
+
+- Varun, a computer science student, was eager to learn Kubernetes and Flask to deploy his web application efficiently.
+- Facing the complexity of Kubernetes and the nuances of Flask, Varun turned to WebGPT-4 Anki Builder for a streamlined learning approach.
+- He used the tool to create flashcards from Kubernetes documentation and Flask tutorials, transforming extensive technical content into bite-sized, manageable learning segments.
+
+Result:
+
+- With the help of WebGPT-4 Anki Builder, Varun quickly grasped the intricacies of container orchestration with Kubernetes and web development with Flask.
+- His newfound proficiency led to the successful deployment of his web application, showcasing a robust backend managed by Flask and scalable deployment handled by Kubernetes.
 
 # Installation
 
