@@ -34,13 +34,21 @@ import gpt4 as gp4
 from tkinter.ttk import Progressbar
 import json
 import random
+
+from docx2pdf import convert
+
 sys.path.append(
     '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages')
 
-# import filedialog module
-
 
 def process_(file, c_count):
+    """
+    Function for processing file
+    Processes the file (File's path)
+    and generates c_count number of cards
+    :param file: String representing file path
+    :param c_count: Input number of anki cards
+    """
     try:
         update_status("Processing file...")
         lect_name = file.split("/")[-1].split(".")[0]
@@ -48,11 +56,9 @@ def process_(file, c_count):
         if file.split("/")[-1].split(".")[1] == "pdf":
             pass
         elif file.split("/")[-1].split(".")[1] == "docx":
-            template = f"soffice --headless --convert-to pdf {file}"
-            os.system(template)
+            convert(file,os.path.join("uploads",lect_name+'.pdf'))
             file = file[:-5] + ".pdf"
         elif file.split("/")[-1].split(".")[1] == "pptx":
-            # template = f"unoconv -f pdf '{file}'"
             template = f"soffice --headless --convert-to pdf {file}"
             os.system(template)
             file = file[:-5] + ".pdf"
@@ -65,7 +71,6 @@ def process_(file, c_count):
         keyword_data = wp.duplicate_word_removal(keyword_data)
         search_query = wp.construct_search_query(
             keyword_data)
-        # print(search_query)
         if source_choice.get() == "Google":
             with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
                 # when testing use searchquery[:10 or less].
@@ -96,8 +101,15 @@ def process_(file, c_count):
         messagebox.showerror("Error", str(e))
 
 
-# Fcuntion for processing url
+#
 def process_url(url, c_count):
+    """
+    Function for processing url
+    Processes the url (web url)
+    and generates c_count number of cards
+    :param url: String representing URL path
+    :param c_count: Input number of anki cards
+    """
     try:
         update_status("Processing URL...")
         results = gp4.get_gpt_link_answers(url, c_count)
@@ -129,11 +141,6 @@ def process_link():
         messagebox.showerror("Error", "Please enter a valid URL")
 
 
-# def update_progress(n):
-#     progress['value'] = n  # Update the progress bar's value
-#     progress_label['text'] = f"{n}/100"  # Update the label text
-#     window.update_idletasks()
-
 # Function to show finish message
 def on_finish():
     # progress['value'] = 0
@@ -141,8 +148,6 @@ def on_finish():
         "Success", "The Anki deck has been created successfully.")
 
 # Function for opening the file explorer window
-
-
 def browseFiles():
     # file = filedialog.askopenfilename(initialdir="/",title="Select a File",filetypes=(("Text files","*.txt*"),("all files","*.*")))
     file = filedialog.askopenfilename(parent=window, title="Choose a file", filetypes=[
@@ -158,6 +163,7 @@ def browseFiles():
         process_(file, c_count)
 
 
+#Function to update sattus in TkInter
 def update_status(message):
     status_label.config(text=message)
     window.update_idletasks()

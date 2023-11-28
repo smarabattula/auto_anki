@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <title>google_search.py</title>
-  <link rel="stylesheet" href="../../pycco.css">
+  <link rel="stylesheet" href="..\pycco.css">
 </head>
 <body>
 <div id='container'>
@@ -17,8 +17,23 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-0'>#</a>
       </div>
-      <p>Copyright 2021 auto_anki
-MIT License
+      <p>MIT License</p>
+<p>Copyright 2023 auto_anki</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 google_search.py</p>
     </div>
     <div class='code'>
@@ -44,11 +59,13 @@ google_search.py</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-2'>#</a>
       </div>
-      <p>Given a search term, returns the google People Also Ask links</p>
-<p>:param search_term: The query to google
+      <pre><code>Given a search term, returns the google People Also Ask links
+
+:param search_term: The query to google
 :type: str
 :rtype: list
-:return: list of links returned by people also ask</p>
+:return: list of links returned by people also ask
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="k">def</span> <span class="nf">get_people_also_ask_links</span><span class="p">(</span><span class="n">search_term</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span></pre></div>
@@ -70,7 +87,13 @@ google_search.py</p>
             <span class="n">question</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[^?]*&quot;</span><span class="p">,</span> <span class="n">rel_qn</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;?&quot;</span>
             <span class="n">answer</span> <span class="o">=</span> <span class="n">people_also_ask</span><span class="o">.</span><span class="n">get_answer</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">answer</span><span class="p">[</span><span class="s2">&quot;has_answer&quot;</span><span class="p">]:</span>
-                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;Question&quot;</span><span class="p">:</span> <span class="n">answer</span><span class="p">[</span><span class="s2">&quot;question&quot;</span><span class="p">],</span> <span class="s2">&quot;Answer&quot;</span><span class="p">:</span> <span class="n">answer</span><span class="p">[</span><span class="s2">&quot;response&quot;</span><span class="p">],</span> <span class="s2">&quot;Related Link&quot;</span><span class="p">:</span> <span class="n">answer</span><span class="p">[</span><span class="s2">&quot;link&quot;</span><span class="p">]})</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;Question&quot;</span><span class="p">:</span> <span class="n">answer</span><span class="p">[</span><span class="s2">&quot;question&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;Answer&quot;</span><span class="p">:</span> <span class="n">answer</span><span class="p">[</span><span class="s2">&quot;response&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;Related Link&quot;</span><span class="p">:</span> <span class="n">answer</span><span class="p">[</span><span class="s2">&quot;link&quot;</span><span class="p">]</span>
+                    <span class="p">}</span>
+                <span class="p">)</span>
     <span class="k">return</span> <span class="n">result</span>
 
 </pre></div>

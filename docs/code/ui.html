@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>ui.py</title>
+  <link rel="stylesheet" href="..\pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>ui.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>MIT License</p>
+<p>Copyright 2023 auto_anki</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageTk</span>
+<span class="kn">from</span> <span class="nn">user_cli</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">filedialog</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">filedialog</span><span class="p">,</span> <span class="n">Tk</span><span class="p">,</span> <span class="n">ttk</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">StringVar</span><span class="p">,</span> <span class="n">OptionMenu</span><span class="p">,</span> <span class="n">messagebox</span><span class="p">,</span> <span class="n">Text</span>
+<span class="kn">from</span> <span class="nn">docx2pdf</span> <span class="kn">import</span> <span class="n">convert</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">gpt_prompting</span> <span class="k">as</span> <span class="nn">gp</span>
+<span class="kn">import</span> <span class="nn">gpt4</span> <span class="k">as</span> <span class="nn">gp4</span>
+<span class="kn">from</span> <span class="nn">tkinter.ttk</span> <span class="kn">import</span> <span class="n">Progressbar</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">from</span> <span class="nn">docx2pdf</span> <span class="kn">import</span> <span class="n">convert</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+    <span class="s1">&#39;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages&#39;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <pre><code>Function for processing file
+Processes the file (File's path)
+and generates c_count number of cards
+:param file: String representing file path
+:param c_count: Input number of anki cards
+</code></pre>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">process_</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">c_count</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">update_status</span><span class="p">(</span><span class="s2">&quot;Processing file...&quot;</span><span class="p">)</span>
+        <span class="n">lect_name</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;pdf&quot;</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">elif</span> <span class="n">file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;docx&quot;</span><span class="p">:</span>
+            <span class="n">convert</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;uploads&quot;</span><span class="p">,</span><span class="n">lect_name</span><span class="o">+</span><span class="s1">&#39;.pdf&#39;</span><span class="p">))</span>
+            <span class="n">file</span> <span class="o">=</span> <span class="n">file</span><span class="p">[:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.pdf&quot;</span>
+        <span class="k">elif</span> <span class="n">file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;pptx&quot;</span><span class="p">:</span>
+            <span class="n">template</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;soffice --headless --convert-to pdf </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
+            <span class="n">file</span> <span class="o">=</span> <span class="n">file</span><span class="p">[:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.pdf&quot;</span>
+
+        <span class="n">raw_data</span> <span class="o">=</span> <span class="n">extract_words</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="n">raw_data</span> <span class="o">=</span> <span class="n">text_to_groupings</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
+        <span class="n">keyword_data</span> <span class="o">=</span> <span class="n">wp</span><span class="o">.</span><span class="n">extract_noun_chunks</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
+        <span class="n">keyword_data</span> <span class="o">=</span> <span class="n">wp</span><span class="o">.</span><span class="n">merge_slide_with_same_headers</span><span class="p">(</span><span class="n">keyword_data</span><span class="p">)</span>
+
+        <span class="n">keyword_data</span> <span class="o">=</span> <span class="n">wp</span><span class="o">.</span><span class="n">duplicate_word_removal</span><span class="p">(</span><span class="n">keyword_data</span><span class="p">)</span>
+        <span class="n">search_query</span> <span class="o">=</span> <span class="n">wp</span><span class="o">.</span><span class="n">construct_search_query</span><span class="p">(</span>
+            <span class="n">keyword_data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">source_choice</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Google&quot;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>when testing use searchquery[:10 or less].
+Still working on better threading to get faster results</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="n">results</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+                    <span class="n">get_people_also_ask_links</span><span class="p">,</span> <span class="n">search_query</span><span class="p">[:</span><span class="n">c_count</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">source_choice</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;GPT&quot;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+                <span class="n">results</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+                    <span class="n">gp</span><span class="o">.</span><span class="n">get_gpt_answers</span><span class="p">,</span> <span class="n">search_query</span><span class="p">[:</span><span class="n">c_count</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>selecting random customised number of flash cards</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">results_new</span> <span class="o">=</span> <span class="p">[</span><span class="n">qapair</span> <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span> <span class="k">for</span> <span class="n">qapair</span> <span class="ow">in</span> <span class="n">result</span><span class="p">]</span>
+        <span class="n">results_new</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">results_new</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">c_count</span><span class="p">))</span>
+        <span class="n">auto_anki_model</span> <span class="o">=</span> <span class="n">get_model</span><span class="p">()</span>
+        <span class="n">deck</span> <span class="o">=</span> <span class="n">get_deck</span><span class="p">(</span><span class="n">deck_name</span><span class="o">=</span><span class="n">lect_name</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">qapair</span> <span class="ow">in</span> <span class="n">results_new</span><span class="p">:</span>
+            <span class="n">question</span> <span class="o">=</span> <span class="n">qapair</span><span class="p">[</span><span class="s2">&quot;Question&quot;</span><span class="p">]</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="n">qapair</span><span class="p">[</span><span class="s2">&quot;Answer&quot;</span><span class="p">]</span>
+            <span class="n">qa</span> <span class="o">=</span> <span class="n">add_question</span><span class="p">(</span>
+                <span class="n">question</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">question</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">answer</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">curr_model</span><span class="o">=</span><span class="n">auto_anki_model</span><span class="p">)</span>
+            <span class="n">deck</span><span class="o">.</span><span class="n">add_note</span><span class="p">(</span><span class="n">qa</span><span class="p">)</span>
+        <span class="n">add_package</span><span class="p">(</span><span class="n">deck</span><span class="p">,</span> <span class="n">lect_name</span><span class="p">)</span>
+        <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span>
+            <span class="s2">&quot;Hurray!&quot;</span><span class="p">,</span> <span class="s2">&quot;The Anki deck has been created successfully.&quot;</span><span class="p">)</span>
+        <span class="n">update_status</span><span class="p">(</span><span class="s2">&quot;File processed successfully.&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <pre><code>Function for processing url
+Processes the url (web url)
+and generates c_count number of cards
+:param url: String representing URL path
+:param c_count: Input number of anki cards
+</code></pre>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">process_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">c_count</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">update_status</span><span class="p">(</span><span class="s2">&quot;Processing URL...&quot;</span><span class="p">)</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">gp4</span><span class="o">.</span><span class="n">get_gpt_link_answers</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">c_count</span><span class="p">)</span>
+        <span class="n">results_json</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+        <span class="n">results_list</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">results_json</span><span class="p">)</span>
+        <span class="n">auto_anki_model</span> <span class="o">=</span> <span class="n">get_model</span><span class="p">()</span>
+        <span class="n">lect_name</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">deck</span> <span class="o">=</span> <span class="n">get_deck</span><span class="p">(</span><span class="n">deck_name</span><span class="o">=</span><span class="n">lect_name</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results_list</span><span class="p">:</span>
+            <span class="n">question</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;Question&quot;</span><span class="p">]</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;Answer&quot;</span><span class="p">]</span>
+            <span class="n">qa</span> <span class="o">=</span> <span class="n">add_question</span><span class="p">(</span>
+                <span class="n">question</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">question</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">answer</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">curr_model</span><span class="o">=</span><span class="n">auto_anki_model</span><span class="p">)</span>
+            <span class="n">deck</span><span class="o">.</span><span class="n">add_note</span><span class="p">(</span><span class="n">qa</span><span class="p">)</span>
+        <span class="n">add_package</span><span class="p">(</span><span class="n">deck</span><span class="p">,</span> <span class="n">lect_name</span><span class="p">)</span>
+        <span class="n">update_status</span><span class="p">(</span><span class="s2">&quot;File processed successfully.&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>Function to call process_url</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">process_link</span><span class="p">():</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">url_input</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">c_count</span> <span class="o">=</span> <span class="n">cards_count</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">url</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>You might want to add some validation for the URL here</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">process_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">c_count</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span> <span class="s2">&quot;Please enter a valid URL&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>Function to show finish message</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">on_finish</span><span class="p">():</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>progress[&lsquo;value&rsquo;] = 0</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span>
+        <span class="s2">&quot;Success&quot;</span><span class="p">,</span> <span class="s2">&quot;The Anki deck has been created successfully.&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <p>Function for opening the file explorer window</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">browseFiles</span><span class="p">():</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <p>file = filedialog.askopenfilename(initialdir=&rdquo;/&rdquo;,title=&rdquo;Select a File&rdquo;,filetypes=((&ldquo;Text files&rdquo;,&rdquo;<em>.txt</em>&rdquo;),(&ldquo;all files&rdquo;,&rdquo;<em>.</em>&rdquo;)))</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">file</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askopenfilename</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Choose a file&quot;</span><span class="p">,</span> <span class="n">filetypes</span><span class="o">=</span><span class="p">[</span>
+                                      <span class="p">(</span><span class="s2">&quot;Doc file&quot;</span><span class="p">,</span> <span class="s2">&quot;*.docx&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Pdf file&quot;</span><span class="p">,</span> <span class="s2">&quot;*.pdf&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;PowerPoint file&quot;</span><span class="p">,</span> <span class="s2">&quot;*.pptx&quot;</span><span class="p">)])</span>
+
+    <span class="k">if</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">text_box</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+        <span class="n">text_box</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+        <span class="n">text_box</span><span class="o">.</span><span class="n">tag_configure</span><span class="p">(</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+        <span class="n">text_box</span><span class="o">.</span><span class="n">tag_add</span><span class="p">(</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">)</span>
+        <span class="n">text_box</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">c_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">cards_count</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+        <span class="n">process_</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">c_count</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <p>Function to update sattus in TkInter</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">update_status</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+    <span class="n">status_label</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">message</span><span class="p">)</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">update_idletasks</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>Create the root window</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">window</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <p>window.minsize(width=450, height=450)</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">window</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">background</span><span class="o">=</span><span class="s2">&quot;#515A5A&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-16'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-16'>#</a>
+      </div>
+      <p>Set window title</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">window</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Auto-Anki&#39;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-17'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-17'>#</a>
+      </div>
+      <p>Set window size</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">window</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s2">&quot;500x550&quot;</span><span class="p">)</span>
+
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s1">&#39;#515A5A&#39;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-18'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-18'>#</a>
+      </div>
+      <p>Configure the grid to be responsive</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">number_of_rows</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">number_of_columns</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_of_rows</span><span class="p">):</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">grid_rowconfigure</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_of_columns</span><span class="p">):</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">grid_columnconfigure</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">canvas</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rowspan</span><span class="o">=</span><span class="n">number_of_rows</span><span class="p">,</span>
+            <span class="n">columnspan</span><span class="o">=</span><span class="n">number_of_columns</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;nsew&#39;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-19'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-19'>#</a>
+      </div>
+      <p>set logo</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">logo</span> <span class="o">=</span> <span class="n">ImageTk</span><span class="o">.</span><span class="n">PhotoImage</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;code/Auto_Anki_Logo.jpg&#39;</span><span class="p">)</span>
+<span class="n">logo_label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">logo</span><span class="p">)</span>
+<span class="n">logo_label</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">logo</span>
+<span class="n">logo_label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">instructions</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>
+    <span class="n">window</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;    Select file to upload: &quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="s2">&quot;Raleway&quot;</span><span class="p">)</span>
+<span class="n">instructions</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+<span class="n">button_explore</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">window</span><span class="p">,</span>
+                        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Browse Files&quot;</span><span class="p">,</span>
+                        <span class="n">command</span><span class="o">=</span><span class="n">browseFiles</span><span class="p">)</span>
+
+<span class="n">source_choice</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>  <span class="c1"># Variable to hold the choice</span>
+<span class="n">sources</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Google&quot;</span><span class="p">,</span> <span class="s2">&quot;GPT&quot;</span><span class="p">]</span>  <span class="c1"># List of choices</span>
+<span class="n">source_choice</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">sources</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Set default value to Google</span>
+
+<span class="n">source_dropdown</span> <span class="o">=</span> <span class="n">OptionMenu</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">source_choice</span><span class="p">,</span> <span class="o">*</span><span class="n">sources</span><span class="p">)</span>
+<span class="n">source_dropdown_label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>
+    <span class="n">window</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;    Choose an API source:&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="s2">&quot;Raleway&quot;</span><span class="p">)</span>
+
+<span class="n">source_dropdown_label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">source_dropdown</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="n">style</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Style</span><span class="p">(</span><span class="n">window</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-20'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-20'>#</a>
+      </div>
+      <p>Set the theme to the default theme</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">style</span><span class="o">.</span><span class="n">theme_use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+<span class="n">style</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s1">&#39;TProgressbar&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-21'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-21'>#</a>
+      </div>
+      <p>Status</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">status_label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Ready&quot;</span><span class="p">,</span> <span class="n">bd</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                     <span class="n">relief</span><span class="o">=</span><span class="s2">&quot;sunken&quot;</span><span class="p">)</span>  <span class="c1"># , anchor=&quot;w&quot;)</span>
+<span class="n">status_label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                  <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;we&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">status_label</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">justify</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+
+<span class="n">button_exit</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">window</span><span class="p">,</span>
+                     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Exit&quot;</span><span class="p">,</span>
+                     <span class="n">command</span><span class="o">=</span><span class="n">exit</span><span class="p">)</span>
+
+<span class="n">button_explore</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">button_exit</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-22'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-22'>#</a>
+      </div>
+      <p>Add a text field for URL input</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">url_input</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">url_input</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-23'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-23'>#</a>
+      </div>
+      <p>Add a text field for no.of flash cards input</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">instructions2</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>
+    <span class="n">window</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;    Number of flash cards: &quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="s2">&quot;Raleway&quot;</span><span class="p">)</span>
+<span class="n">instructions2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">cards_count</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">cards_count</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+
+<span class="n">instructions1</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>
+    <span class="n">window</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;    Process URL: &quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="s2">&quot;Raleway&quot;</span><span class="p">)</span>
+<span class="n">instructions1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-24'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-24'>#</a>
+      </div>
+      <p>Add a button to process the URL</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">button_process_url</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">window</span><span class="p">,</span>
+                            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span>
+                            <span class="n">command</span><span class="o">=</span><span class="n">process_link</span><span class="p">)</span>
+<span class="n">button_process_url</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-25'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-25'>#</a>
+      </div>
+      <p>Let the window wait for any events</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">window</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
