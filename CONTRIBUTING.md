@@ -1,6 +1,6 @@
 # **Contributing to Auto Anki**
 
-We would like to thank you for showing interest in Auto Anki with ChatGPT. You are most welcome to suggest improvements and contribute to the project. We are delighted when people want to contribute to Auto Anki!
+We would like to thank you for showing interest in Auto Anki GPT4. You are most welcome to suggest improvements and contribute to the project. We are delighted when people want to contribute to Auto Anki!
 
 ## **How Can I Contribute?**:
 
@@ -14,7 +14,7 @@ Note: If you find a Closed issue that seems like it is the same thing that you'r
 
 ### **How Do I Submit A (Good) Bug Report?** ❔
 
-Bugs are tracked as GitHub issues. After you've determined which repository your bug is related to, create an issue on that repository and provide the following information by filling in the [template.](https://docs.google.com/forms/d/e/1FAIpQLScTL7aKgZ0NhN8Ko6kEFA_4K7YceeRQ98-S_b8-lwz3Ldto3A/viewform)
+Bugs are tracked as GitHub issues. After you've determined which repository your bug is related to, create an issue on that repository and provide the following information by initially search for discussions page, then issues page. If there's no resolution, raise a new issue with label "bug"!
 Explain the problem and include additional details to help a developer reproduce the problem:
 
 * Use a clear and descriptive title for the issue to identify the problem.
@@ -50,7 +50,7 @@ The process described here has several goals:
 1. Follow the styleguides
 2. After you submit your pull request, verify that all status checks are passing
 3. What if the status checks are failing?
-4.  
+4.
    While the prerequisites above must be satisfied prior to having your pull request reviewed, the reviewer(s) may ask you to complete additional design work, tests, or other changes before your pull request can be ultimately accepted.
    Please include the following while creating a Pull Request:
 
