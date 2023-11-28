@@ -39,6 +39,13 @@ sys.path.append(
 
 
 def process_(file,c_count):
+    """
+    Function for processing file
+    Processes the file (File's path)
+    and generates c_count number of cards
+    :param file: String representing file path
+    :param c_count: Input number of anki cards
+    """
     print("Processing",file)
     try:
         if file:
@@ -92,7 +99,14 @@ def process_(file,c_count):
 
 
 # Function for processing url
-def process_url(url,c_count):  # , progress_callback, finish_callback):
+def process_url(url,c_count):
+    """
+    Function for processing url
+    Processes the url (web url)
+    and generates c_count number of cards
+    :param url: String representing URL path
+    :param c_count: Input number of anki cards
+    """
     print("processing url", url)
 
     try:
@@ -118,21 +132,32 @@ def process_url(url,c_count):  # , progress_callback, finish_callback):
 
 
 current_filename = None
+
+# Configuring Flask App
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
 
 
+# Returns a new status object to caller
 def new_status():
     return {'message':'Ready','flag':False}
 
 
 @app.route('/')
 def index():
+    """
+    Renders index.html page in frontend
+    returns: index.html
+    """
     return render_template('index.html',status_label=new_status())
 
 
 @app.route('/upload/file', methods=['POST'])
 def upload_file():
+    """
+    API endpoint to process file
+    returns: dict(status)
+    """
     try:
         status_label = session.get('status_label', new_status())
         global current_filename
@@ -140,22 +165,27 @@ def upload_file():
         if request.files['file']:
             c_count = 5
             if request.form['file_value']:
+                # Get count of cards within range 5 to 100
                 c_count = min(max(int(request.form['file_value']),5),100)
-            # Process file
+            # Process the file
             file = request.files['file']
             current_filename = file.filename
             status_label['message'], status_label['flag'] = "Processing file...", False
 
+            # Upload the file to server
             upload_path = os.path.join("uploads", file.filename)
             if not os.path.exists("uploads"):
                 os.makedirs("uploads")
             file.save(upload_path)
+
+            #call process_ to process file
             process_(os.path.join("uploads", file.filename),c_count)
             status_label['message'], status_label['flag'] = "File processed successfully!", True
 
         session['status_label'] = status_label
 
         return jsonify(status_label)
+
     except Exception as e:
         print("Upload Error", str(e))
         return jsonify(status_label)
@@ -163,6 +193,10 @@ def upload_file():
 
 @app.route('/upload/url', methods=['POST'])
 def upload_url():
+    """
+    API endpoint to process URL
+    returns: dict(status)
+    """
     try:
         global current_filename
         status_label = session.get('status_label', new_status())
@@ -188,24 +222,31 @@ def upload_url():
 
 @app.route('/api/status')
 def api_get_status():
-    # Use session.get to get the user-specific status_label
+    """Use session.get to get the user-specific status_label
+    """
     status_label = session.get('status_label', new_status())
     return jsonify(status_label)
 
 
 @app.route('/api/refresh')
 def api_refresh_status():
+    """
+    Resets api status with status
+    Used when page is visited first time
+    """
     session['status_label'] = new_status()
     return jsonify(session['status_label'])
 
 
 @app.route('/download')
 def download_apkg():
+    """
+    Downloads the generated anki file locally from server
+    """
     global current_filename
     if current_filename:
         current_filename = current_filename.split("/")[-1]
         current_filename = current_filename.split(".")[0]+".apkg"
-        # Replace with your file path
         file_path = os.path.join(
             "anki_decks", current_filename)
 

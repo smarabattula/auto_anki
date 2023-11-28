@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <title>test_wordprocessing.py</title>
-  <link rel="stylesheet" href="../../pycco.css">
+  <link rel="stylesheet" href="..\pycco.css">
 </head>
 <body>
 <div id='container'>
@@ -17,13 +17,28 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-0'>#</a>
       </div>
-      <p>Copyright 2021 auto_anki
-MIT License</p>
+      <p>MIT License</p>
+<p>Copyright 2023 auto_anki</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
 <span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">code.wordprocessing</span> <span class="kn">import</span> <span class="n">keyword_extractor</span><span class="p">,</span> <span class="n">duplicate_word_removal</span><span class="p">,</span> <span class="n">merge_slide_with_same_headers</span><span class="p">,</span> \
+<span class="kn">from</span> <span class="nn">wordprocessing</span> <span class="kn">import</span> <span class="n">keyword_extractor</span><span class="p">,</span> <span class="n">duplicate_word_removal</span><span class="p">,</span> <span class="n">merge_slide_with_same_headers</span><span class="p">,</span> \
     <span class="n">merge_slide_with_same_slide_number</span><span class="p">,</span> <span class="n">extract_noun_chunks</span><span class="p">,</span> <span class="n">construct_search_query</span></pre></div>
     </div>
   </div>
@@ -48,7 +63,7 @@ MIT License</p>
       
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">pass</span></pre></div>
     </div>
   </div>
@@ -58,7 +73,8 @@ MIT License</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-3'>#</a>
       </div>
-      <p>Tests the keyword_extractor method</p>
+      <pre><code>    Tests the keyword_extractor method
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_keyword_extractor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre></div>
@@ -86,7 +102,8 @@ MIT License</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-5'>#</a>
       </div>
-      <p>Tests the duplicate_word_removal method</p>
+      <pre><code>    Tests the duplicate_word_removal method
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_duplicate_word_removal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre></div>
@@ -117,7 +134,8 @@ MIT License</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-7'>#</a>
       </div>
-      <p>Tests the merge_slide_with_same_header method</p>
+      <pre><code>    Tests the merge_slide_with_same_header method
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_merge_slide_with_same_header</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre></div>
@@ -139,8 +157,8 @@ MIT License</p>
         <span class="n">merged_data</span> <span class="o">=</span> <span class="n">merge_slide_with_same_headers</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;slides&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
         <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;Paragraph_keywords&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;paragraph&quot;</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;paragraph&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">]</span>
-        <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Paragraph&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
-        <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;slide&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Paragraph&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;slide&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">merged_data</span><span class="p">)</span></pre></div>
     </div>
@@ -151,7 +169,8 @@ MIT License</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-9'>#</a>
       </div>
-      <p>Tests the merge_slide_with_same_slide_number method</p>
+      <pre><code>    Tests the merge_slide_with_same_slide_number method
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_merge_slide_with_same_slide_number</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre></div>
@@ -200,7 +219,7 @@ MIT License</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_extract_noun_chunks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;Test the extract_noun_chunks method&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Test the extract_noun_chunks method&#39;&#39;&#39;</span>
 
         <span class="n">input_data</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;Header&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a noun chunk&quot;</span><span class="p">,</span> <span class="s2">&quot;Paragraph&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a noun chunk&quot;</span><span class="p">,</span> <span class="s2">&quot;slide&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}]</span>
         <span class="n">noun_chunks_result</span> <span class="o">=</span> <span class="n">extract_noun_chunks</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
@@ -219,12 +238,12 @@ MIT License</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_construct_search_query</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;Test the search query method&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Test the search query method&#39;&#39;&#39;</span>
 
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./test/data/Test_3.json&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
-            <span class="n">input_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./test/data/Test_3_Result.json&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
-            <span class="n">output_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;code/data/Test_3.json&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">input_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;code/data/Test_3_Result.json&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">output_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
 
         <span class="n">search_query</span> <span class="o">=</span> <span class="n">construct_search_query</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
 

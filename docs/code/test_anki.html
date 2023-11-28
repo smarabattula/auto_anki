@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <title>test_anki.py</title>
-  <link rel="stylesheet" href="../../pycco.css">
+  <link rel="stylesheet" href="..\pycco.css">
 </head>
 <body>
 <div id='container'>
@@ -17,17 +17,30 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-0'>#</a>
       </div>
-      <p>Copyright 2021 auto_anki
-MIT License</p>
+      <p>MIT License</p>
+<p>Copyright 2023 auto_anki</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">name</span>
-<span class="kn">import</span> <span class="nn">genanki</span> 
+<span class="kn">import</span> <span class="nn">genanki</span>
 <span class="kn">import</span> <span class="nn">unittest</span>
 
-<span class="kn">from</span> <span class="nn">genanki.note</span> <span class="kn">import</span> <span class="n">Note</span>
-
-<span class="kn">from</span> <span class="nn">code.anki</span> <span class="kn">import</span> <span class="n">add_package</span><span class="p">,</span> <span class="n">add_question</span><span class="p">,</span> <span class="n">get_deck</span><span class="p">,</span> <span class="n">get_model</span></pre></div>
+<span class="kn">from</span> <span class="nn">anki</span> <span class="kn">import</span> <span class="n">add_package</span><span class="p">,</span> <span class="n">add_question</span><span class="p">,</span> <span class="n">get_deck</span><span class="p">,</span> <span class="n">get_model</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -48,13 +61,16 @@ MIT License</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-2'>#</a>
       </div>
-      <p>Define model that describes the template
-for anki deck.</p>
-<h2>Returns</h2>
-<p>anki model</p>
+      <pre><code>    Define model that describes the template
+    for anki deck.
+
+    Returns
+    ------
+    anki model
+</code></pre>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span></pre></div>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -75,9 +91,11 @@ for anki deck.</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-4'>#</a>
       </div>
-      <p>Define and initialize an anki deck, where we can add cards.</p>
-<h2>Returns</h2>
-<p>anki deck </p>
+      <pre><code>    Define and initialize an anki deck, where we can add cards.
+    Returns
+    ------
+    anki deck
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_get_deck</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre></div>
@@ -102,9 +120,11 @@ for anki deck.</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-6'>#</a>
       </div>
-      <p>Create a card for a question, answer pair.</p>
-<h2>Returns</h2>
-<p>anki card </p>
+      <pre><code>    Create a card for a question, answer pair.
+    Returns
+    ------
+    anki card
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_add_question</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre></div>
@@ -130,12 +150,14 @@ for anki deck.</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-8'>#</a>
       </div>
-      <p>Create a package for a deck</p>
-<h2>Returns</h2>
-<p>None</p>
+      <pre><code>    Create a package for a deck
+    Returns
+    ------
+    None
+</code></pre>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_add_package</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span></pre></div>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">test_add_package</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>

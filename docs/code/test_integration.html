@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <title>test_integration.py</title>
-  <link rel="stylesheet" href="../../pycco.css">
+  <link rel="stylesheet" href="..\pycco.css">
 </head>
 <body>
 <div id='container'>
@@ -17,12 +17,27 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-0'>#</a>
       </div>
-      <p>Copyright 2021 auto_anki
-MIT License</p>
+      <p>MIT License</p>
+<p>Copyright 2023 auto_anki</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">code.extract_sizes</span> <span class="kn">import</span> <span class="n">extract_words</span><span class="p">,</span> <span class="n">text_to_groupings</span>
-<span class="kn">from</span> <span class="nn">code.wordprocessing</span> <span class="kn">import</span> <span class="n">extract_noun_chunks</span><span class="p">,</span> <span class="n">merge_slide_with_same_headers</span><span class="p">,</span> <span class="n">duplicate_word_removal</span><span class="p">,</span> \
+      <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">extract_sizes</span> <span class="kn">import</span> <span class="n">extract_words</span><span class="p">,</span> <span class="n">text_to_groupings</span>
+<span class="kn">from</span> <span class="nn">wordprocessing</span> <span class="kn">import</span> <span class="n">extract_noun_chunks</span><span class="p">,</span> <span class="n">merge_slide_with_same_headers</span><span class="p">,</span> <span class="n">duplicate_word_removal</span><span class="p">,</span> \
     <span class="n">construct_search_query</span></pre></div>
     </div>
   </div>
@@ -44,7 +59,8 @@ MIT License</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-2'>#</a>
       </div>
-      <p>Given the ARP file, tests that the tools are able to extract words and form groupings</p>
+      <pre><code>Given the ARP file, tests that the tools are able to extract words and form groupings
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="k">def</span> <span class="nf">test_groupings</span><span class="p">():</span></pre></div>
@@ -60,9 +76,9 @@ MIT License</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="n">pdf_doc</span> <span class="o">=</span> <span class="n">extract_words</span><span class="p">(</span><span class="n">PDF_NAME</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">pdf_doc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="n">pdf_doc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">groupings</span> <span class="o">=</span> <span class="n">text_to_groupings</span><span class="p">(</span><span class="n">pdf_doc</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">groupings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span></pre></div>
+    <span class="k">assert</span> <span class="n">groupings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -111,7 +127,7 @@ MIT License</p>
       <p>assert the field is not None</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>            <span class="k">assert</span> <span class="n">slide</span><span class="p">[</span><span class="n">struct</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span></pre></div>
+      <div class="highlight"><pre>            <span class="k">assert</span> <span class="n">slide</span><span class="p">[</span><span class="n">struct</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -132,7 +148,8 @@ MIT License</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-9'>#</a>
       </div>
-      <p>Given the arp file, tests that the tools are able to extract words, form groupings, and extract_noun_chunks</p>
+      <pre><code>Given the arp file, tests that the tools are able to extract words, form groupings, and extract_noun_chunks
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="k">def</span> <span class="nf">test_chunks</span><span class="p">():</span></pre></div>
@@ -148,9 +165,9 @@ MIT License</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="n">pdf_doc</span> <span class="o">=</span> <span class="n">extract_words</span><span class="p">(</span><span class="n">PDF_NAME</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">pdf_doc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="n">pdf_doc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">groupings</span> <span class="o">=</span> <span class="n">text_to_groupings</span><span class="p">(</span><span class="n">pdf_doc</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">groupings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="n">groupings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">chunks</span> <span class="o">=</span> <span class="n">extract_noun_chunks</span><span class="p">(</span><span class="n">groupings</span><span class="p">)</span></pre></div>
     </div>
   </div>
@@ -163,7 +180,7 @@ MIT License</p>
       <p>check that the structure is right</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span></pre></div>
+      <div class="highlight"><pre>    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -190,7 +207,7 @@ assert the structure is correct</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="k">for</span> <span class="n">struct</span> <span class="ow">in</span> <span class="n">structure_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="k">assert</span> <span class="n">struct</span> <span class="ow">in</span> <span class="n">slide</span><span class="p">,</span> <span class="n">f</span><span class="s1">&#39;{struct} should be in slide&#39;</span></pre></div>
+            <span class="k">assert</span> <span class="n">struct</span> <span class="ow">in</span> <span class="n">slide</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">struct</span><span class="si">}</span><span class="s1"> should be in slide&#39;</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -202,7 +219,7 @@ assert the structure is correct</p>
       <p>assert the field is not None</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>            <span class="k">assert</span> <span class="n">slide</span><span class="p">[</span><span class="n">struct</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">,</span> <span class="n">f</span><span class="s1">&#39;{struct} in slide should not be none&#39;</span></pre></div>
+      <div class="highlight"><pre>            <span class="k">assert</span> <span class="n">slide</span><span class="p">[</span><span class="n">struct</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">struct</span><span class="si">}</span><span class="s1"> in slide should not be none&#39;</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -214,7 +231,7 @@ assert the structure is correct</p>
       <p>assert the type is correct</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>            <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">slide</span><span class="p">[</span><span class="n">struct</span><span class="p">])</span> <span class="ow">is</span> <span class="n">structure_dict</span><span class="p">[</span><span class="n">struct</span><span class="p">],</span> <span class="n">f</span><span class="s1">&#39;{struct} should be a {structure_dict[struct]}&#39;</span></pre></div>
+      <div class="highlight"><pre>            <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">slide</span><span class="p">[</span><span class="n">struct</span><span class="p">])</span> <span class="ow">is</span> <span class="n">structure_dict</span><span class="p">[</span><span class="n">struct</span><span class="p">],</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">struct</span><span class="si">}</span><span class="s1"> should be a </span><span class="si">{</span><span class="n">structure_dict</span><span class="p">[</span><span class="n">struct</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -223,7 +240,8 @@ assert the structure is correct</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-16'>#</a>
       </div>
-      <p>Given the arp file, tests that the tools are able to merge_slide_with_same_headers</p>
+      <pre><code>Given the arp file, tests that the tools are able to merge_slide_with_same_headers
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="k">def</span> <span class="nf">test_merge_slide_with_same_headers</span><span class="p">():</span></pre></div>
@@ -239,9 +257,9 @@ assert the structure is correct</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="n">pdf_doc</span> <span class="o">=</span> <span class="n">extract_words</span><span class="p">(</span><span class="n">PDF_NAME</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">pdf_doc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="n">pdf_doc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">groupings</span> <span class="o">=</span> <span class="n">text_to_groupings</span><span class="p">(</span><span class="n">pdf_doc</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">groupings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="n">groupings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">chunks</span> <span class="o">=</span> <span class="n">extract_noun_chunks</span><span class="p">(</span><span class="n">groupings</span><span class="p">)</span></pre></div>
     </div>
   </div>
@@ -254,9 +272,9 @@ assert the structure is correct</p>
       <p>check that the structure is right</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+      <div class="highlight"><pre>    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">chunks</span> <span class="o">=</span> <span class="n">merge_slide_with_same_headers</span><span class="p">(</span><span class="n">chunks</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span></pre></div>
+    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -294,7 +312,7 @@ assert the structure is correct</p>
       <p>assert the field is present</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>            <span class="k">assert</span> <span class="n">struct</span> <span class="ow">in</span> <span class="n">slide</span><span class="p">,</span> <span class="n">f</span><span class="s1">&#39;{struct} should be in slide&#39;</span></pre></div>
+      <div class="highlight"><pre>            <span class="k">assert</span> <span class="n">struct</span> <span class="ow">in</span> <span class="n">slide</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">struct</span><span class="si">}</span><span class="s1"> should be in slide&#39;</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -306,7 +324,7 @@ assert the structure is correct</p>
       <p>assert the field is not None</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>            <span class="k">assert</span> <span class="n">slide</span><span class="p">[</span><span class="n">struct</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">,</span> <span class="n">f</span><span class="s1">&#39;{struct} in slide should not be none&#39;</span></pre></div>
+      <div class="highlight"><pre>            <span class="k">assert</span> <span class="n">slide</span><span class="p">[</span><span class="n">struct</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">struct</span><span class="si">}</span><span class="s1"> in slide should not be none&#39;</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -318,7 +336,7 @@ assert the structure is correct</p>
       <p>assert the type is correct</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>            <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">slide</span><span class="p">[</span><span class="n">struct</span><span class="p">])</span> <span class="ow">is</span> <span class="n">structure_dict</span><span class="p">[</span><span class="n">struct</span><span class="p">],</span> <span class="n">f</span><span class="s1">&#39;{struct} should be a {structure_dict[struct]}&#39;</span></pre></div>
+      <div class="highlight"><pre>            <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">slide</span><span class="p">[</span><span class="n">struct</span><span class="p">])</span> <span class="ow">is</span> <span class="n">structure_dict</span><span class="p">[</span><span class="n">struct</span><span class="p">],</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">struct</span><span class="si">}</span><span class="s1"> should be a </span><span class="si">{</span><span class="n">structure_dict</span><span class="p">[</span><span class="n">struct</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -327,7 +345,8 @@ assert the structure is correct</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-24'>#</a>
       </div>
-      <p>Given the arp file, tests that the tools are able to duplicate_word_removal</p>
+      <pre><code>Given the arp file, tests that the tools are able to duplicate_word_removal
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="k">def</span> <span class="nf">test_duplicate_word_removal</span><span class="p">():</span></pre></div>
@@ -343,15 +362,15 @@ assert the structure is correct</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="n">pdf_doc</span> <span class="o">=</span> <span class="n">extract_words</span><span class="p">(</span><span class="n">PDF_NAME</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">pdf_doc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="n">pdf_doc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">groupings</span> <span class="o">=</span> <span class="n">text_to_groupings</span><span class="p">(</span><span class="n">pdf_doc</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">groupings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="n">groupings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">chunks</span> <span class="o">=</span> <span class="n">extract_noun_chunks</span><span class="p">(</span><span class="n">groupings</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">chunks</span> <span class="o">=</span> <span class="n">merge_slide_with_same_headers</span><span class="p">(</span><span class="n">chunks</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">chunks</span> <span class="o">=</span> <span class="n">duplicate_word_removal</span><span class="p">(</span><span class="n">chunks</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span></pre></div>
+    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -389,7 +408,7 @@ assert the structure is correct</p>
       <p>assert the field is present</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>            <span class="k">assert</span> <span class="n">struct</span> <span class="ow">in</span> <span class="n">slide</span><span class="p">,</span> <span class="n">f</span><span class="s1">&#39;{struct} should be in slide&#39;</span></pre></div>
+      <div class="highlight"><pre>            <span class="k">assert</span> <span class="n">struct</span> <span class="ow">in</span> <span class="n">slide</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">struct</span><span class="si">}</span><span class="s1"> should be in slide&#39;</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -401,7 +420,7 @@ assert the structure is correct</p>
       <p>assert the field is not None</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>            <span class="k">assert</span> <span class="n">slide</span><span class="p">[</span><span class="n">struct</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">,</span> <span class="n">f</span><span class="s1">&#39;{struct} in slide should not be none&#39;</span></pre></div>
+      <div class="highlight"><pre>            <span class="k">assert</span> <span class="n">slide</span><span class="p">[</span><span class="n">struct</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">struct</span><span class="si">}</span><span class="s1"> in slide should not be none&#39;</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -413,7 +432,7 @@ assert the structure is correct</p>
       <p>assert the type is correct</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>            <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">slide</span><span class="p">[</span><span class="n">struct</span><span class="p">])</span> <span class="ow">is</span> <span class="n">structure_dict</span><span class="p">[</span><span class="n">struct</span><span class="p">],</span> <span class="n">f</span><span class="s1">&#39;{struct} should be a {structure_dict[struct]}&#39;</span></pre></div>
+      <div class="highlight"><pre>            <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">slide</span><span class="p">[</span><span class="n">struct</span><span class="p">])</span> <span class="ow">is</span> <span class="n">structure_dict</span><span class="p">[</span><span class="n">struct</span><span class="p">],</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">struct</span><span class="si">}</span><span class="s1"> should be a </span><span class="si">{</span><span class="n">structure_dict</span><span class="p">[</span><span class="n">struct</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -422,7 +441,8 @@ assert the structure is correct</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-31'>#</a>
       </div>
-      <p>Given the arp file, tests that the tools are able to contruct_search_query</p>
+      <pre><code>Given the arp file, tests that the tools are able to contruct_search_query
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="k">def</span> <span class="nf">test_construct_search_query</span><span class="p">():</span></pre></div>
@@ -438,17 +458,17 @@ assert the structure is correct</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="n">pdf_doc</span> <span class="o">=</span> <span class="n">extract_words</span><span class="p">(</span><span class="n">PDF_NAME</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">pdf_doc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="n">pdf_doc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">groupings</span> <span class="o">=</span> <span class="n">text_to_groupings</span><span class="p">(</span><span class="n">pdf_doc</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">groupings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="n">groupings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">chunks</span> <span class="o">=</span> <span class="n">extract_noun_chunks</span><span class="p">(</span><span class="n">groupings</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">chunks</span> <span class="o">=</span> <span class="n">merge_slide_with_same_headers</span><span class="p">(</span><span class="n">chunks</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">chunks</span> <span class="o">=</span> <span class="n">duplicate_word_removal</span><span class="p">(</span><span class="n">chunks</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">query</span> <span class="o">=</span> <span class="n">construct_search_query</span><span class="p">(</span><span class="n">chunks</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">query</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span></pre></div>
+    <span class="k">assert</span> <span class="n">query</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>

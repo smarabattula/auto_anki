@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <title>wordprocessing.py</title>
-  <link rel="stylesheet" href="../../pycco.css">
+  <link rel="stylesheet" href="..\pycco.css">
 </head>
 <body>
 <div id='container'>
@@ -17,8 +17,23 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-0'>#</a>
       </div>
-      <p>Copyright 2021 auto_anki
-MIT License
+      <p>MIT License</p>
+<p>Copyright 2023 auto_anki</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy 
+of this software and associated documentation files (the “Software”), to deal 
+in the Software without restriction, including without limitation the rights 
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+copies of the Software, and to permit persons to whom the Software is 
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in 
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+SOFTWARE.
 wordprocessing.py</p>
     </div>
     <div class='code'>
@@ -39,7 +54,7 @@ wordprocessing.py</p>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">spacy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></pre></div>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -48,15 +63,17 @@ wordprocessing.py</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-2'>#</a>
       </div>
-      <p>Function to extract keywords from the headers and paragraphs of slides</p>
-<p>:param data: The list of dictionaries of the form
-:type: [{&ldquo;Header&rdquo;:&rdquo;&ldquo;, &ldquo;Paragraph&rdquo;:&rdquo;&ldquo;, slide:int}]
+      <pre><code>Function to extract keywords from the headers and paragraphs of slides
+
+:param data: The list of dictionaries of the form
+:type: [{"Header":"", "Paragraph":"", slide:int}]
 :return: The list of dictionaries with keywords extracted of the form
-:rtype: [{&ldquo;Header&rdquo;:&rdquo;&ldquo;,
-        &ldquo;Paragraph&rdquo;:&rdquo;&ldquo;,
-        &ldquo;Header_keywords&rdquo;: [],
-        &ldquo;Paragraph_keywords&rdquo;: [],
-        slide:int}]</p>
+:rtype: [{"Header":"",
+   "Paragraph":"",
+   "Header_keywords": [],
+   "Paragraph_keywords": [],
+   slide:int}]
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="k">def</span> <span class="nf">keyword_extractor</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span></pre></div>
@@ -73,9 +90,7 @@ wordprocessing.py</p>
     <div class='code'>
       <div class="highlight"><pre>    <span class="k">try</span><span class="p">:</span>
         <span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_lg&quot;</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Please make sure you have Spacy Word Model en_core_web_lg downloaded.&quot;</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     <span class="n">pos_tag</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NOUN&quot;</span><span class="p">]</span>
     <span class="n">dep_tag</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;nsubj&quot;</span><span class="p">]</span>
@@ -111,11 +126,13 @@ wordprocessing.py</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-4'>#</a>
       </div>
-      <p>Removes duplicate words</p>
-<p>:param data: The list of dictionaries of the form
-:type: [{&ldquo;Header&rdquo;:&rdquo;&ldquo;, &ldquo;Header_keywords&rdquo;: [], &ldquo;Paragraph_keywords&rdquo;: [], slides:[int]}]
+      <pre><code>Removes duplicate words
+
+:param data: The list of dictionaries of the form
+:type: [{"Header":"", "Header_keywords": [], "Paragraph_keywords": [], slides:[int]}]
 :return: The list of dictionaries with duplicate keywords removed of the form
-:rtype: [{&ldquo;Header&rdquo;:&rdquo;&ldquo;, &ldquo;Header_keywords&rdquo;: [], &ldquo;Paragraph_keywords&rdquo;: [], slides:[int]}]</p>
+:rtype: [{"Header":"", "Header_keywords": [], "Paragraph_keywords": [], slides:[int]}]
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="k">def</span> <span class="nf">duplicate_word_removal</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span></pre></div>
@@ -131,10 +148,12 @@ wordprocessing.py</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="k">for</span> <span class="n">dictionary</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-        <span class="n">ordered_headers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">OrderedDict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;Header_keywords&#39;</span><span class="p">]))</span>
+        <span class="n">ordered_headers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">OrderedDict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span>
+            <span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;Header_keywords&#39;</span><span class="p">]))</span>
         <span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;Header_keywords&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ordered_headers</span>
 
-        <span class="n">ordered_paragraph</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">OrderedDict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;Paragraph_keywords&#39;</span><span class="p">]))</span>
+        <span class="n">ordered_paragraph</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">OrderedDict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span>
+            <span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;Paragraph_keywords&#39;</span><span class="p">]))</span>
         <span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;Paragraph_keywords&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ordered_paragraph</span>
     <span class="k">return</span> <span class="n">data</span></pre></div>
     </div>
@@ -145,15 +164,17 @@ wordprocessing.py</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-6'>#</a>
       </div>
-      <p>Function to merge slides with the same header.</p>
-<p>:param data: The list of dictionaries of the form
-:type: [{&ldquo;Header&rdquo;:&rdquo;&ldquo;,
-        &ldquo;Paragraph&rdquo;:&rdquo;&ldquo;,
-        &ldquo;Header_keywords&rdquo;: [],
-        &ldquo;Paragraph_keywords&rdquo;: [],
-        slide:int}]
+      <pre><code>Function to merge slides with the same header.
+
+:param data: The list of dictionaries of the form
+:type: [{"Header":"",
+   "Paragraph":"",
+   "Header_keywords": [],
+   "Paragraph_keywords": [],
+   slide:int}]
 :return: The list of dictionaries where slides containing the same header are merged
-:rtype: [{&ldquo;Header&rdquo;:&rdquo;&ldquo;, &ldquo;Header_keywords&rdquo;: [], &ldquo;Paragraph_keywords&rdquo;: [], slides:[int]}]</p>
+:rtype: [{"Header":"", "Header_keywords": [], "Paragraph_keywords": [], slides:[int]}]
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="k">def</span> <span class="nf">merge_slide_with_same_headers</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span></pre></div>
@@ -189,15 +210,17 @@ wordprocessing.py</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-8'>#</a>
       </div>
-      <p>Function to merge slides with the same slide number into a single one.</p>
-<p>:param data: The list of dictionaries of the form
-:type: [{&ldquo;Header&rdquo;:&rdquo;&ldquo;,
-        &ldquo;Paragraph&rdquo;:&rdquo;&ldquo;,
-        &ldquo;Header_keywords&rdquo;: [],
-        &ldquo;Paragraph_keywords&rdquo;: [],
-        slide:int}]
+      <pre><code>Function to merge slides with the same slide number into a single one.
+
+:param data: The list of dictionaries of the form
+:type: [{"Header":"",
+   "Paragraph":"",
+   "Header_keywords": [],
+   "Paragraph_keywords": [],
+   slide:int}]
 :return: The list of dictionaries where slides containing the same slide number are merged
-:rtype: [{&ldquo;Header&rdquo;:&rdquo;&ldquo;, &ldquo;Header_keywords&rdquo;: [], &ldquo;Paragraph_keywords&rdquo;: [], slide:int}]</p>
+:rtype: [{"Header":"", "Header_keywords": [], "Paragraph_keywords": [], slide:int}]
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="k">def</span> <span class="nf">merge_slide_with_same_slide_number</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span></pre></div>
@@ -234,11 +257,13 @@ wordprocessing.py</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-10'>#</a>
       </div>
-      <p>Constructs a search query given a PDF data</p>
-<p>:param data: The list of data
+      <pre><code>Constructs a search query given a PDF data
+
+:param data: The list of data
 :type: list
 :return: List of words to search
-:rtype: list</p>
+:rtype: list
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="k">def</span> <span class="nf">construct_search_query</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span></pre></div>
@@ -279,11 +304,13 @@ wordprocessing.py</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-12'>#</a>
       </div>
-      <p>Extracts nouns using Spacy</p>
-<p>:param data: list of PDF data
+      <pre><code>Extracts nouns using Spacy
+
+:param data: list of PDF data
 :type: list
 :return: list of data with nouns extracted
-:rtype: list</p>
+:rtype: list
+</code></pre>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="k">def</span> <span class="nf">extract_noun_chunks</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span></pre></div>
@@ -300,9 +327,7 @@ wordprocessing.py</p>
     <div class='code'>
       <div class="highlight"><pre>    <span class="k">try</span><span class="p">:</span>
         <span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_lg&quot;</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Please make sure you have Spacy Word Model en_core_web_lg downloaded.&quot;</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">slide</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
         <span class="n">doc_header_noun_chunks</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">slide</span><span class="p">[</span><span class="s2">&quot;Header&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span><span class="o">.</span><span class="n">noun_chunks</span>
@@ -334,38 +359,6 @@ wordprocessing.py</p>
         <span class="n">slide</span><span class="p">[</span><span class="s2">&quot;Header_keywords&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">header_keywords</span>
         <span class="n">slide</span><span class="p">[</span><span class="s2">&quot;Paragraph_keywords&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">paragraph_keywords</span>
     <span class="k">return</span> <span class="n">data</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main_data</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;Header&quot;</span><span class="p">:</span> <span class="s2">&quot;Dimensionality Reduction PCA&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;Paragraph&quot;</span><span class="p">:</span> <span class="s2">&quot;Dimensionality Reduction Purposes: – Avoid curse of dimensionality </span><span class="se">\</span>
-<span class="s2">                  – Reduce amount of time and memory required by data mining algorithms Allow data to be more easily </span><span class="se">\</span>
-<span class="s2">            visualized May help to eliminate irrelevant features or reduce noise Techniques Principal Component Analysis </span><span class="se">\</span>
-<span class="s2">            Singular Value Decomposition supervised and non-linear techniques&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;slide&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">},</span>
-                 <span class="p">{</span><span class="s2">&quot;Header&quot;</span><span class="p">:</span> <span class="s2">&quot;Gratuitous ARP&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;Paragraph&quot;</span><span class="p">:</span> <span class="s2">&quot;Every machine broadcasts its mapping when it boots to&quot;</span>
-                               <span class="s2">&quot; update ARP caches in other &quot;</span>
-                               <span class="s2">&quot;machines </span><span class="se">\n</span><span class="s2"> &quot;</span>
-                               <span class="s2">&quot;Example: A sends an ARP Request with its own IP&quot;</span>
-                               <span class="s2">&quot; address as the target IP address </span><span class="se">\n</span><span class="s2"> &quot;</span>
-                               <span class="s2">&quot;Sender MAC=MACA, Sender IP=IPA n Target MAC=??, Target IP=IPA </span><span class="se">\n</span><span class="s2"> &quot;</span>
-                               <span class="s2">&quot;What if a reply is received?&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;slide&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">},</span>
-                 <span class="p">{</span><span class="s2">&quot;Header&quot;</span><span class="p">:</span> <span class="s2">&quot;Dimensionality Reduction PCA&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;Paragraph&quot;</span><span class="p">:</span> <span class="s2">&quot;Goal is to find a projection that captures&quot;</span>
-                  <span class="s2">&quot;the largest amount of variation in data </span><span class="se">\</span>
-<span class="s2">             Find the eigenvectors of the covariance matrix The eigenvectors define the new space&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;slide&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">}]</span>
-
-    <span class="n">keyword_data</span> <span class="o">=</span> <span class="n">keyword_extractor</span><span class="p">(</span><span class="n">main_data</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">keyword_data</span><span class="p">)</span>
-    <span class="n">keyword_data</span> <span class="o">=</span> <span class="n">merge_slide_with_same_slide_number</span><span class="p">(</span><span class="n">keyword_data</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">keyword_data</span><span class="p">)</span>
-    <span class="n">keyword_data</span> <span class="o">=</span> <span class="n">merge_slide_with_same_headers</span><span class="p">(</span><span class="n">keyword_data</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">keyword_data</span><span class="p">)</span>
-    <span class="n">keyword_data</span> <span class="o">=</span> <span class="n">duplicate_word_removal</span><span class="p">(</span><span class="n">keyword_data</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">keyword_data</span><span class="p">)</span>
 
 </pre></div>
     </div>
