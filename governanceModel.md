@@ -1,16 +1,15 @@
 1. Core Contributors:
 
-* Keith Tran (ktran24@ncsu.edu)
-* Benyamin Tabarsi(btaghiz@ncsu.edu)
-* Kimia Fazeli(kfazeli@ncsu.edu)
-* Mohammed Faizan (mfaizan@ncsu.edu)
+* Sasank Marabattula (smaraba@ncsu.edu)
+* Varun Deepak Gudhe (vgudhe@ncsu.edu)
+* Matthew Sills (msills@ncsu.edu)
 
 2. Decision-Making:
 * Major decisions related to project direction, features, and releases will be made by consensus among the core contributors.
 * In the event of disagreements, an open and transparent discussion will be held, and efforts will be made to reach a consensus. If consensus cannot be reached, a majority vote among the core contributors will be used to make decisions.
 
 3. Roles and Responsibilities:
-* Project Lead: Keith Tran will serve as the project lead, responsible for overall project coordination, release management, and resolving conflicts.
+* Project Lead: Everyone served as the project lead, shared responsibilities for overall project coordination, release management, and resolving conflicts.
 * Development Lead: Each core contributor will have specific development responsibilities, such as feature development, code reviews, and bug fixes.
 * Community Engagement: Core contributors will actively engage with the community, address user feedback, and guide contributors.
 
