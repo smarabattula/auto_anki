@@ -121,6 +121,12 @@ After you run the application:
       - After the status changes from Ready to File is processed, click on Download APKG File*
         
    - Take the apkg file and upload in anki software to view the ankicards
+     
+
+#### With the Anki application, you can open the apkg file generated and enjoy a new and enhanced studying experience.
+
+<img src="https://github.com/tran4code/auto_anki/assets/113017516/a388c8f0-a4a6-486a-8495-d3f49be9042b" width="400" />
+
 ### New Features
 Here's a series of pictures to demonstrate the features we've added:
 #### 1. URL Processing with GPT-4 Integration
@@ -178,14 +184,9 @@ Elevating our toolkit to new heights, we proudly introduce the seventh major upd
 ![image](https://github.com/varundeepakgudhe/auto_anki/assets/112991463/bad16c68-7e9c-48f8-afee-c8f8704f56f2)
 
 
+#### 8. Docker Integration for Seamless Cross-Platform Use 🐳
+In a stride toward universal accessibility and ease of deployment, we've encapsulated the web application ui for anki builder within a Docker container. By placing the Docker image on Docker Hub, we've dramatically reduced build overhead and ensured cross-platform compatibility. Now, users from any environment can spin up WebGPT-4 Anki Builder with minimal setup, opening doors to a hassle-free, consistent flashcard creation experience across any platform. 🐳
 
-
-
-
-
-#### With the Anki application, you can open the apkg file and enjoy a new and enhanced studying experience.
-
-<img src="https://github.com/tran4code/auto_anki/assets/113017516/a388c8f0-a4a6-486a-8495-d3f49be9042b" width="400" />
 
 ## Check out the video!
 
@@ -254,6 +255,7 @@ Result:
     - Tkinter GUI : `python3 code/ui.py`
 9. Install the project as a Python package(Optional):
   `pip install .`
+10. Create **.env** file and insert `API_KEY='YOUR_OPENAI_KEY_FOR_GPT-4'`
 
 # Docker Deployment for Web Application
 
