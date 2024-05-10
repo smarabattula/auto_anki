@@ -1,0 +1,8 @@
+{% extends "layout.html"%}
+<!--These are all keywords for block templating. "Content" is the name of block here-->
+{% block content %}
+    {% for data in killmonger%}
+        <h2>{{data.name}}</h2>
+        <p>Created by a {{data.age}} year old!</p>
+    {%endfor%}
+{% endblock content%}
